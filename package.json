@@ -1,7 +1,15 @@
 {
   "name": "the-codec",
   "packageManager": "yarn@4.0.0",
+  "scripts": {
+    "main:client": "yarn workspace @client/main",
+    "admin:client": "yarn workspace @client/admin"
+  },
   "devDependencies": {
     "prettier": "^3.0.3"
-  }
+  },
+  "workspaces": [
+    "clients/*",
+    "servers/*"
+  ]
 }
