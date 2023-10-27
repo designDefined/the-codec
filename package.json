@@ -1,4 +1,7 @@
 {
   "name": "the-codec",
-  "packageManager": "yarn@4.0.0"
+  "packageManager": "yarn@4.0.0",
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
 }
