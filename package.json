@@ -4,7 +4,8 @@
   "scripts": {
     "main:client": "yarn workspace @client/main",
     "main:server": "yarn workspace @server/main",
-    "admin:client": "yarn workspace @client/admin"
+    "admin:client": "yarn workspace @client/admin",
+    "all:prettier": "prettier . --write"
   },
   "devDependencies": {
     "prettier": "^3.0.3"
