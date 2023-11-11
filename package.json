@@ -5,6 +5,7 @@
     "main:client": "yarn workspace @client/main",
     "main:server": "yarn workspace @server/main",
     "admin:client": "yarn workspace @client/admin",
+    "packages:codex-react": "yarn workspace codex-react",
     "all:prettier": "prettier . --write"
   },
   "devDependencies": {
@@ -12,6 +13,7 @@
   },
   "workspaces": [
     "clients/*",
-    "servers/*"
+    "servers/*",
+    "packages/**/*"
   ]
 }
