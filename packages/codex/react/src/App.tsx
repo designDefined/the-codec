@@ -1,8 +1,25 @@
 import "./App.css";
-import { SampleComponent } from ".";
+import { RouteTree } from "./types/RouteTree";
+import Router from "./components/Router/Router";
+
+const routeTree: RouteTree = {
+  _index: { component: <div>index</div> },
+  _error: { component: <div>error!</div> },
+  simple: { component: <div>simple</div> },
+  depth1: {
+    _index: { component: <div>depth1</div> },
+    depth2: {
+      _index: { component: <div>depth2</div> },
+    },
+  },
+  item: {
+    _index: { component: <div>item with id</div>, params: ["item_id"] },
+    _error: { component: <div>no item id</div> },
+  },
+};
 
 function App() {
-  return <SampleComponent />;
+  return <Router routeTree={routeTree} />;
 }
 
 export default App;
