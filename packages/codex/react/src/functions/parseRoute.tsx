@@ -1,17 +1,17 @@
 import { DefaultError } from "../components/DefaultError/DefaultError";
 import { ParseFail, ParseSuccess, Parsing } from "../types/RouteParserState";
-import { parsePathObject } from "./parsePathObject";
-import { targetIsPathObject } from "./predicate";
+import { parsePageObject } from "./parsePageObject";
+import { targetIsPageObject } from "./predicate";
 
 export const parseRoute = ({
   remainingPaths,
   target,
-  nearestErrorPath = { component: <DefaultError /> },
+  nearestErrorPath = { component: () => <DefaultError /> },
   queryString,
 }: Parsing): ParseSuccess | ParseFail => {
   // parse: target is path object, so parse it.
-  if (targetIsPathObject(target))
-    return parsePathObject({
+  if (targetIsPageObject(target))
+    return parsePageObject({
       target,
       remainingPaths,
       nearestErrorPath,
@@ -20,7 +20,7 @@ export const parseRoute = ({
 
   // parse: no remaining paths, so parse the _index of subtree.
   if (remainingPaths.length === 0)
-    return parsePathObject({
+    return parsePageObject({
       target: target._index,
       remainingPaths,
       nearestErrorPath: target._error ?? nearestErrorPath,
@@ -30,9 +30,9 @@ export const parseRoute = ({
   const [next, ...rest] = remainingPaths;
   const nextTarget = target[next] ?? target._index;
 
-  // parse: next target is PathObject, so parse it.
-  if (targetIsPathObject(nextTarget))
-    return parsePathObject({
+  // parse: next target is PageObject, so parse it.
+  if (targetIsPageObject(nextTarget))
+    return parsePageObject({
       target: nextTarget,
       remainingPaths: target[next] ? rest : remainingPaths,
       queryString,

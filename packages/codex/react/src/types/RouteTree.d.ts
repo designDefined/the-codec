@@ -1,8 +1,8 @@
-import { PathObject } from "./PathObject";
+import { PageObject, PageObjectWithoutParams } from "./PageObject";
 
 export type RouteTree = {
-  _index: PathObject;
-  _error?: PathObject;
+  _index: PageObject;
+  _error?: PageObjectWithoutParams;
 } & {
-  [key: string]: RouteTree | PathObject;
+  [key: string]: RouteTree | PageObject;
 };

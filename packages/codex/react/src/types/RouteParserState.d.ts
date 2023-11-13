@@ -1,9 +1,9 @@
-import { PathObject } from "./PathObject";
+import { PageObject, PageObjectWithoutParams } from "./PageObject";
 import { RouteTree } from "./RouteTree";
 
 export type ParseSuccess = {
   status: "success";
-  target: PathObject;
+  target: PageObject;
   error: null;
   params?: Record<string, string>;
   queryString?: string;
@@ -12,13 +12,13 @@ export type ParseSuccess = {
 export type ParseFail = {
   status: "fail";
   target: null;
-  error: PathObject;
+  error: PageObjectWithoutParams;
 };
 
 export type Parsing = {
   status: "parsing";
-  target: RouteTree | PathObject;
+  target: RouteTree | PageObject;
   remainingPaths: string[];
-  nearestErrorPath?: PathObject;
+  nearestErrorPath?: PageObjectWithoutParams;
   queryString?: string;
 };

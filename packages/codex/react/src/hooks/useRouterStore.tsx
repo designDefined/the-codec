@@ -5,15 +5,13 @@ import { RenderState } from "../types/RenderState";
 import { parseRoute } from "../functions/parseRoute";
 import { parsePathname } from "../functions/parsePathname";
 import { ParseFail, ParseSuccess } from "../types/RouteParserState";
-import { ParsedRoute } from "../types/ParsedRoute";
-import { renderRoute } from "../functions/renderRoute";
+import { updateRenderState } from "../functions/updateRenderState";
 
 export type RouterStore = {
   data: RouteTree | null;
   history: BrowserHistory;
   provide: (data: RouteTree) => void;
   renderState: RenderState | null;
-  setRenderState: (state: RenderState) => void;
   actions: {
     navigate: (to: string) => void;
     back: () => void;
@@ -27,28 +25,10 @@ export const useRouterStore = create<RouterStore>()((set, get) => {
   /**
    * resolve is a internal function used inside the store.
    */
-  const resolve = (result: ParseSuccess | ParseFail) => {
+  const resolve = (result: ParseSuccess | ParseFail, location: string = "") => {
     const previousState = get().renderState;
-
-    if (result.status === "success") {
-      // success
-      const { target, params, queryString } = result;
-      const parsedRoute: ParsedRoute = {
-        component: target.component,
-        pathObject: target,
-        params,
-        queryString,
-      };
-      set({ renderState: renderRoute(parsedRoute, previousState) });
-    } else {
-      // fail
-      const { error } = result;
-      const parsedRoute: ParsedRoute = {
-        component: error.component,
-        pathObject: error,
-      };
-      set({ renderState: renderRoute(parsedRoute, previousState) });
-    }
+    const newState = updateRenderState(result, previousState, location);
+    set({ renderState: newState });
   };
 
   history.listen(({ location, action }) => {
@@ -63,7 +43,7 @@ export const useRouterStore = create<RouterStore>()((set, get) => {
       remainingPaths: parsePathname(pathname),
       queryString: search,
     });
-    resolve(parseResult);
+    resolve(parseResult, pathname ?? "");
   });
 
   return {
@@ -81,7 +61,6 @@ export const useRouterStore = create<RouterStore>()((set, get) => {
       set({ data });
     },
     renderState: null,
-    setRenderState: (state) => set({ renderState: state }),
     actions: {
       navigate: (to) => history.push(to),
       back: () => history.back(),

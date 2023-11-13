@@ -22,10 +22,8 @@ export default function Router({ routeTree }: RouterProps) {
 
   return (
     <div className={cx("Codex")}>
-      {renderState.status === ("a" || "toA") &&
-        renderState.a.pathObject.component}
-      {renderState.status === ("b" || "toB") &&
-        renderState.b.pathObject.component}
+      {renderState.status === ("a" || "toA") && renderState.a}
+      {renderState.status === ("b" || "toB") && renderState.b}
     </div>
   );
 }
