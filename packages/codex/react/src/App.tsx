@@ -1,7 +1,6 @@
 import "./App.css";
 import { RouteTree } from "./types/RouteTree";
 import Router from "./components/Router/Router";
-import { ItemPage } from "./sample/Item";
 import { SimplePage } from "./sample/Simple";
 
 const routeTree: RouteTree = {
@@ -15,7 +14,7 @@ const routeTree: RouteTree = {
     },
   },
   item: {
-    _index: ItemPage,
+    _index: SimplePage,
     _error: { component: () => <div>no item id</div> },
   },
 };

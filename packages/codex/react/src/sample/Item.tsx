@@ -1,4 +1,4 @@
-import { PagePropsWithParams } from "../types/PageProps";
+import { PagePropsWithParams } from "../types/Page/PageProps";
 
 const paramKeys = ["item_id"] as const;
 

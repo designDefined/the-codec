@@ -1,8 +1,8 @@
-import { PageObject, PageObjectWithoutParams } from "./PageObject";
+import { PageIndex, DynamicPageIndex } from "./Page/PageIndex";
 
 export type RouteTree = {
-  _index: PageObject;
-  _error?: PageObjectWithoutParams;
+  _index: PageIndex | DynamicPageIndex;
+  _error?: PageIndex;
 } & {
-  [key: string]: RouteTree | PageObject;
+  [key: string]: RouteTree | PageIndex;
 };

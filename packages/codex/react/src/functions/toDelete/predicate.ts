@@ -1,5 +1,6 @@
 import { PageObject, PageObjectWithoutParams } from "../types/PageObject";
-import { RouteTree } from "../types/RouteTree";
+import { PageToRender, PageToRenderWithoutParams } from "../types/PageToRender";
+import { RouteTree } from "../../types/RouteTree";
 
 export const targetIsPageObject = (
   target: RouteTree | PageObject,
@@ -11,4 +12,10 @@ export const pageObjectHasNoParams = (
   pageObject: PageObject,
 ): pageObject is PageObjectWithoutParams => {
   return !Object.prototype.hasOwnProperty.call(pageObject, "params");
+};
+
+export const pageToRenderHasNoParams = (
+  pageToRender: PageToRender,
+): pageToRender is PageToRenderWithoutParams => {
+  return !Object.prototype.hasOwnProperty.call(pageToRender, "parsedParams");
 };

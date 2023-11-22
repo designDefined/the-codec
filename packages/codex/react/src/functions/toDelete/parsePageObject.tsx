@@ -1,4 +1,4 @@
-import { DefaultError } from "../components/DefaultError/DefaultError";
+import { DefaultError } from "../../components/DefaultError/DefaultError";
 import { PageObject } from "../types/PageObject";
 import { ParseFail, ParseSuccess, Parsing } from "../types/RouteParserState";
 import { pageObjectHasNoParams } from "./predicate";

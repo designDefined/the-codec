@@ -1,9 +1,9 @@
-import { PageProps } from "../types/PageProps";
+import { PageIndex } from "../types/Page/PageIndex";
 
-function Simple({ status }: PageProps) {
-  return <div>simple {status}</div>;
+function Simple() {
+  return <div>simple</div>;
 }
 
-export const SimplePage = {
+export const SimplePage: PageIndex = {
   component: Simple,
 };
