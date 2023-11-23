@@ -1,0 +1,12 @@
+{
+  "name": "leon-sans-local",
+  "type": "module",
+  "main": "leon.js",
+  "module": "leon.js",
+  "exports": {
+    ".": {
+      "import": "./leon.js",
+      "require": "./leon.js"
+    }
+  }
+}
