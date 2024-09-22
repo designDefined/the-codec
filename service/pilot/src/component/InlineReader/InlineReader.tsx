@@ -13,6 +13,14 @@ export function InlineReader({ data: inline }: InlineReaderProps) {
   const typoClass = useTypoClass(inline.tag);
   const style = useStyle(inline.tag);
 
+  if (typeof inline.tag.anchor === "string") {
+    return (
+      <a href={inline.tag.anchor} className={cx(typoClass)} style={style}>
+        {inline.data}
+      </a>
+    );
+  }
+
   return (
     <span className={cx(typoClass)} style={style}>
       {inline.data}
