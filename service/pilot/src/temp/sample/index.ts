@@ -46,7 +46,7 @@ export const sampleIndexes: Index[] = [
     ],
   },
 
-  // Chapter 1
+  // Chapter 2
   {
     id: "chapter-2",
     tag: { f: f({ spacing: [[80, 0], 24] }) },
