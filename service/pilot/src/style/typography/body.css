@@ -1,0 +1,24 @@
+.typo-body-sans {
+  font-family: "Pretendared Variable", sans-serif;
+}
+.typo-body-serif {
+  font-family: "Eulyoo1945", serif;
+}
+.typo-indent {
+  text-indent: 1em;
+}
+
+body,
+p,
+div {
+  font-family: "Eulyoo1945", serif;
+  font-size: 1.25rem; /* 20px */
+  font-weight: 400;
+  line-height: 180%;
+  text-align: justify;
+}
+
+span {
+  color: inherit;
+  font: inherit;
+}

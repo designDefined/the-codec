@@ -1,0 +1,8 @@
+.HomePage .heading {
+  letter-spacing: -0.02em;
+}
+.HomePage .small {
+  font-size: 4rem;
+  line-height: 340%;
+  font-weight: 200;
+}

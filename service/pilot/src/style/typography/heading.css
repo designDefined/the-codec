@@ -1,0 +1,42 @@
+.typo-heading-sans {
+  font-family: "Satoshi", "Pretendared Variable", sans-serif;
+}
+.typo-heading-serif {
+  font-family: "Gowun Batang", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Gowun Batang", serif;
+  font-weight: 600;
+}
+h1 {
+  font-size: 6rem;
+  line-height: 200%;
+  font-weight: 600;
+}
+h2 {
+  font-size: 3rem;
+  line-height: 180%;
+}
+h3 {
+  font-size: 2rem;
+  line-height: 160%;
+}
+h4 {
+  font-size: 1.75rem;
+  line-height: 140%;
+  padding: 24px 0;
+}
+h5 {
+  font-size: 1.5rem;
+  line-height: 120%;
+}
+h6 {
+  font-size: 1.25rem;
+  line-height: 100%;
+}
