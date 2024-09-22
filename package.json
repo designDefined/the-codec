@@ -6,7 +6,8 @@
     "service/*"
   ],
   "scripts": {
-    "pilot": "yarn workspace pilot"
+    "pilot": "yarn workspace pilot",
+    "build": "yarn pilot build"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
