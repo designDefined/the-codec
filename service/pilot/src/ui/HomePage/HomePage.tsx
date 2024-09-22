@@ -20,7 +20,7 @@ export function HomePage() {
           </H1>
         </Div>
         <Link to="1">
-          <Div>qwef</Div>
+          <Div>1. 삶의 지도</Div>
         </Link>
       </Header>
     </Main>
