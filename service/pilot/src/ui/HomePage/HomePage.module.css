@@ -7,6 +7,10 @@
   font-weight: 200;
 }
 
+.HomePage .no-underline {
+  text-decoration: none !important;
+}
+
 .HomePage .card {
   border: 1px solid #e0e0e0;
   border-radius: 24px;
@@ -20,7 +24,6 @@
   font-style: italic;
   color: rgba(124, 124, 124);
 }
-
 .HomePage .card:hover {
   transform: translateX(8px);
   background-color: rgba(0, 0, 0, 0.04);

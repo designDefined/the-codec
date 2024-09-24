@@ -1,0 +1,13 @@
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+a:active {
+  opacity: 0.6;
+}

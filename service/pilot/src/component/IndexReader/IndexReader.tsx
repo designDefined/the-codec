@@ -12,7 +12,7 @@ export function IndexReader({ data: index }: IndexReaderProps) {
   const f = useFlexive(index.tag);
   const style = useStyle(index.tag);
   return (
-    <Section f={f} style={style}>
+    <Section f={f} style={style} id={index.id}>
       {index.data.map((block, i) => (
         <BlockReader data={block} key={i} />
       ))}

@@ -21,9 +21,9 @@ export function HomePage() {
         </Div>
       </Header>
       <Main f={{ spacing: [[24, 48]] }}>
-        <Link to="1">
+        <Link to="1" className={cx("no-underline")}>
           <Div f={{ spacing: [[12, 24, 48, 24]] }} className={cx("card", "typo-body-sans")}>
-            <H4 className={cx("typo-body-sans")}>1. 구성 성분 표</H4>
+            <H4 className={cx("typo-body-sans")}>1. 구성 재료 일람: 나</H4>
             <p className={cx("typo-body-sans")}>
               제가 어떻게 살아왔는 지에 대한 짧은 소개입니다. 앞으로 적을 글들에 대한 작은 맛보기이기도 하고요.
             </p>
