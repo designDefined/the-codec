@@ -2,25 +2,30 @@
   letter-spacing: -0.02em;
 }
 .HomePage .small {
-  font-size: 4rem;
-  line-height: 340%;
+  font-size: 2.5rem;
+  line-height: 560%;
+
+  font-weight: 200;
+}
+
+.HomePage h4 {
   font-weight: 200;
 }
 
 .HomePage .no-underline {
   text-decoration: none !important;
 }
-
 .HomePage .card {
   border: 1px solid #e0e0e0;
-  border-radius: 24px;
+  border-radius: 8px;
   transition: 0.2s ease;
 }
-.HomePage .card h4 {
+.HomePage .card h6 {
   line-height: 100%;
 }
 .HomePage .card p {
-  font-weight: 200;
+  font-size: 16px;
+  font-weight: 100;
   font-style: italic;
   color: rgba(124, 124, 124);
 }
