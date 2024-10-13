@@ -6,6 +6,7 @@ import { BoxStyle } from "./BoxStyle";
 export type Box = {
   id: ID["BOX"];
   data: (Box | Block)[];
+  name?: string;
   style?: BoxStyle;
   tag?: Tag;
 };
