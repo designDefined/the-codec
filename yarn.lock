@@ -686,6 +686,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@playground/graphics@workspace:playground/graphics":
+  version: 0.0.0-use.local
+  resolution: "@playground/graphics@workspace:playground/graphics"
+  dependencies:
+    "@eslint/js": "npm:^9.11.1"
+    "@types/react": "npm:^18.3.10"
+    "@types/react-dom": "npm:^18.3.0"
+    "@vitejs/plugin-react": "npm:^4.3.2"
+    eslint: "npm:^9.11.1"
+    eslint-plugin-react-hooks: "npm:^5.1.0-rc.0"
+    eslint-plugin-react-refresh: "npm:^0.4.12"
+    globals: "npm:^15.9.0"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    typescript: "npm:^5.5.3"
+    typescript-eslint: "npm:^8.7.0"
+    vite: "npm:^5.4.8"
+  languageName: unknown
+  linkType: soft
+
 "@playground/static-site-generation@workspace:playground/static-site-generation":
   version: 0.0.0-use.local
   resolution: "@playground/static-site-generation@workspace:playground/static-site-generation"

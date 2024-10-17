@@ -10,7 +10,8 @@
     "client": "yarn workspace @service/client",
     "demo": "yarn workspace @service/demo",
     "editor": "yarn workspace @playground/editor",
-    "ssg": "yarn workspace @playground/static-site-generation"
+    "ssg": "yarn workspace @playground/static-site-generation",
+    "graphics": "yarn workspace @playground/graphics"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
