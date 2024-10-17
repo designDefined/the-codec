@@ -1,8 +1,8 @@
 import { Section } from "@flexive/core";
-import { Index } from "../../temp/core";
+import { Index } from "../../core";
 import { BlockReader } from "../BlockReader/BlockReader";
-import { useFlexive } from "../../hook/useFlexive/useFlexive";
-import { useStyle } from "../../hook/useStyle/useStyle";
+import { useFlexive } from "../../../hook/useFlexive/useFlexive";
+import { useStyle } from "../../../hook/useStyle/useStyle";
 
 type IndexReaderProps = {
   data: Index;

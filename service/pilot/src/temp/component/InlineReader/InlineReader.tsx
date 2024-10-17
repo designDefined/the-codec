@@ -1,7 +1,7 @@
 import { bindCSS } from "@flexive/core";
-import { useTypoClass } from "../../hook/useTypo/useTypo";
-import { Inline } from "../../temp/core/inline";
-import { useStyle } from "../../hook/useStyle/useStyle";
+import { useTypoClass } from "../../../hook/useTypo/useTypo";
+import { Inline } from "../../core/inline";
+import { useStyle } from "../../../hook/useStyle/useStyle";
 
 const cx = bindCSS({});
 
