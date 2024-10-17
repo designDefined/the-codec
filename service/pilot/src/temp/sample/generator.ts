@@ -8,6 +8,8 @@ import { CSSProperties } from "react";
 export const inline = (data: string, tag?: Tag): Inline => ({ data, tag: tag ?? {} });
 export const block = (data: Inline[], tag?: Tag): Block => ({ data, tag: tag ?? {} });
 export const body = (...data: string[]) => data.map(datum => block([inline(datum)], { indent: true }));
+export const bodySans = (...data: string[]) =>
+  data.map(datum => block([inline(datum, { typo: "sans" })], { indent: true }));
 
 // tag
 export const f = (flexive: FlexiveStyle) => JSON.stringify(flexive);

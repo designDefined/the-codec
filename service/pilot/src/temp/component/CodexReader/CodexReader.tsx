@@ -1,5 +1,5 @@
 import styles from "./CodexReader.module.css";
-import { Codex } from "../../temp/core/codex";
+import { Codex } from "../../core/codex";
 import { Article, bindCSS, Header } from "@flexive/core";
 import { IndexReader } from "../IndexReader/IndexReader";
 
