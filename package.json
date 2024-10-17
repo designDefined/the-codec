@@ -3,11 +3,14 @@
   "packageManager": "yarn@4.3.1",
   "private": true,
   "workspaces": [
-    "service/*"
+    "service/*",
+    "playground/*"
   ],
   "scripts": {
-    "pilot": "yarn workspace pilot",
-    "build": "yarn pilot build"
+    "client": "yarn workspace @service/client",
+    "demo": "yarn workspace @service/demo",
+    "editor": "yarn workspace @playground/editor",
+    "ssg": "yarn workspace @playground/static-site-generation"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
