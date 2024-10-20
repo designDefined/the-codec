@@ -1,5 +1,5 @@
 function App() {
-  return <></>;
+  return <button onClick={() => alert("clicked!")}>click me!</button>;
 }
 
 export default App;
