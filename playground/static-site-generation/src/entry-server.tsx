@@ -1,12 +1,16 @@
 import { StrictMode } from "react";
 import { renderToString } from "react-dom/server";
-import App from "./App";
+import { Page } from "./page/Page";
+import { fetchData } from "./data";
 
-export function render() {
+export const render = async (url: string) => {
+  const datum = await fetchData(Number(url.split("/")[1]));
+  if (!datum) return { html: undefined };
+
   const html = renderToString(
     <StrictMode>
-      <App />
+      <Page datum={datum} />
     </StrictMode>,
   );
   return { html };
-}
+};
