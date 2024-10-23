@@ -1,7 +1,7 @@
-import { Datum } from "../data";
+import { PageDatum } from "../../data";
 
 type PageProps = {
-  datum: Datum;
+  datum: PageDatum;
 };
 export function Page({ datum }: PageProps) {
   return (
@@ -9,7 +9,13 @@ export function Page({ datum }: PageProps) {
       {datum.contents.map((str, i) => (
         <div key={i}>{str}</div>
       ))}
-      <button onClick={() => alert(`clicked (id: ${datum.id})`)}>click!</button>
+      <div>
+        <button onClick={() => alert(`clicked (id: ${datum.id})`)}>click!</button>
+      </div>
+      <div>
+        <a href={`./${datum.id - 1}`}>back</a> <a href={`./${datum.id + 1}`}>next</a> <a href="/home">home</a>
+      </div>
+      <div></div>
     </main>
   );
 }
