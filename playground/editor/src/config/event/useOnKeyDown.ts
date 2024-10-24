@@ -25,8 +25,13 @@ export const useOnKeyDown = (editor: Editor) => {
         );
       }
       if (e.metaKey && e.key === "b") {
+        // Prevent the bold character from being inserted.
         e.preventDefault();
-        Editor.addMark(editor, "bold", true);
+        // Determine whether the currently selected text is bold.
+        const [match] = Editor.nodes(editor, {
+          match: n => "bold" in n && n.bold === true,
+        });
+        Editor.addMark(editor, "bold", match ? false : true);
       }
     },
     [editor],

@@ -1,9 +1,20 @@
 import { RenderElementProps } from "slate-react";
+import { CodeElement as CodeElementType } from "../type";
+import { renderStatic } from "../render/renderStatic";
 
-export function CodeElement(props: RenderElementProps) {
-  return (
-    <pre {...props.attributes}>
-      <code>{props.children}</code>
-    </pre>
-  );
-}
+const Edit = (props: RenderElementProps) => (
+  <pre {...props.attributes}>
+    <code>{props.children}</code>
+  </pre>
+);
+
+const Read = (props: CodeElementType) => (
+  <pre>
+    <code>{props.children.map(renderStatic)}</code>
+  </pre>
+);
+
+export const CodeElement = {
+  Edit,
+  Read,
+};

@@ -1,7 +1,7 @@
 import { Editable, useSlate } from "slate-react";
-import { renderElement } from "../config/function/renderElement";
+import { renderElement } from "../config/render/renderElement";
 import { useOnKeyDown } from "../config/event/useOnKeyDown";
-import { renderLeaf } from "../config/function/renderLeaf";
+import { renderLeaf } from "../config/render/renderLeaf";
 
 export function Editor() {
   const editor = useSlate();
