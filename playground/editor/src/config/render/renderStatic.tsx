@@ -1,14 +1,22 @@
 import { Descendant, Text } from "slate";
-import { Leaf } from "../leaf/Leaf";
-import { DefaultElement } from "../element/DefaultElement";
-import { CodeElement } from "../element/CodeElement";
+import { renderLeaf } from "./renderLeaf";
+import { renderElement } from "./renderElement";
 
 export const renderStatic = (descendant: Descendant, index: number): React.JSX.Element => {
-  if (Text.isText(descendant)) return <Leaf.Read {...descendant} key={index} />;
-  switch (descendant.type) {
-    case "code":
-      return <CodeElement.Read {...descendant} key={index} />;
-    default:
-      return <DefaultElement.Read {...descendant} key={index} />;
-  }
+  if (Text.isText(descendant))
+    return renderLeaf({
+      leaf: descendant,
+      attributes: { "data-slate-leaf": true },
+      children: descendant.text,
+      text: descendant,
+      isStatic: true,
+      index,
+    });
+  return renderElement({
+    element: descendant,
+    attributes: { "data-slate-node": "element", ref: null },
+    children: descendant.children.map(renderStatic),
+    isStatic: true,
+    index,
+  });
 };

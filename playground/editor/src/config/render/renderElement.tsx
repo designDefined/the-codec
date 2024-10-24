@@ -1,12 +1,6 @@
-import { RenderElementProps } from "slate-react";
-import { CodeElement } from "../element/CodeElement";
-import { DefaultElement } from "../element/DefaultElement";
+import { Element } from "../element/Element";
+import { RenderElementPropsExtended } from "./type";
 
-export const renderElement = (props: RenderElementProps): React.JSX.Element => {
-  switch (props.element.type) {
-    case "code":
-      return <CodeElement.Edit {...props} />;
-    default:
-      return <DefaultElement.Edit {...props} />;
-  }
-};
+export const renderElement = ({ index, ...props }: RenderElementPropsExtended): React.JSX.Element => (
+  <Element {...props} key={index} />
+);

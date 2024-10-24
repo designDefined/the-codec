@@ -1,6 +1,6 @@
-import { RenderLeafProps } from "slate-react";
 import { Leaf } from "../leaf/Leaf";
+import { RenderLeafPropsExtended } from "./type";
 
-export const renderLeaf = (props: RenderLeafProps): React.JSX.Element => {
-  return <Leaf.Edit {...props} />;
-};
+export const renderLeaf = ({ index, ...props }: RenderLeafPropsExtended): React.JSX.Element => (
+  <Leaf {...props} key={index} />
+);

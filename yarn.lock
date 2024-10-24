@@ -847,6 +847,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.11.1"
     "@flexive/core": "npm:^0.4.8"
+    "@types/is-hotkey": "npm:^0.1.10"
     "@types/react": "npm:^18.3.10"
     "@types/react-dom": "npm:^18.3.0"
     "@vitejs/plugin-react": "npm:^4.3.2"
@@ -854,6 +855,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^5.1.0-rc.0"
     eslint-plugin-react-refresh: "npm:^0.4.12"
     globals: "npm:^15.9.0"
+    is-hotkey: "npm:^0.2.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     slate: "npm:^0.110.2"
@@ -1163,6 +1165,13 @@ __metadata:
   version: 2.0.4
   resolution: "@types/http-errors@npm:2.0.4"
   checksum: 10/1f3d7c3b32c7524811a45690881736b3ef741bf9849ae03d32ad1ab7062608454b150a4e7f1351f83d26a418b2d65af9bdc06198f1c079d75578282884c4e8e3
+  languageName: node
+  linkType: hard
+
+"@types/is-hotkey@npm:^0.1.10":
+  version: 0.1.10
+  resolution: "@types/is-hotkey@npm:0.1.10"
+  checksum: 10/9ecc49fb3822b3cfa8335132d54c6e577d0b14bb52d0bf1f817cdd19c442555b7523945e2ae72f6098e3c7f64b4777390f38afec3e4660343cfb471377e7fd82
   languageName: node
   linkType: hard
 
