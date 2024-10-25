@@ -1,12 +1,18 @@
-import { BaseEditor } from "slate";
+import { BaseEditor, Descendant } from "slate";
 import { ReactEditor } from "slate-react";
 
 // Leaf
-type CustomText = { bold?: boolean; text: string };
+type CustomText = {
+  text: string;
+  bold?: boolean;
+  // italic?: boolean;
+  // underline?: boolean;
+  // code?: boolean;
+};
 
 // Element
-type CustomElement = { type: "paragraph"; children: CustomText[] };
-type CodeElement = { type: "code"; children: CustomText[] };
+type CustomElement = { type: "paragraph"; children: Descendant[] };
+type CodeElement = { type: "code"; children: Descendant[] };
 
 declare module "slate" {
   interface CustomTypes {
