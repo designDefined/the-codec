@@ -1,36 +1,39 @@
 import { useState } from "react";
 import { Editor } from "./Editor";
-import { createEditor, Descendant } from "slate";
-import { Slate, withReact } from "slate-react";
-import { Article } from "@flexive/core";
-import { StatusViewer } from "./StatusViewer";
+import { Article, Div, H1 } from "@flexive/core";
 import { Reader } from "./Reader";
+import { InboxContent } from "core/entity/content/InboxContent";
+import { StatusViewer } from "./StatusViewer";
+import { toMark } from "../config/stringify/stringify";
 
-const initialValue: Descendant[] = [{ type: "paragraph", children: [{ text: "Hello World" }] }];
+const initialValue: InboxContent[] = [{ type: "PARAGRAPH", children: [{ text: "Hello World" }] }];
 
 export function EditorContainer() {
-  const [editor] = useState(() => withReact(createEditor()));
-  const [astString, setAstString] = useState("");
+  const [content, setContent] = useState(initialValue);
+  const [markdown, setMarkdown] = useState("");
 
   return (
-    <>
-      <Slate
-        editor={editor}
-        initialValue={initialValue}
-        onChange={value => {
-          const isAstChange = editor.operations.some(op => "set_selection" !== op.type);
-          if (isAstChange) {
-            const content = JSON.stringify(value, null, 2);
-            setAstString(content);
-          }
-        }}
-      >
-        <Article f={{ flow: ["row"], spacing: [16, 16] }}>
-          <Editor />
-          <Reader />
-          <StatusViewer ast={astString} />
-        </Article>
-      </Slate>
-    </>
+    <Article f={{ flex: [1, 1], flow: ["row"], spacing: [16, 16], overflow: ["hidden"] }}>
+      <Div className="bordered" f={{ flex: [1, 1, 0], spacing: [16, 16] }}>
+        <H1>Editor</H1>
+        <Editor
+          initialValue={content}
+          onChange={(content, editor) => {
+            setContent(content);
+            setMarkdown(toMark(editor, content));
+          }}
+        />
+      </Div>
+      <Div className="bordered" f={{ flex: [1, 1, 0], spacing: [16, 16] }}>
+        <H1>Reader</H1>
+        <Div>
+          <Reader value={content} />
+        </Div>
+      </Div>
+      <Div f={{ flex: [2, 2, 0], spacing: [16, 16], overflow: ["hidden"] }}>
+        <H1>Status</H1>
+        <StatusViewer value={content} markdown={markdown} />
+      </Div>
+    </Article>
   );
 }

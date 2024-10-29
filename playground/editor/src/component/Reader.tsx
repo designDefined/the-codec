@@ -1,11 +1,6 @@
-import { Div } from "@flexive/core";
-import { Readable } from "./Readable";
 import { renderStatic } from "../config/render/renderStatic";
+import { InboxContent } from "core/entity/content/InboxContent";
 
-export function Reader() {
-  return (
-    <Div style={{ padding: 16, border: "1px solid black" }}>
-      <Readable renderStatic={renderStatic} />
-    </Div>
-  );
-}
+type ReaderProps = { value: InboxContent[] };
+
+export const Reader = ({ value }: ReaderProps) => value.map(renderStatic);

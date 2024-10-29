@@ -13,8 +13,8 @@ export const toMark = (editor: Editor, content: Descendant[]): string =>
     const isEnd = i === array.length - 1;
     if (Element.isElement(node)) {
       if (editor.isBlock(node)) {
-        if (node.type === "paragraph") acc += `${toMark(editor, node.children)}`;
-        if (node.type === "code") acc += "```\n" + toMark(editor, node.children) + "\n```";
+        if (node.type === "PARAGRAPH") acc += `${toMark(editor, node.children)}`;
+        if (node.type === "CODE_BLOCK") acc += "```\n" + toMark(editor, node.children) + "\n```";
         if (!isEnd) acc += "\n";
       } else {
         acc += toMark(editor, node.children);

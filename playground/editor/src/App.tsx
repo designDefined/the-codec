@@ -1,12 +1,17 @@
+import "./style.css";
 import { Main } from "@flexive/core";
 import { EditorContainer } from "./component/EditorContainer";
-import { SampleEditor } from "./component/SampleEditor";
 
 function App() {
   return (
-    <Main f={{ spacing: [16, 16] }}>
+    <Main
+      f={{
+        spacing: [32, 16],
+        justify: [undefined, undefined, "100vh", "100vh"],
+        align: [undefined, undefined, "100vw", "100vw"],
+      }}
+    >
       <EditorContainer />
-      <SampleEditor />
     </Main>
   );
 }

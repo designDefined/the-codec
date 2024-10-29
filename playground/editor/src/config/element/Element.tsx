@@ -1,12 +1,12 @@
-import { DefaultElement } from "slate-react";
-import { RenderElementPropsExtended } from "../render/type";
 import { CodeElement } from "./CodeElement";
+import { RenderElementPropsExtended } from "../type";
+import { ParagraphElement } from "./ParagraphElement";
 
 export const Element = (props: RenderElementPropsExtended) => {
   switch (props.element.type) {
-    case "code":
+    case "CODE_BLOCK":
       return <CodeElement {...props} />;
-    default:
-      return <DefaultElement {...props} />;
+    case "PARAGRAPH":
+      return <ParagraphElement {...props} />;
   }
 };

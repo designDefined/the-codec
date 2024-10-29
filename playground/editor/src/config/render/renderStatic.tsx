@@ -1,22 +1,19 @@
-import { Descendant, Text } from "slate";
+import { Descendant } from "slate";
 import { renderLeaf } from "./renderLeaf";
 import { renderElement } from "./renderElement";
+import { isLeaf } from "../utility/isLeaf";
 
 export const renderStatic = (descendant: Descendant, index: number): React.JSX.Element => {
-  if (Text.isText(descendant))
+  if (isLeaf(descendant))
     return renderLeaf({
       leaf: descendant,
-      attributes: { "data-slate-leaf": true },
       children: descendant.text,
       text: descendant,
-      isStatic: true,
-      index,
+      key: index,
     });
   return renderElement({
     element: descendant,
-    attributes: { "data-slate-node": "element", ref: null },
     children: descendant.children.map(renderStatic),
-    isStatic: true,
-    index,
+    key: index,
   });
 };
