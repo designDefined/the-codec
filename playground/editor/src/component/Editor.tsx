@@ -34,6 +34,7 @@ export function Editor({ initialValue, onChange, ...props }: EditorProps) {
           onKeyDown={onKeyDown}
           renderElement={renderElement}
           renderLeaf={renderLeaf}
+          placeholder="Hello world!"
           {...props}
         />
       </Article>

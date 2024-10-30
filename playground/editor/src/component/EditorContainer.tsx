@@ -6,7 +6,7 @@ import { InboxContent } from "core/entity/content/InboxContent";
 import { StatusViewer } from "./StatusViewer";
 import { toMark } from "../config/stringify/stringify";
 
-const initialValue: InboxContent[] = [{ type: "PARAGRAPH", children: [{ text: "Hello World" }] }];
+const initialValue: InboxContent[] = [{ type: "PARAGRAPH", children: [{ text: "" }] }];
 
 export function EditorContainer() {
   const [content, setContent] = useState(initialValue);

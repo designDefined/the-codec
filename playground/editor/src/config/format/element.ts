@@ -1,7 +1,8 @@
 import { ELEMENT_TYPE } from "core/constant/content/ELEMENT_TYPE";
-import { Editor, Element } from "slate";
+import { CodeBlockElement } from "core/entity/content/element/CodeBlockElement";
+import { Editor, Element, Transforms } from "slate";
 
-export const isActive = (editor: Editor, type: ELEMENT_TYPE) => {
+export const isElementActive = (editor: Editor, type: ELEMENT_TYPE) => {
   const { selection } = editor;
   if (!selection) return false;
 
@@ -14,4 +15,16 @@ export const isActive = (editor: Editor, type: ELEMENT_TYPE) => {
   return !!match;
 };
 
-export const toggleCodeBlock = () => {};
+export const toggleCodeBlock = (editor: Editor) => {
+  const isActive = isElementActive(editor, "CODE_BLOCK");
+  Transforms.unwrapNodes(editor, {
+    match: n => !Editor.isEditor(n) && Element.isElement(n) && n.type === "CODE_BLOCK",
+    split: true,
+  });
+  if (!isActive) {
+    const codeBlock: CodeBlockElement = { type: "CODE_BLOCK", children: [] };
+    Transforms.wrapNodes(editor, codeBlock);
+  } else {
+    Transforms.setNodes(editor, { type: "PARAGRAPH" });
+  }
+};
