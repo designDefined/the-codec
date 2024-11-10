@@ -30,21 +30,13 @@ async function createServer() {
   app.use(json());
 
   app.get("/data/*", async (req, res) => {
-    switch (req.method) {
-      case "GET": {
-        const data = await dataHandler.read(req.url);
-        res.json(data);
-        break;
-      }
-      case "POST": {
-        await dataHandler.write(req.url, req.body);
-        res.json({ success: true });
-        break;
-      }
-      default: {
-        res.status(405).send("Method Not Allowed");
-      }
-    }
+    const data = await dataHandler.read(req.url);
+    res.json(data);
+  });
+
+  app.post("/data/*", async (req, res) => {
+    await dataHandler.write(req.url, req.body);
+    res.json({ success: true });
   });
 
   app.use("*", async (req, res, next) => {

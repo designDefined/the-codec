@@ -1059,6 +1059,8 @@ __metadata:
     tsx: "npm:^4.19.2"
     typescript: "npm:^5.5.3"
     typescript-eslint: "npm:^8.7.0"
+    viajs-core: "npm:^0.3.1"
+    viajs-react: "npm:^0.3.0"
     vite: "npm:^5.4.8"
   languageName: unknown
   linkType: soft
@@ -1120,6 +1122,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^5.1.0-rc.0"
     eslint-plugin-react-refresh: "npm:^0.4.12"
     globals: "npm:^15.9.0"
+    nanoid: "npm:^5.0.8"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     slate: "npm:^0.110.2"
@@ -1983,6 +1986,7 @@ __metadata:
     nanoid: "npm:^5.0.8"
     typescript: "npm:^5.5.3"
     typescript-eslint: "npm:^8.7.0"
+    viajs-core: "npm:^0.3.1"
     zod: "npm:^3.23.8"
   languageName: unknown
   linkType: soft
@@ -2058,6 +2062,13 @@ __metadata:
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
   checksum: 10/ec12d074aef5ae5e81fa470b9317c313142c9e8e2afe3f8efa124db309720db96d1d222b82b84c834e5f87e7a614b44a4684b6683583118b87c833b3be40d4d8
+  languageName: node
+  linkType: hard
+
+"deepmerge@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "deepmerge@npm:4.3.1"
+  checksum: 10/058d9e1b0ff1a154468bf3837aea436abcfea1ba1d165ddaaf48ca93765fdd01a30d33c36173da8fbbed951dd0a267602bc782fe288b0fc4b7e1e7091afc4529
   languageName: node
   linkType: hard
 
@@ -2272,7 +2283,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:~0.23.0":
+"esbuild@npm:^0.23.1, esbuild@npm:~0.23.0":
   version: 0.23.1
   resolution: "esbuild@npm:0.23.1"
   dependencies:
@@ -3707,7 +3718,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^5.0.8":
+"nanoid@npm:^5.0.7, nanoid@npm:^5.0.8":
   version: 5.0.8
   resolution: "nanoid@npm:5.0.8"
   bin:
@@ -4903,6 +4914,32 @@ __metadata:
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: 10/31389debef15a480849b8331b220782230b9815a8e0dbb7b9a8369559aed2e9a7800cd904d4371ea74f4c3527db456dc8e7ac5befce5f0d289014dbdf47b2242
+  languageName: node
+  linkType: hard
+
+"viajs-core@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "viajs-core@npm:0.3.1"
+  dependencies:
+    deepmerge: "npm:^4.3.1"
+    immer: "npm:^10.1.1"
+    lodash: "npm:^4.17.21"
+    nanoid: "npm:^5.0.7"
+  checksum: 10/5a0650795a23f809ddd0441c1ab0550e06aa41c9261212aeacba33d35a20e654ddfd2b1c5cfe47bed9a7871975e60c0ab9a1360948c67c0f5901f82859847ab0
+  languageName: node
+  linkType: hard
+
+"viajs-react@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "viajs-react@npm:0.3.0"
+  dependencies:
+    esbuild: "npm:^0.23.1"
+    nanoid: "npm:^5.0.7"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+    viajs-core: ">=0.3.0"
+  checksum: 10/c36bd95f413f245b555e50245dd2d7f142ad5b748afa4c1f1b926b9cf44c11f5d3e91d259e5223b689c36d2a2bfabde12f1327d4462c6f43122598be82d1bc33
   languageName: node
   linkType: hard
 

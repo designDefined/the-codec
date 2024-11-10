@@ -1,5 +1,6 @@
-import { Box } from "core/entity/content/box/Box";
+import { Box } from "core/entity/box/Box";
 import { InnerBoxEditor } from "../InnerBoxEditor";
+import { Section } from "@flexive/core";
 
 type BoxEditorProps = {
   box: Box;
@@ -8,5 +9,11 @@ type BoxEditorProps = {
 
 export const BoxEditor = ({ box, onChangeBox }: BoxEditorProps) => {
   if (box.type === "INNER_BOX") return <InnerBoxEditor key={box.id} box={box} onChangeBox={onChangeBox} />;
-  return box.children.map(child => <BoxEditor key={child.id} box={child} onChangeBox={onChangeBox} />);
+  return (
+    <Section f={{ spacing: [box.style?.padding, box.style?.gap] }}>
+      {box.children.map(child => (
+        <BoxEditor key={child.id} box={child} onChangeBox={onChangeBox} />
+      ))}
+    </Section>
+  );
 };
