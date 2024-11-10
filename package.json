@@ -3,11 +3,15 @@
   "packageManager": "yarn@4.3.1",
   "private": true,
   "workspaces": [
+    "core",
+    "data",
     "service/*",
     "playground/*"
   ],
   "scripts": {
-    "client": "yarn workspace @service/client",
+    "core": "yarn workspace core",
+    "app": "yarn workspace @service/app",
+    "data": "yarn workspace @service/data",
     "demo": "yarn workspace @service/demo",
     "editor": "yarn workspace @playground/editor",
     "ssg": "yarn workspace @playground/static-site-generation",
