@@ -23,9 +23,9 @@ export const IndexPage = () => {
 
   return (
     <Main className={cx("IndexPage")} f={{ flow: ["row"] }}>
-      <Section f={{ flex: [1, 1, 1] }} />
+      <Section f={{ flex: [1, 1, 0] }} />
       <Article f={{ flex: [1, 0, 720], flow: ["row"] }}>
-        <Section f={{ flex: [1, 1], spacing: [48, 12] }}>
+        <Section f={{ flex: [1, 1] }}>
           <BoxEditor
             box={indexInput.value?.content ?? index.content}
             onChangeBox={box =>
@@ -41,7 +41,7 @@ export const IndexPage = () => {
           />
         </Section>
       </Article>
-      <Section f={{ flex: [1, 1, 1] }} />
+      <Section f={{ flex: [1, 1, 0] }} />
 
       <Article className={cx("rightOverlay")} f={{ flow: ["row-reverse"] }}>
         <Section f={{ flex: [0, 0, 240], spacing: [16, 24] }}>

@@ -15,7 +15,8 @@
     "demo": "yarn workspace @service/demo",
     "editor": "yarn workspace @playground/editor",
     "ssg": "yarn workspace @playground/static-site-generation",
-    "graphics": "yarn workspace @playground/graphics"
+    "graphics": "yarn workspace @playground/graphics",
+    "deploy": "yarn workspace @service/app generate"
   },
   "devDependencies": {
     "eslint": "^8.57.0",

@@ -7,6 +7,7 @@ const { read } = createDataHandler();
 
 export const render = async (indexId: string) => {
   const data = await read<Index>(`/data/index/${indexId}/data.json`);
+  const head = renderToString(<title>{data.title}</title>);
   const html = renderToString(<ReadIndexPage data={data} />);
-  return { html };
+  return { head, html };
 };

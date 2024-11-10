@@ -26,7 +26,7 @@ export const InnerBoxEditor = ({ box, onChangeBox }: InnerBoxEditorProps) => {
       }
     >
       <Editable
-        className={cx("InnerBoxEditor")}
+        className={cx("BoxEditor")}
         renderElement={renderElement}
         renderLeaf={renderLeaf}
         placeholder={box.title}

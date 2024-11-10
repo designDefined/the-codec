@@ -1,1 +1,11 @@
-{"id":1,"title":"샘플","type":"OUTER_BOX","content":{"id":"sample","title":"asdf","type":"INNER_BOX","children":[{"type":"PARAGRAPH","children":[{"text":"강아지와 바퀴"}]},{"type":"PARAGRAPH","children":[{"text":""}]},{"type":"PARAGRAPH","children":[{"text":""}]},{"type":"PARAGRAPH","children":[{"text":"우리는 강아지와 바퀴를 따라 걸어갑니다"}]}]}}
+{
+  "id": 1,
+  "title": "샘플",
+  "type": "OUTER_BOX",
+  "content": {
+    "id": "sample",
+    "title": "asdf",
+    "type": "INNER_BOX",
+    "children": [{ "type": "PARAGRAPH", "children": [{ "text": "테스트" }] }]
+  }
+}

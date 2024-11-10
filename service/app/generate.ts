@@ -10,13 +10,24 @@ const toAbsolute = (p: string) => path.resolve(__dirname, p);
 
 const generateIndex = async ({ vite, idString }: { vite: ViteDevServer; idString: string }) => {
   const template = await fs.readFile(toAbsolute("./src/entry/deploy/template/index.html"), "utf-8");
-  const assets = (await fs.readdir(toAbsolute("./dist/assets"))).filter(url => url.startsWith("index-"));
+  const jsAssets = (await fs.readdir(toAbsolute("./dist/assets"))).filter(
+    url => url.startsWith("index-") && url.endsWith(".js"),
+  );
+  const cssAssets = (await fs.readdir(toAbsolute("./dist/assets"))).filter(
+    url => url.startsWith("index-") && url.endsWith(".css"),
+  );
   const { render } = (await vite.ssrLoadModule("/src/entry/deploy/server/index.tsx")) as Renderer;
   const rendered = await render(idString);
   const html = template
-    .replace(`<!--app-head-->`, rendered.head ?? "")
+    .replace(
+      `<!--app-head-->`,
+      [...cssAssets.map(url => `<link rel="stylesheet" href="/assets/${url}"></link>`), rendered.head ?? ""].join("\n"),
+    )
     .replace(`<!--app-html-->`, rendered.html ?? "")
-    .replace(`<!--app-script-->`, assets.map(url => `<script type="module" src="/assets/${url}"></script>`).join("\n"));
+    .replace(
+      `<!--app-script-->`,
+      jsAssets.map(url => `<script type="module" src="/assets/${url}"></script>`).join("\n"),
+    );
 
   await fs.mkdir(toAbsolute(`./dist/idx/${idString}`), { recursive: true });
   await fs.writeFile(toAbsolute(`./dist/idx/${idString}/index.html`), html);
