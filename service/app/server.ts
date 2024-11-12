@@ -54,22 +54,22 @@ async function createServer() {
       // 3. Load the server entry. ssrLoadModule automatically transforms
       //    ESM source code to be usable in Node.js! There is no bundling
       //    required, and provides efficient invalidation similar to HMR.
-      const { render } = (await vite.ssrLoadModule("/src/entry/local/server.tsx")) as {
-        render: (url: string) => Promise<{ head?: string; html?: string }>;
-      };
+      // const { render } = (await vite.ssrLoadModule("/src/entry/local/server.tsx")) as {
+      //   render: (url: string) => Promise<{ head?: string; html?: string }>;
+      // };
 
       // 4. render the app HTML. This assumes entry-server.js's exported
       //     `render` function calls appropriate framework SSR APIs,
       //    e.g. ReactDOMServer.renderToString()
-      const rendered = await render(url);
+      // const rendered = await render(url);
 
       // 5. Inject the app-rendered HTML into the template.
-      const html = template
-        .replace(`<!--app-head-->`, rendered.head ?? "")
-        .replace(`<!--app-html-->`, rendered.html ?? "");
+      // const html = template
+      //   .replace(`<!--app-head-->`, rendered.head ?? "")
+      //   .replace(`<!--app-html-->`, rendered.html ?? "");
 
       // 6. Send the rendered HTML back.
-      res.status(200).set({ "Content-Type": "text/html" }).send(html);
+      res.status(200).set({ "Content-Type": "text/html" }).send(template);
     } catch (e) {
       // If an error is caught, let Vite fix the stack trace so it maps back
       // to your actual source code.
