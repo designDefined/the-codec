@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import { Editable, Slate, withReact } from "slate-react";
-import { createEditor } from "slate";
+import { createEditor, Editor } from "slate";
 import { useMemo } from "react";
 import { bindCSS } from "@flexive/core";
 import { renderElement } from "../../content/render/renderElement";
@@ -26,10 +26,23 @@ export const InnerBoxEditor = ({ box, onChangeBox }: InnerBoxEditorProps) => {
       }
     >
       <Editable
-        className={cx("BoxEditor")}
+        className={cx("InnerBoxEditor")}
         renderElement={renderElement}
         renderLeaf={renderLeaf}
         placeholder={box.title}
+        spellCheck={false}
+        onKeyDown={e => {
+          if (e.metaKey && e.key === "b") {
+            e.preventDefault();
+            const [match] = Editor.nodes(editor, { match: n => "bold" in n && n.bold === true });
+            Editor.addMark(editor, "bold", match ? false : true);
+          }
+          if (e.metaKey && e.key === "i") {
+            e.preventDefault();
+            const [match] = Editor.nodes(editor, { match: n => "italic" in n && n.italic === true });
+            Editor.addMark(editor, "italic", match ? false : true);
+          }
+        }}
       />
     </Slate>
   );

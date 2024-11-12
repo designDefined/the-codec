@@ -1,5 +1,6 @@
 import { RenderElementPropsExtended } from "../../utility/slate-type";
 import { CodeBlockReader } from "../block/CodeBlockReader";
+import { HeadingReader } from "../block/HeadingReader";
 import { ParagraphReader } from "../block/ParagraphReader";
 
 export const ElementReader = (props: RenderElementPropsExtended) => {
@@ -8,5 +9,7 @@ export const ElementReader = (props: RenderElementPropsExtended) => {
       return <ParagraphReader {...props} />;
     case "CODE_BLOCK":
       return <CodeBlockReader {...props} />;
+    case "HEADING":
+      return <HeadingReader {...props} />;
   }
 };

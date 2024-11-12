@@ -1,1 +1,1 @@
-export type DefaultText = { text: string; bold?: boolean };
+export type DefaultText = { text: string; bold?: boolean; italic?: boolean };

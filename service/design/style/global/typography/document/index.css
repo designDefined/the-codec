@@ -1,4 +1,31 @@
+:root {
+}
+
 p {
+  padding: 0.4em 0;
   font-size: 20px;
-  line-height: 1.5;
+  line-height: 160%;
+  word-spacing: 120%;
+  text-align: justify;
+  text-indent: 0.8em;
+}
+
+h1 {
+  font-size: 4em;
+  line-height: 1.2;
+  margin: 0.67em 0;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.2;
+  margin: 0.67em 0;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1.2;
+  margin: 0.67em 0;
 }
