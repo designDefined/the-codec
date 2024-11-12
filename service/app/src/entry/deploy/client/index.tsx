@@ -1,4 +1,4 @@
-import { Repository } from "core/repository";
+import { Repository } from "@core/repository";
 import { ReadIndexPage } from "../../../ui-blog/idx/ReadIndexPage";
 import { hydrateRoot } from "react-dom/client";
 import { getIndexId } from "../../../router/deploy/getResourceId";

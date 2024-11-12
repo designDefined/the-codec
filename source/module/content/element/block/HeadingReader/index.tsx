@@ -1,4 +1,4 @@
-import { HeadingElement } from "core/entity/content/element/HeadingElement";
+import { HeadingElement } from "@core/entity/content/element/HeadingElement";
 import { RenderElementPropsExtended } from "../../../utility/slate-type";
 
 export const HeadingReader = (props: RenderElementPropsExtended) => {

@@ -1,7 +1,7 @@
 import { renderToString } from "react-dom/server";
 import { createDataHandler } from "data/api";
 import { ReadIndexPage } from "../../../ui-blog/idx/ReadIndexPage";
-import { Index } from "core/entity/index/Index";
+import { Index } from "@core/entity/index/Index";
 
 const { read } = createDataHandler();
 

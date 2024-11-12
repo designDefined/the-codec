@@ -6,6 +6,7 @@
     "core",
     "data",
     "service/*",
+    "resource/*",
     "playground/*"
   ],
   "scripts": {

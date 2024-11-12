@@ -1,4 +1,4 @@
-import { ID } from "core/constant/ID";
+import { ID } from "@core/constant/ID";
 
 export const getIndexId = () => {
   const paths = window.location.pathname.split("/");

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { ID } from "core/constant/ID";
+import { ID } from "@core/constant/ID";
 
 export const useIndexId = () => {
   const { indexId } = useParams();

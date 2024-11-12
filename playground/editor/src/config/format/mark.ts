@@ -1,5 +1,5 @@
 import { Editor } from "slate";
-import { MARK } from "core/constant/content/MARK";
+import { MARK } from "@core/constant/content/MARK";
 
 export const isMarkActive = (editor: Editor, mark: MARK) => {
   const marks = Editor.marks(editor);

@@ -1,7 +1,7 @@
 import { BaseEditor } from "slate";
 import { ReactEditor, RenderElementProps, RenderLeafProps } from "slate-react";
-import { Element } from "core/entity/content/element/Element";
-import { Leaf } from "core/entity/content/leaf/Leaf";
+import { Element } from "@core/entity/content/element/Element";
+import { Leaf } from "@core/entity/content/leaf/Leaf";
 import { Key } from "react";
 
 declare module "slate" {

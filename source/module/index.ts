@@ -1,0 +1,1 @@
+export const ASDF = "ASDF";

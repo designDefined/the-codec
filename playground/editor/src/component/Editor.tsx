@@ -4,7 +4,7 @@ import { useOnKeyDown } from "../config/event/useOnKeyDown";
 import { renderLeaf } from "../config/render/renderLeaf";
 import { useMemo } from "react";
 import { createEditor } from "slate";
-import { InboxContent } from "core/entity/content/InboxContent";
+import { InboxContent } from "@core/entity/content/InboxContent";
 import { Editor as SlateEditor } from "slate";
 import { Article } from "@flexive/core";
 import { Toolbar } from "./Toolbar";

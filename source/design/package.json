@@ -1,5 +1,5 @@
 {
-  "name": "@service/module",
+  "name": "@source/design",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,13 +8,8 @@
   },
   "dependencies": {
     "@flexive/core": "^0.4.8",
-    "@service/design": "workspace:^",
-    "core": "workspace:^",
-    "nanoid": "^5.0.8",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "slate": "^0.110.2",
-    "slate-react": "^0.110.3"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

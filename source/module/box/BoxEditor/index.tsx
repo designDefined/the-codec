@@ -1,4 +1,4 @@
-import { Box } from "core/entity/box/Box";
+import { Box } from "@core/entity/box/Box";
 import { InnerBoxEditor } from "../InnerBoxEditor";
 import { Section } from "@flexive/core";
 

@@ -1,4 +1,4 @@
-import "@service/design/style/global/index.css";
+import "@style/global/index.css";
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "../../ui-editor/home/HomePage";
 import { IndexPage } from "../../ui-editor/idx/IndexPage";

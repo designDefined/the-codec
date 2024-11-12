@@ -1,5 +1,5 @@
 import { renderStatic } from "../config/render/renderStatic";
-import { InboxContent } from "core/entity/content/InboxContent";
+import { InboxContent } from "@core/entity/content/InboxContent";
 
 type ReaderProps = { value: InboxContent[] };
 

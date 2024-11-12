@@ -1,4 +1,4 @@
-import { Index } from "core/entity/index/Index";
+import { Index } from "@core/entity/index/Index";
 import { BoxReader } from "../../box/BoxReader";
 
 type IndexReaderProps = { index: Index };

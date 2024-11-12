@@ -1037,8 +1037,6 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.11.1"
     "@flexive/core": "npm:^0.4.8"
-    "@service/design": "workspace:^"
-    "@service/module": "workspace:^"
     "@types/node": "npm:^22.8.1"
     "@types/react": "npm:^18.3.10"
     "@types/react-dom": "npm:^18.3.0"
@@ -1062,6 +1060,7 @@ __metadata:
     viajs-core: "npm:^0.3.1"
     viajs-react: "npm:^0.3.0"
     vite: "npm:^5.4.8"
+    vite-tsconfig-paths: "npm:^5.1.2"
   languageName: unknown
   linkType: soft
 
@@ -1079,55 +1078,6 @@ __metadata:
     globals: "npm:^15.9.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    typescript: "npm:^5.5.3"
-    typescript-eslint: "npm:^8.7.0"
-    vite: "npm:^5.4.8"
-  languageName: unknown
-  linkType: soft
-
-"@service/design@workspace:^, @service/design@workspace:service/design":
-  version: 0.0.0-use.local
-  resolution: "@service/design@workspace:service/design"
-  dependencies:
-    "@eslint/js": "npm:^9.11.1"
-    "@flexive/core": "npm:^0.4.8"
-    "@types/node": "npm:^22.8.1"
-    "@types/react": "npm:^18.3.10"
-    "@types/react-dom": "npm:^18.3.0"
-    eslint: "npm:^9.11.1"
-    eslint-plugin-react-hooks: "npm:^5.1.0-rc.0"
-    eslint-plugin-react-refresh: "npm:^0.4.12"
-    globals: "npm:^15.9.0"
-    react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
-    tsx: "npm:^4.19.2"
-    typescript: "npm:^5.5.3"
-    typescript-eslint: "npm:^8.7.0"
-    vite: "npm:^5.4.8"
-  languageName: unknown
-  linkType: soft
-
-"@service/module@workspace:^, @service/module@workspace:service/module":
-  version: 0.0.0-use.local
-  resolution: "@service/module@workspace:service/module"
-  dependencies:
-    "@eslint/js": "npm:^9.11.1"
-    "@flexive/core": "npm:^0.4.8"
-    "@service/design": "workspace:^"
-    "@types/node": "npm:^22.8.1"
-    "@types/react": "npm:^18.3.10"
-    "@types/react-dom": "npm:^18.3.0"
-    core: "workspace:^"
-    eslint: "npm:^9.11.1"
-    eslint-plugin-react-hooks: "npm:^5.1.0-rc.0"
-    eslint-plugin-react-refresh: "npm:^0.4.12"
-    globals: "npm:^15.9.0"
-    nanoid: "npm:^5.0.8"
-    react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
-    slate: "npm:^0.110.2"
-    slate-react: "npm:^0.110.3"
-    tsx: "npm:^4.19.2"
     typescript: "npm:^5.5.3"
     typescript-eslint: "npm:^8.7.0"
     vite: "npm:^5.4.8"
@@ -2039,7 +1989,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4":
+"debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4":
   version: 4.3.7
   resolution: "debug@npm:4.3.7"
   dependencies:
@@ -2977,6 +2927,13 @@ __metadata:
   version: 15.11.0
   resolution: "globals@npm:15.11.0"
   checksum: 10/14009ef1906ac929d930ed1c896a47159e7d11b4d201901ca5f3827766519191a3f5fb45124de43c4511fee04018704e7ed5a097fb37d23abf39523d1d41c85f
+  languageName: node
+  linkType: hard
+
+"globrex@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "globrex@npm:0.1.2"
+  checksum: 10/81ce62ee6f800d823d6b7da7687f841676d60ee8f51f934ddd862e4057316d26665c4edc0358d4340a923ac00a514f8b67c787e28fe693aae16350f4e60d55e9
   languageName: node
   linkType: hard
 
@@ -4739,6 +4696,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsconfck@npm:^3.0.3":
+  version: 3.1.4
+  resolution: "tsconfck@npm:3.1.4"
+  peerDependencies:
+    typescript: ^5.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  bin:
+    tsconfck: bin/tsconfck.js
+  checksum: 10/4fb02e75ff374a82052b4800970bebe4466b5a6e7193d74e7b875cc8225acb5037fb4e7dcd4a5cd751c22129360cb13b4d5536897eae131d69c1a20fb18a99b4
+  languageName: node
+  linkType: hard
+
 "tsx@npm:^4.19.1":
   version: 4.19.1
   resolution: "tsx@npm:4.19.1"
@@ -4940,6 +4911,22 @@ __metadata:
     react-dom: ">=18.0.0"
     viajs-core: ">=0.3.0"
   checksum: 10/c36bd95f413f245b555e50245dd2d7f142ad5b748afa4c1f1b926b9cf44c11f5d3e91d259e5223b689c36d2a2bfabde12f1327d4462c6f43122598be82d1bc33
+  languageName: node
+  linkType: hard
+
+"vite-tsconfig-paths@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "vite-tsconfig-paths@npm:5.1.2"
+  dependencies:
+    debug: "npm:^4.1.1"
+    globrex: "npm:^0.1.2"
+    tsconfck: "npm:^3.0.3"
+  peerDependencies:
+    vite: "*"
+  peerDependenciesMeta:
+    vite:
+      optional: true
+  checksum: 10/0a46db04653b60621a5d77f2054de5c29a8a6b069535ba3137e0a466b3da0308b07efb95b52713695873e99fadf35ae8878820a7227eabf1c0c1b159d9083bc0
   languageName: node
   linkType: hard
 

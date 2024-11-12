@@ -5,7 +5,7 @@ import { useMemo } from "react";
 import { bindCSS } from "@flexive/core";
 import { renderElement } from "../../content/render/renderElement";
 import { renderLeaf } from "../../content/render/renderLeaf";
-import { InnerBox } from "core/entity/box/InnerBox";
+import { InnerBox } from "@core/entity/box/InnerBox";
 
 const cx = bindCSS(styles);
 

@@ -1,5 +1,5 @@
-import { ELEMENT_TYPE } from "core/constant/content/ELEMENT_TYPE";
-import { CodeBlockElement } from "core/entity/content/element/CodeBlockElement";
+import { ELEMENT_TYPE } from "@core/constant/content/ELEMENT_TYPE";
+import { CodeBlockElement } from "@core/entity/content/element/CodeBlockElement";
 import { Editor, Element, Transforms } from "slate";
 
 export const isElementActive = (editor: Editor, type: ELEMENT_TYPE) => {

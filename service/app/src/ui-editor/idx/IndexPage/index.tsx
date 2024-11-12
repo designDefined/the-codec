@@ -1,13 +1,13 @@
 import { Article, bindCSS, Button, Main, Section } from "@flexive/core";
 import styles from "./index.module.css";
 import { useIndexId } from "../../../router/local/useResourceId";
-import { BoxEditor } from "@service/module/box/BoxEditor";
-import { IndexInformationEditor } from "@service/module/index/IndexInformationEditor";
-import { BoxManager } from "@service/module/box/BoxManager";
-import { Modal } from "@service/design/component/area/modal/Modal";
 import { useIntentSubmit, useView } from "viajs-react";
-import { IndexView } from "core/view/index/IndexView";
-import { UpdateIndexIntent } from "core/intent/index/UpdateIndexIntent";
+import { IndexView } from "@core/view/index/IndexView";
+import { UpdateIndexIntent } from "@core/intent/index/UpdateIndexIntent";
+import { BoxEditor } from "@module/box/BoxEditor";
+import { BoxManager } from "@module/box/BoxManager";
+import { Modal } from "@compoent/area/modal/Modal";
+import { IndexInformationEditor } from "@module/index/IndexInformationEditor";
 
 const cx = bindCSS(styles);
 

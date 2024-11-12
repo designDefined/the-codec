@@ -1,4 +1,4 @@
-import { Index } from "core/entity/index/Index";
+import { Index } from "@core/entity/index/Index";
 import { Article, Input, Label } from "@flexive/core";
 
 type IndexEditorProps = {

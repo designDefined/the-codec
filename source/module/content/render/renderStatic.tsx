@@ -1,4 +1,4 @@
-import { InboxContent } from "core/entity/content/InboxContent";
+import { InboxContent } from "@core/entity/content/InboxContent";
 import { renderLeaf } from "./renderLeaf";
 import { renderElement } from "./renderElement";
 

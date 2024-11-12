@@ -1,4 +1,4 @@
-import { Box } from "core/entity/box/Box";
+import { Box } from "@core/entity/box/Box";
 import { renderStatic } from "../../content/render/renderStatic";
 import { Section } from "@flexive/core";
 

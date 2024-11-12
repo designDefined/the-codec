@@ -1,8 +1,8 @@
 import { Article, Button, Div, H3 } from "@flexive/core";
-import { ID } from "core/constant/ID";
-import { Box } from "core/entity/box/Box";
-import { InnerBox } from "core/entity/box/InnerBox";
-import { OuterBox } from "core/entity/box/OuterBox";
+import { ID } from "@core/constant/ID";
+import { Box } from "@core/entity/box/Box";
+import { InnerBox } from "@core/entity/box/InnerBox";
+import { OuterBox } from "@core/entity/box/OuterBox";
 import { nanoid } from "nanoid";
 
 type BoxManager = {
