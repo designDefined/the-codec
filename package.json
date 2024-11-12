@@ -6,14 +6,16 @@
     "core",
     "data",
     "service/*",
-    "resource/*",
+    "source/*",
     "playground/*"
   ],
   "scripts": {
     "core": "yarn workspace core",
+    "data": "yarn workspace data",
     "app": "yarn workspace @service/app",
-    "data": "yarn workspace @service/data",
     "demo": "yarn workspace @service/demo",
+    "module": "yarn workspace @source/module",
+    "design": "yarn workspace @source/design",
     "editor": "yarn workspace @playground/editor",
     "ssg": "yarn workspace @playground/static-site-generation",
     "graphics": "yarn workspace @playground/graphics",
