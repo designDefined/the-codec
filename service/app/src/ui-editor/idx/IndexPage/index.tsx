@@ -1,4 +1,4 @@
-import { Article, bindCSS, Button, Main, Section } from "@flexive/core";
+import { Article, bindCSS, Button, Div, Main, Section } from "@flexive/core";
 import styles from "./index.module.css";
 import { useIndexId } from "../../../router/local/useResourceId";
 import { useIntentSubmit, useView } from "viajs-react";
@@ -8,11 +8,13 @@ import { BoxEditor } from "@module/box/BoxEditor";
 import { BoxManager } from "@module/box/BoxManager";
 import { Modal } from "@compoent/area/modal/Modal";
 import { IndexInformationEditor } from "@module/index/IndexInformationEditor";
+import { useState } from "react";
 
 const cx = bindCSS(styles);
 
 export const IndexPage = () => {
   const id = useIndexId();
+  const [isPanelOpen, setIsPanelOpen] = useState(true);
   const { value: index } = useView({ view: IndexView(id) });
   const {
     set,
@@ -22,10 +24,10 @@ export const IndexPage = () => {
   } = useIntentSubmit({ intent: UpdateIndexIntent(id) });
 
   return (
-    <Main className={cx("IndexPage")} f={{ flow: ["row"] }}>
-      <Section f={{ flex: [1, 1, 0] }} />
-      <Article f={{ flex: [1, 0, 720], flow: ["row"] }}>
-        <Section f={{ flex: [1, 1] }}>
+    <Main className={cx("IndexPage")} sizeC="100vw" sizeM="100vh" hide>
+      <Section f row over>
+        <Section grow={2} shrink={0} basis={80} />
+        <Article grow={1} shrink={0} basis={720} py={120} alignSelfC="start">
           <BoxEditor
             box={indexInput.value?.content ?? index.content}
             onChangeBox={box =>
@@ -39,13 +41,19 @@ export const IndexPage = () => {
               })
             }
           />
-        </Section>
-      </Article>
-      <Section f={{ flex: [1, 1, 0] }} />
+        </Article>
+        <Section f grow={2} shrink={0} basis={80} />
+      </Section>
 
-      <Article className={cx("rightOverlay")} f={{ flow: ["row-reverse"] }}>
-        <Section f={{ flex: [0, 0, 240], spacing: [16, 24] }}>
-          <Modal f={{ spacing: [16] }}>
+      <Section absolute top={0} right={0} sizeM={"100vh"} p={24} hide>
+        <Div className={cx("panel", { closed: !isPanelOpen })} row f g={12}>
+          <Button alignSelfC="center" onClick={() => setIsPanelOpen(prev => !prev)}>
+            {">"}
+          </Button>
+          <Modal f sizeC={320} px={12} py={24} g={30} overM>
+            <Button onClick={() => submit()} disabled={!isModified}>
+              저장
+            </Button>
             <IndexInformationEditor
               index={indexInput.value ?? index}
               onChangeIndexPartial={partial => {
@@ -69,11 +77,8 @@ export const IndexPage = () => {
               }
             />
           </Modal>
-          <Button onClick={() => submit()} disabled={!isModified}>
-            저장
-          </Button>
-        </Section>
-      </Article>
+        </Div>
+      </Section>
     </Main>
   );
 };

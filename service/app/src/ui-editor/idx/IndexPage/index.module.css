@@ -1,5 +1,6 @@
-.IndexPage .rightOverlay {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+.IndexPage .panel {
+  transition: 0.5s ease;
+}
+.IndexPage .panel.closed {
+  transform: translateX(100%);
 }

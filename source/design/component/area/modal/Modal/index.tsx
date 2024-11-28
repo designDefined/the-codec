@@ -1,13 +1,11 @@
 import styles from "./index.module.css";
-import { Article, FlexiveArticleProps } from "@flexive/core";
+import { Article, PropsOf } from "@flexive/core";
 import { forwardRef } from "react";
 
-type ModalProps = FlexiveArticleProps;
+type ModalProps = PropsOf<"article">;
 
-export const Modal = forwardRef(({ className, children, ...props }: ModalProps) => {
-  return (
-    <Article className={`${styles.Modal} ${className}`} {...props}>
-      {children}
-    </Article>
-  );
-});
+export const Modal = forwardRef(({ className, children, ...props }: ModalProps) => (
+  <Article className={`${styles.Modal} ${className}`} {...props}>
+    {children}
+  </Article>
+));

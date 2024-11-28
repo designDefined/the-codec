@@ -2,12 +2,11 @@
 }
 
 p {
-  padding: 0.4em 0;
-  font-size: 20px;
-  line-height: 160%;
-  word-spacing: 120%;
+  padding: 0.2em 0;
+  font-size: 17px;
+  line-height: 1.6em;
+  letter-spacing: -0.25px;
   text-align: justify;
-  text-indent: 0.8em;
 }
 
 h1 {
