@@ -16,7 +16,7 @@ async function createServer() {
   // 'custom', disabling Vite's own HTML serving logic so parent server
   // can take control
   const vite = await createViteServer({
-    server: { middlewareMode: true },
+    server: { middlewareMode: true, hmr: process.env.NODE_ENV === "development" },
     appType: "custom",
   });
 
