@@ -19,7 +19,8 @@
     "editor": "yarn workspace @playground/editor",
     "ssg": "yarn workspace @playground/static-site-generation",
     "graphics": "yarn workspace @playground/graphics",
-    "deploy": "yarn workspace @service/app generate"
+    "deploy": "yarn workspace @service/app generate",
+    "upgrade:flexive-core": "yarn app add @flexive/core@latest && yarn design add @flexive/core@latest && yarn module add @flexive/core@latest && yarn demo add @flexive/core@latest"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
