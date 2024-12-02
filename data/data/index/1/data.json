@@ -1,1 +1,18 @@
-{"id":1,"title":"샘플234","content":{"id":"root-sample","title":"root","type":"OUTER_BOX","style":{"padding":[128,64],"gap":48},"children":[{"id":"container-sample","title":"sample","type":"INNER_BOX","children":[{"type":"PARAGRAPH","children":[{"text":"테스트qwefqwef"}]}]}]}}
+{
+  "id": 1,
+  "title": "샘플234",
+  "content": {
+    "id": "root-sample",
+    "title": "root",
+    "type": "OUTER_BOX",
+    "layout": { "px": 64, "py": 128, "g": 48 },
+    "children": [
+      {
+        "id": "container-sample",
+        "title": "sample",
+        "type": "INNER_BOX",
+        "children": [{ "type": "PARAGRAPH", "children": [{ "text": "테스트qwefqwef" }] }]
+      }
+    ]
+  }
+}
