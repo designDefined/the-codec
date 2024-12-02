@@ -1,12 +1,10 @@
 import { ID } from "@core/constant/ID";
 import { TITLE, SUBTITLE } from "@core/constant/TEXT";
 import { OuterBox } from "../box/OuterBox";
-import { IndexSummary } from "../index/IndexSummary";
 
-export type Codex = {
+export type CodexCover = {
   id: ID["CODEX"];
   title: TITLE;
   subtitle?: SUBTITLE;
   content: OuterBox;
-  items: IndexSummary[];
 };
