@@ -12,7 +12,7 @@ type BoxManager = {
 
 export const BoxManager = ({ box, onChangeBox }: BoxManager) => {
   return (
-    <Article f={{ spacing: [0, 8] }}>
+    <Article g={8}>
       <OuterBoxItem box={box} />
       <Button
         onClick={() => {
@@ -33,13 +33,15 @@ export const BoxManager = ({ box, onChangeBox }: BoxManager) => {
 
 const OuterBoxItem = ({ box }: { box: Box }) => {
   return (
-    <Div f={{ spacing: [4] }}>
+    <Div p={4}>
       <H3>{box.title}</H3>
-      <Div f={{ spacing: [[2, 8]] }}>
+      <Div px={8} py={2}>
         {box.type === "OUTER_BOX" ? (
           box.children.map(child => <OuterBoxItem key={child.id} box={child} />)
         ) : (
-          <Div f={{ spacing: [[2, 8]] }}>{box.children.length} 개의 문단</Div>
+          <Div px={8} py={2}>
+            {box.children.length} 개의 문단
+          </Div>
         )}
       </Div>
     </Div>

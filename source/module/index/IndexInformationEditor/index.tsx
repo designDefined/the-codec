@@ -8,7 +8,7 @@ type IndexEditorProps = {
 
 export const IndexInformationEditor = ({ index, onChangeIndexPartial }: IndexEditorProps) => {
   return (
-    <Article f={{ flow: ["row"], spacing: [[12, 4], 12] }}>
+    <Article row px={4} py={12} g={12}>
       <Label>Title:</Label>
       <Input type="text" value={index.title} onChange={e => onChangeIndexPartial?.({ title: e.target.value })} />
     </Article>
