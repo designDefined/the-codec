@@ -1,5 +1,5 @@
-import { ID } from "../../constant/ID";
-import { SUBTITLE, TITLE } from "../../constant/TEXT";
+import { ID } from "@core/constant/ID";
+import { TITLE, SUBTITLE } from "@core/constant/TEXT";
 import { Index } from "../index/Index";
 
 export type Codex = {
