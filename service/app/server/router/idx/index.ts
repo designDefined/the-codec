@@ -67,6 +67,6 @@ IndexRouter.patch(
     };
     await DataHandler.write(`/index/${req.params.id}/data.json`, data);
     await DataHandler.write(`/index/${req.params.id}/summary.json`, summary);
-    res.send({ success: true });
+    res.send({ data, summary });
   }),
 );

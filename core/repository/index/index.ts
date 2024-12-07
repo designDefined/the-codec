@@ -4,22 +4,22 @@ import ky from "ky";
 import { toApiUrl } from "../baseUrl";
 
 // read
-const data = (id: ID["INDEX"]) => ky.get<Index>(toApiUrl(`/idx/${id}`)).json();
-const summary = (id: ID["INDEX"]) => ky.get<Index>(toApiUrl(`/idx/${id}/summary`)).json();
-const abstract = (id: ID["INDEX"]) => ky.get<Index>(toApiUrl(`/idx/${id}/abstract`)).json();
+const data = (id: ID["INDEX"]) => ky.get<Index>(toApiUrl(`/index/${id}`)).json();
+const summary = (id: ID["INDEX"]) => ky.get<Index>(toApiUrl(`/index/${id}/summary`)).json();
+const abstract = (id: ID["INDEX"]) => ky.get<Index>(toApiUrl(`/index/${id}/abstract`)).json();
 
 // create, update
 const create = async (title: string) => {
-  const res = await ky.post(toApiUrl(`/idx`), { json: { title } });
+  const res = await ky.post(toApiUrl(`/index`), { json: { title } });
   return res.json();
 };
 const update = async (id: ID["INDEX"], updater: (prev: Index) => void) => {
   const prev = await data(id);
-  return ky.put(`/idx/${id}`, { json: updater(prev) });
+  return ky.patch(toApiUrl(`/index/${id}`), { json: updater(prev) });
 };
 
 // delete
-const _delete = (id: ID["INDEX"]) => ky.delete(`/idx/${id}`);
+const _delete = (id: ID["INDEX"]) => ky.delete(`/index/${id}`);
 
 export const IndexRepository = {
   read: { data, summary, abstract },

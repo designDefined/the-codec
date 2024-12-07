@@ -2,26 +2,26 @@ import { Article, bindCSS, Button, Div, Main, Section } from "@flexive/core";
 import styles from "./index.module.css";
 import { useIndexId } from "../../../router/local/useResourceId";
 import { useIntentSubmit, useView } from "viajs-react";
-import { IndexView } from "@core/view/index/IndexView";
-import { UpdateIndexIntent } from "@core/intent/index/UpdateIndexIntent";
 import { BoxEditor } from "@module/box/BoxEditor";
 import { BoxManager } from "@module/box/BoxManager";
 import { Modal } from "@compoent/area/modal/Modal";
 import { IndexInformationEditor } from "@module/index/IndexInformationEditor";
 import { useState } from "react";
+import { IndexIntent } from "@core/intent/index/index";
+import { IndexView } from "@core/view/index";
 
 const cx = bindCSS(styles);
 
 export const IndexPage = () => {
   const id = useIndexId();
   const [isPanelOpen, setIsPanelOpen] = useState(true);
-  const { value: index } = useView({ view: IndexView(id) });
+  const { value: index } = useView({ view: IndexView.data(id) });
   const {
     set,
     submit,
     value: { index: indexInput },
     isModified,
-  } = useIntentSubmit({ intent: UpdateIndexIntent(id) });
+  } = useIntentSubmit({ intent: IndexIntent.update(id) });
 
   return (
     <Main className={cx("IndexPage")} sizeC="100vw" sizeM="100vh" hide>

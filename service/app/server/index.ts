@@ -29,8 +29,8 @@ async function createServer() {
   app.use(vite.middlewares);
   app.use(json());
 
-  app.use("/api/idx", IndexRouter);
-  app.use("/api/cdx", CodexRouter);
+  app.use("/api/index", IndexRouter);
+  app.use("/api/codex", CodexRouter);
 
   // app.get("/data/*", async (req, res) => {
   //   const data = await DataHandler.read(req.url);
