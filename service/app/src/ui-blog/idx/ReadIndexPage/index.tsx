@@ -8,12 +8,12 @@ type ReadIndexPageProps = { data: Index };
 
 export const ReadIndexPage = ({ data }: ReadIndexPageProps) => {
   return (
-    <Main f={{ flow: ["row"] }}>
-      <Section f={{ flex: [1, 1, 0] }} />
-      <Article f={{ flex: [1, 0, 720] }}>
+    <Main row>
+      <Section f basis={0} />
+      <Article grow basis={720}>
         <IndexReader index={data} />
       </Article>
-      <Section f={{ flex: [1, 1, 0] }} />
+      <Section f basis={0} />
     </Main>
   );
 };

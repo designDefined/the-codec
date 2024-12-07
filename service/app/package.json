@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "NODE_ENV=development tsx ./server.ts",
-    "start": "tsx ./server.ts",
+    "dev": "NODE_ENV=development tsx --tsconfig ./tsconfig.app.json ./server/index.ts",
+    "start": "tsx --tsconfig ./tsconfig.app.json ./server/index.ts",
     "build": "tsc -b && vite build",
     "generate": "yarn build && tsx ./generate.ts",
     "preview": "yarn generate && serve dist",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@flexive/core": "^0.5.6",
+    "express": "^4.21.1",
     "immer": "^10.1.1",
     "ky": "^1.7.2",
     "react": "^18.3.1",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.8.1",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",

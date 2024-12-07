@@ -1046,6 +1046,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.11.1"
     "@flexive/core": "npm:^0.5.6"
+    "@types/express": "npm:^5.0.0"
     "@types/node": "npm:^22.8.1"
     "@types/react": "npm:^18.3.10"
     "@types/react-dom": "npm:^18.3.0"
@@ -1053,6 +1054,7 @@ __metadata:
     eslint: "npm:^9.11.1"
     eslint-plugin-react-hooks: "npm:^5.1.0-rc.0"
     eslint-plugin-react-refresh: "npm:^0.4.12"
+    express: "npm:^4.21.1"
     globals: "npm:^15.9.0"
     immer: "npm:^10.1.1"
     ky: "npm:^1.7.2"
@@ -1986,7 +1988,6 @@ __metadata:
   resolution: "core@workspace:core"
   dependencies:
     "@eslint/js": "npm:^9.11.1"
-    data: "workspace:^"
     eslint: "npm:^9.11.1"
     globals: "npm:^15.9.0"
     ky: "npm:^1.7.2"
@@ -2016,7 +2017,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"data@workspace:^, data@workspace:data":
+"data@workspace:data":
   version: 0.0.0-use.local
   resolution: "data@workspace:data"
   dependencies:
