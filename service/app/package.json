@@ -1,0 +1,45 @@
+{
+  "name": "@service/app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_ENV=development tsx --tsconfig ./tsconfig.app.json ./server/index.ts",
+    "start": "tsx --tsconfig ./tsconfig.app.json ./server/index.ts",
+    "build": "tsc -b && vite build",
+    "generate": "yarn build && tsx ./generate.ts",
+    "preview": "yarn generate && serve dist",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@flexive/core": "^0.5.6",
+    "express": "^4.21.1",
+    "immer": "^10.1.1",
+    "ky": "^1.7.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0",
+    "serve": "^14.2.4",
+    "slate": "^0.110.2",
+    "slate-react": "^0.110.3",
+    "viajs-core": "^0.3.1",
+    "viajs-react": "^0.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.8.1",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^9.11.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "globals": "^15.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.7.0",
+    "vite": "^5.4.8",
+    "vite-tsconfig-paths": "^5.1.2"
+  }
+}

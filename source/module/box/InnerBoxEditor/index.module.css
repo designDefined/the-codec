@@ -1,0 +1,15 @@
+.InnerBoxEditor {
+  padding: 8px;
+  outline: none;
+  border-radius: 4px;
+  transition: 0.1s ease;
+  border: 1px solid transparent;
+}
+.InnerBoxEditor:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.InnerBoxEditor:focus {
+  border-bottom-color: rgba(0, 0, 0, 0.04);
+  border-top-color: rgba(0, 0, 0, 0.04);
+  background-color: transparent;
+}

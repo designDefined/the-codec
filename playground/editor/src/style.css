@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: "SUIT Variable", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  line-height: 1.5;
+  min-height: 1.5em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bordered {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+.small {
+  font-size: 12px;
+}
+.wrap {
+  white-space: pre-wrap;
+}
+
+/* editor */
+.editor {
+  padding: 4px;
+  flex: 1 1 auto;
+}
+.editor:focus {
+  /* outline: none; */
+}
+
+/* toolbar */
+.toolbar-button {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  opacity: 1;
+  transition: 0.1s ease;
+}
+
+.toolbar-button.inactive {
+  opacity: 0.5;
+}

@@ -1,0 +1,6 @@
+.IndexPage .panel {
+  transition: 0.5s ease;
+}
+.IndexPage .panel.closed {
+  transform: translateX(100%);
+}
