@@ -4,18 +4,17 @@
   "private": true,
   "workspaces": [
     "core",
-    "data",
     "service/*",
     "source/*",
     "playground/*"
   ],
   "scripts": {
     "core": "yarn workspace core",
-    "data": "yarn workspace data",
+    "data": "yarn workspace @source/data",
+    "design": "yarn workspace @source/design",
+    "module": "yarn workspace @source/module",
     "app": "yarn workspace @service/app",
     "demo": "yarn workspace @service/demo",
-    "module": "yarn workspace @source/module",
-    "design": "yarn workspace @source/design",
     "editor": "yarn workspace @playground/editor",
     "ssg": "yarn workspace @playground/static-site-generation",
     "graphics": "yarn workspace @playground/graphics",

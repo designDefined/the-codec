@@ -1,4 +1,4 @@
-import { toDataPath } from "data/api";
+import { toDataPath } from "@data/api";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";

@@ -1095,6 +1095,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@source/data@workspace:source/data":
+  version: 0.0.0-use.local
+  resolution: "@source/data@workspace:source/data"
+  dependencies:
+    "@eslint/js": "npm:^9.11.1"
+    "@types/node": "npm:^22.8.1"
+    core: "workspace:^"
+    eslint: "npm:^9.11.1"
+    globals: "npm:^15.9.0"
+    typescript: "npm:^5.5.3"
+    typescript-eslint: "npm:^8.7.0"
+  languageName: unknown
+  linkType: soft
+
 "@source/design@workspace:source/design":
   version: 0.0.0-use.local
   resolution: "@source/design@workspace:source/design"
@@ -2016,20 +2030,6 @@ __metadata:
   checksum: 10/f593cce41ff5ade23f44e77521e3a1bcc2c64107041e1bf6c3c32adc5187d0d60983292fda326154d20b01079e24931aa5b08e4467cc488b60bb1e7f6d478ade
   languageName: node
   linkType: hard
-
-"data@workspace:data":
-  version: 0.0.0-use.local
-  resolution: "data@workspace:data"
-  dependencies:
-    "@eslint/js": "npm:^9.11.1"
-    "@types/node": "npm:^22.8.1"
-    core: "workspace:^"
-    eslint: "npm:^9.11.1"
-    globals: "npm:^15.9.0"
-    typescript: "npm:^5.5.3"
-    typescript-eslint: "npm:^8.7.0"
-  languageName: unknown
-  linkType: soft
 
 "dayjs@npm:^1.11.13":
   version: 1.11.13
