@@ -1,12 +1,13 @@
+/*  Use a more-intuitive box-sizing model  */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Remove default margin  */
 * {
   margin: 0;
-  padding: 0;
 }
 
 ul[role="list"],
