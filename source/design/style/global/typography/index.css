@@ -1,7 +1,41 @@
-@import url("font/sans.css");
-@import url("font/serif.css");
-@import url("document/index.css");
+@import "font.css";
 
-body {
+:root {
   font-family: "Pretendard Variable", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+p {
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 4em;
+  line-height: 1.2;
+  margin: 0.67em 0;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.2;
+  margin: 0.67em 0;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1.2;
+  margin: 0.67em 0;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
 }
