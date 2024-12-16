@@ -1,4 +1,4 @@
-import "@style/global/index.css";
+import "@style/index.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

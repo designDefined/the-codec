@@ -8,10 +8,10 @@ export const HomeHeader = () => (
     <Hgroup>
       <H1 className={cx("title")}>The Codec</H1>
       <Div className={cx("description")} g={24} px={16}>
-        <P>Where the codes decode the world.</P>
+        <P py="0.2em">Where the codes decode the world.</P>
         <Div>
           <Div className={cx("label")}>written by</Div>
-          <P>designDefined</P>
+          <P py="0.2em">designDefined</P>
         </Div>
       </Div>
     </Hgroup>
