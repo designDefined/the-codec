@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["**/*.ts", "../deprecated/repository-old.ts"]
+  "include": ["**/*.ts"]
   // "include": ["constant", "entity", "intent", "repository", "utility", "view"]
 }
