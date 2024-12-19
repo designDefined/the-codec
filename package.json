@@ -18,6 +18,7 @@
     "editor": "yarn workspace @playground/editor",
     "ssg": "yarn workspace @playground/static-site-generation",
     "graphics": "yarn workspace @playground/graphics",
+    "tree": "yarn workspace @playground/tree-shaking",
     "deploy": "yarn workspace @service/app generate",
     "format": "yarn prettier --write .",
     "upgrade:flexive-core": "yarn app add @flexive/core@latest && yarn design add @flexive/core@latest && yarn module add @flexive/core@latest && yarn demo add @flexive/core@latest",

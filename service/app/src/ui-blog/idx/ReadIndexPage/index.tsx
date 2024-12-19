@@ -1,4 +1,4 @@
-import "@style/global/index.css";
+import "@style/index.css";
 
 import { Index } from "@core/entity/index/Index";
 import { Article, Main, Section } from "@flexive/core";

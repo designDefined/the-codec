@@ -1,0 +1,16 @@
+.outer {
+  background: linear-gradient(145deg, var(--plane-bright), var(--plane-dark));
+  box-shadow:
+    20px 20px 60px var(--slope-dark),
+    -20px -20px 60px var(--slope-bright);
+}
+
+.inner {
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--font-color);
+  background: var(--inner-plane);
+  box-shadow:
+    inset 10px 10px 20px var(--inner-slope-dark),
+    inset -10px -10px 20px var(--inner-slope-bright);
+}

@@ -3,6 +3,7 @@ import { ID } from "../../constant/ID";
 import { TITLE } from "../../constant/TEXT";
 import { Box } from "./Box";
 import { BoxLayout } from "./BoxLayout";
+import { BoxLook } from "./BoxLook";
 
 export type OuterBox = {
   type: typeof BOX_TYPE.Enum.OUTER_BOX;
@@ -10,4 +11,5 @@ export type OuterBox = {
   title: TITLE;
   children: Box[];
   layout?: BoxLayout;
+  look?: BoxLook;
 };

@@ -1,5 +1,5 @@
-@import url("raw/noto-serif.css");
+@import "raw/pretendard.css";
 
-.f-serif {
+.typ-font-sans {
   font-family: "Pretendard Variable", sans-serif;
 }

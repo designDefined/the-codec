@@ -3,6 +3,7 @@ import { ID } from "@core/constant/ID";
 import { TITLE } from "@core/constant/TEXT";
 import { BoxLayout } from "./BoxLayout";
 import { Content } from "../content/Content";
+import { BoxLook } from "./BoxLook";
 
 export type InnerBox = {
   type: typeof BOX_TYPE.Enum.INNER_BOX;
@@ -10,4 +11,5 @@ export type InnerBox = {
   title: TITLE;
   children: Content[];
   layout?: BoxLayout;
+  look?: BoxLook;
 };

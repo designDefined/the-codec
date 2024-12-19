@@ -1,0 +1,7 @@
+.Recents {
+}
+
+.Recents .item {
+  box-shadow: inset 1px 1px 8px oklch(55% 0.4 20 / 0.2);
+  background-color: oklch(55% 0.2 20 / 0.2);
+}
