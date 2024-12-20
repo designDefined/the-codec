@@ -1,1 +1,1 @@
-export type Renderer = { render: (url: string) => Promise<{ head?: string; html?: string }> };
+export type Renderer = { render: (url?: string) => Promise<{ head?: string; html?: string }> };

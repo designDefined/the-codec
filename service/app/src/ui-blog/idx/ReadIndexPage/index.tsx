@@ -1,5 +1,3 @@
-import "@style/index.css";
-
 import { Index } from "@core/entity/index/Index";
 import { Article, Main, Section } from "@flexive/core";
 import { IndexReader } from "@module/index/IndexReader";

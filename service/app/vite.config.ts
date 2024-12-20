@@ -9,6 +9,8 @@ export default defineConfig({
     outDir: "./dist",
     rollupOptions: {
       input: {
+        common: "./src/entry/deploy/client/common.ts",
+        home: "./src/entry/deploy/client/home.tsx",
         index: "./src/entry/deploy/client/index.tsx",
       },
     },
