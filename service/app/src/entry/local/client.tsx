@@ -1,9 +1,13 @@
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { createRoot } from "react-dom/client";
-import { LocalRoutes } from "../../router/local";
+import { Via } from "viajs-react";
+import { router } from "../../router/local";
+import { createStore } from "viajs-core";
+
+const store = createStore();
 
 createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
-    <LocalRoutes />
-  </BrowserRouter>,
+  <Via store={store}>
+    <RouterProvider router={router} />
+  </Via>,
 );

@@ -1,8 +1,15 @@
-import { Article } from "@flexive/core";
+import { Article, Header } from "@flexive/core";
 import { MainTitle } from "@module/logo";
+import { Suspense } from "react";
+import { ManageIndexSection } from "../ManageIndexSection";
 
 export const HomePage = () => (
-  <Article alignC alignM>
-    <MainTitle />
+  <Article>
+    <Header alignC px={24}>
+      <MainTitle />
+    </Header>
+    <Suspense>
+      <ManageIndexSection />
+    </Suspense>
   </Article>
 );
