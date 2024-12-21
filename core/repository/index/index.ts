@@ -2,11 +2,13 @@ import { ID } from "@core/constant/ID";
 import { Index } from "@core/entity/index/Index";
 import ky from "ky";
 import { toApiUrl } from "../baseUrl";
+import { IndexSummary } from "@core/entity/index/IndexSummary";
 
 // read
 const data = (id: ID["INDEX"]) => ky.get<Index>(toApiUrl(`/index/${id}`)).json();
-const summary = (id: ID["INDEX"]) => ky.get<Index>(toApiUrl(`/index/${id}/summary`)).json();
+const summary = (id: ID["INDEX"]) => ky.get<IndexSummary>(toApiUrl(`/index/${id}/summary`)).json();
 const abstract = (id: ID["INDEX"]) => ky.get<Index>(toApiUrl(`/index/${id}/abstract`)).json();
+const summaries = () => ky.get<IndexSummary[]>(toApiUrl(`/index`)).json();
 
 // create, update
 const create = async (title: string) => {
@@ -22,7 +24,7 @@ const update = async (id: ID["INDEX"], updater: (prev: Index) => void) => {
 const _delete = (id: ID["INDEX"]) => ky.delete(`/index/${id}`);
 
 export const IndexRepository = {
-  read: { data, summary, abstract },
+  read: { data, summary, summaries, abstract },
   create,
   update,
   delete: _delete,

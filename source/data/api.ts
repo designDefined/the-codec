@@ -1,4 +1,4 @@
-import { readdir, readFile, writeFile } from "fs/promises";
+import { mkdir, readdir, readFile, writeFile } from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -15,10 +15,15 @@ export const createDataHandler = () => {
       .then(JSON.parse)
       .catch(() => null);
   const _readdir = (url: string) => readdir(toDataPath(url)).catch(() => []);
-  const write = <T>(url: string, data: T) =>
-    writeFile(toDataPath(url), JSON.stringify(data))
-      .then(() => true)
-      .catch(() => null);
+  const write = async <T>(url: string, data: T) => {
+    try {
+      await mkdir(path.dirname(toDataPath(url)), { recursive: true });
+      await writeFile(toDataPath(url), JSON.stringify(data));
+      return true;
+    } catch {
+      return null;
+    }
+  };
   return { read, readdir: _readdir, write };
 };
 
