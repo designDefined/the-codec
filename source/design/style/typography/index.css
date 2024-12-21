@@ -1,2 +1,3 @@
-@import "font/index.css";
-@import "size.css";
+@import "./font";
+@import "./fx.css";
+@import "./size.css";

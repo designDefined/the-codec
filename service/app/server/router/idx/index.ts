@@ -46,7 +46,7 @@ IndexRouter.post(
 
     await DataHandler.write(`/index/${id}/data.json`, data);
     await DataHandler.write(`/index/${id}/summary.json`, summary);
-    res.send({ success: true });
+    res.send({ success: true, id });
   }),
 );
 

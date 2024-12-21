@@ -1,25 +1,16 @@
 import "@style/index.css";
-import { Routes, Route } from "react-router-dom";
 import { HomePage } from "../../ui-editor/home/HomePage";
 import { IndexPage } from "../../ui-editor/idx/IndexPage";
-import { Via } from "viajs-react";
-import { createStore } from "viajs-core";
-import { Suspense } from "react";
+import { NavigatorLayout } from "../../ui-editor/NavigatorLayout";
+import { createBrowserRouter } from "react-router-dom";
 
-const store = createStore();
-
-export const LocalRoutes = () => (
-  <Via store={store}>
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Suspense>
-            <HomePage />
-          </Suspense>
-        }
-      />
-      <Route path="/idx/:indexId" element={<IndexPage />} />
-    </Routes>
-  </Via>
-);
+export const router = createBrowserRouter([
+  {
+    path: "",
+    element: <NavigatorLayout />,
+    children: [
+      { path: "", element: <HomePage /> },
+      { path: "idx/:indexId", element: <IndexPage /> },
+    ],
+  },
+]);

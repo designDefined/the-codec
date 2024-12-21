@@ -1,5 +1,5 @@
-@import "raw/pretendard.css";
+@import "./raw/pretendard.css";
 
-.typ-font-sans {
+.typ_font_sans {
   font-family: "Pretendard Variable", sans-serif;
 }

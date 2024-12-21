@@ -1,0 +1,9 @@
+.MainTitle {
+  background-image: linear-gradient(
+    in oklch longer hue to right,
+    oklch(52% 0.3 0),
+    oklch(52% 0.3 0)
+  ); /* TODO: Add gradient palette */
+  font-size: 120px;
+  text-shadow: 4px 3px 3px rgb(100% 100% 100% / 0.8); /* TODO: Add grayscale palette */
+}

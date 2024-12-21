@@ -4,7 +4,7 @@ import { useIndexId } from "../../../router/local/useResourceId";
 import { useIntentSubmit, useView } from "viajs-react";
 import { BoxEditor } from "@module/box/BoxEditor";
 import { BoxManager } from "@module/box/BoxManager";
-import { Modal } from "@compoent/area/modal/Modal";
+import { Modal } from "@source/design/component/modal/Modal";
 import { IndexInformationEditor } from "@module/index/IndexInformationEditor";
 import { useState } from "react";
 import { IndexIntent } from "@core/intent/index/index";

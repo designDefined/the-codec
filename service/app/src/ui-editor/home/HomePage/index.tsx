@@ -1,21 +1,15 @@
-import styles from "./index.module.css";
-import { Article, bindCSS } from "@flexive/core";
-import { HomeHeader } from "../HomeHeader";
-import { Recents } from "../Recents";
-import { MainContent } from "../../../../../../source/design/component/area/content/MainContent/index";
+import { Article, Header } from "@flexive/core";
+import { MainTitle } from "@module/logo";
+import { Suspense } from "react";
+import { ManageIndexSection } from "../ManageIndexSection";
 
-const cx = bindCSS(styles);
-
-export const HomePage = () => {
-  return (
-    <Article className={cx("HomePage")} sizeC="100vw" minM="100vh">
-      <HomeHeader />
-      <MainContent py={120}>
-        <Recents />
-      </MainContent>
-      <MainContent py={120}>codex 1</MainContent>
-      <MainContent py={120}>codex 2</MainContent>
-      <MainContent py={120}>codex 3</MainContent>
-    </Article>
-  );
-};
+export const HomePage = () => (
+  <Article>
+    <Header alignC px={24}>
+      <MainTitle />
+    </Header>
+    <Suspense>
+      <ManageIndexSection />
+    </Suspense>
+  </Article>
+);

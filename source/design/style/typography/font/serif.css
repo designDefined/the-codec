@@ -1,10 +1,15 @@
-@import "raw/noto-serif.css";
-@import "raw/bookk-myungjo.css";
+@import "./raw/noto-serif.css";
+@import "./raw/bookk-myungjo.css";
 
-.typ-font-serif {
-  font-family: "Noto Serif KR", sans-serif;
+.typ_font_serif {
+  font-family: "BookkMyungjo", serif;
 }
 
-.typ-font-serif2 {
-  font-family: "BookkMyungjo", sans-serif;
+h1.typ_font_serif,
+h2.typ_font_serif,
+h3.typ_font_serif,
+.typ_font_serif h1,
+.typ_font_serif h2,
+.typ_font_serif h3 {
+  font-family: "Noto Serif KR", serif;
 }

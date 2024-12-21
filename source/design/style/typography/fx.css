@@ -1,0 +1,5 @@
+.typ_fx_clip {
+  -webkit-background-clip: text;
+  background-clip: text !important;
+  color: transparent;
+}

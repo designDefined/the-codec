@@ -1,0 +1,18 @@
+.ManageIndexSection .item {
+  border: 1px solid #e8e8e8;
+  background-color: transparent;
+  transition: 0.1s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.ManageIndexSection .item:hover {
+  background-color: rgb(0 0 0 / 0.02);
+}
+.ManageIndexSection .item:active {
+  background-color: rgb(0 0 0 / 0.05);
+}
+.ManageIndexSection .item:disabled {
+  cursor: not-allowed;
+  background-color: rgb(0 0 0 / 0.1);
+}
