@@ -10,7 +10,7 @@ type BoxEditorProps = {
 export const BoxEditor = ({ box, onChangeBox }: BoxEditorProps) => {
   if (box.type === "INNER_BOX") return <InnerBoxEditor key={box.id} box={box} onChangeBox={onChangeBox} />;
   return (
-    <Section id={box.id} {...box.layout}>
+    <Section id={box.id} className={box.look?.classes?.map(c => c.value).join(" ")} {...box.layout}>
       {box.children.map(child => (
         <BoxEditor key={child.id} box={child} onChangeBox={onChangeBox} />
       ))}

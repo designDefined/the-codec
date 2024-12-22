@@ -1,3 +1,11 @@
+import { typ } from "@style/names";
 import { RenderElementPropsExtended } from "../../../utility/slate-type";
+import { bindCSS } from "@flexive/core";
 
-export const ParagraphReader = (props: RenderElementPropsExtended) => <p {...props.attributes}>{props.children}</p>;
+const cx = bindCSS({});
+
+export const ParagraphReader = (props: RenderElementPropsExtended) => (
+  <p className={cx(typ.size.body)} {...props.attributes}>
+    {props.children}
+  </p>
+);

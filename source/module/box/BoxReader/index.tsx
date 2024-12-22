@@ -9,12 +9,12 @@ type BoxReaderProps = {
 export const BoxReader = ({ box }: BoxReaderProps) => {
   if (box.type === "INNER_BOX")
     return (
-      <Section id={box.id} {...box.layout}>
+      <Section id={box.id} className={box.look?.classes?.map(c => c.value).join(" ")} {...box.layout}>
         {box.children.map(renderStatic)}
       </Section>
     );
   return (
-    <Section id={box.id} {...box.layout}>
+    <Section id={box.id} className={box.look?.classes?.map(c => c.value).join(" ")} {...box.layout}>
       {box.children.map(child => (
         <BoxReader key={child.id} box={child} />
       ))}

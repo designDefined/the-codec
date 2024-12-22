@@ -1,6 +1,25 @@
-.IndexPage .panel {
-  transition: 0.5s ease;
+.IndexPage .contentSection {
+  scrollbar-color: #f1f1f1 #ffffff;
 }
-.IndexPage .panel.closed {
-  transform: translateX(100%);
+
+.IndexPage .panelSection {
+  transition: 0.75s ease;
+}
+
+.IndexPage .panelButton {
+  background-color: transparent;
+  border: none;
+  color: rgb(50%, 50%, 50%);
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+.IndexPage .panelButton:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.IndexPage .panelButton:active {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.IndexPage .panelButton:disabled {
+  opacity: 0.1;
+  cursor: not-allowed;
 }
