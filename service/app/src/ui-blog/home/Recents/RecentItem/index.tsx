@@ -1,7 +1,6 @@
 import styles from "./index.module.css";
 import { IndexSummary } from "@core/entity/index/IndexSummary";
 import { A, bindCSS, H3, H4, H5, I, Li, P } from "@flexive/core";
-import { typ } from "@style/names";
 import dayjs from "dayjs";
 
 const cx = bindCSS(styles);
@@ -14,9 +13,9 @@ export const RecentItem = ({ summary: { id, title, subtitle, description, create
   const date = dayjs(createdAt).format(`YYYY년 M월 D일`);
 
   return (
-    <Li className={cx("RecentItem", typ.font.serif)} px={16} py={8}>
+    <Li className={cx("RecentItem")} px={16} py={8}>
       <A href={`/idx/${id}`}>
-        <H5 className={cx("date", typ.font.sans)}>
+        <H5 className={cx("date")}>
           <I>{date}</I>
         </H5>
         <H3 className={cx("title")} m={0} py={4}>
