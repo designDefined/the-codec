@@ -9,7 +9,9 @@ const cx = bindCSS(styles);
 export const HomePage = () => {
   return (
     <Article className={cx("HomePage")} sizeC="100vw" minM="100vh">
-      <HomeHeader />
+      <MainContent>
+        <HomeHeader />
+      </MainContent>
       <MainContent py={120}>
         <Recents />
       </MainContent>

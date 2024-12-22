@@ -5,5 +5,14 @@
     oklch(52% 0.3 0)
   ); /* TODO: Add gradient palette */
   font-size: 120px;
+  font-weight: 900;
   text-shadow: 4px 3px 3px rgb(100% 100% 100% / 0.8); /* TODO: Add grayscale palette */
+}
+
+@media (max-width: 480px) {
+  .MainTitle {
+    padding: 0 16px;
+    font-size: 80px;
+    text-shadow: 2px 2px 2px rgb(100% 100% 100% / 0.8); /* TODO: Add grayscale palette */
+  }
 }

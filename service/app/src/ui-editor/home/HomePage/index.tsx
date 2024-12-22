@@ -5,7 +5,7 @@ import { ManageIndexSection } from "../ManageIndexSection";
 
 export const HomePage = () => (
   <Article>
-    <Header alignC px={24}>
+    <Header alignC px={24} py={48}>
       <MainTitle />
     </Header>
     <Suspense>
