@@ -8,3 +8,6 @@ export type SUBTITLE = z.infer<typeof SUBTITLE>;
 
 export const DESCRIPTION = z.string().min(2).max(200);
 export type DESCRIPTION = z.infer<typeof DESCRIPTION>;
+
+export const NAME = z.string().min(2).max(20);
+export type NAME = z.infer<typeof NAME>;
