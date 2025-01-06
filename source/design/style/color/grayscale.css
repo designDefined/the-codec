@@ -1,0 +1,55 @@
+/* light */
+.color_mode_light {
+  --black: 0% 0;
+  --dark: 35% 0;
+  --gray: 64% 0;
+  --light: 88% 0;
+  --white: 98% 0;
+  --g1: 98% 0;
+  --g2: 88% 0;
+  --g3: 64% 0;
+  --g4: 35% 0;
+  --g5: 0% 0;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --black: 0% 0;
+    --dark: 35% 0;
+    --gray: 64% 0;
+    --light: 88% 0;
+    --white: 98% 0;
+    --g1: 98% 0;
+    --g2: 88% 0;
+    --g3: 64% 0;
+    --g4: 35% 0;
+    --g5: 0% 0;
+  }
+}
+
+/* dark */
+.color_mode_dark {
+  --black: 18% 0;
+  --dark: 30% 0;
+  --gray: 45% 0;
+  --light: 78% 0;
+  --white: 98% 0;
+  --g1: 18% 0;
+  --g2: 35% 0;
+  --g3: 50% 0;
+  --g4: 78% 0;
+  --g5: 98% 0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: 18% 0;
+    --dark: 30% 0;
+    --gray: 45% 0;
+    --light: 78% 0;
+    --white: 98% 0;
+    --g1: 18% 0;
+    --g2: 35% 0;
+    --g3: 50% 0;
+    --g4: 78% 0;
+    --g5: 98% 0;
+  }
+}

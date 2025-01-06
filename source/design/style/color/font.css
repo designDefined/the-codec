@@ -1,0 +1,29 @@
+:root {
+  --color_font_body: var(--g5) 0;
+  --color_font_accent: var(--vivid) var(--hue);
+  --color_font_label: var(--g5) 0;
+  --color_font_heading: var(--g5) 0;
+  color: oklch(var(--color_font_body));
+}
+
+p {
+  color: oklch(var(--color_font_body));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: oklch(var(--color_font_heading));
+}
+
+label {
+  color: oklch(var(--color_font_label));
+}
+
+a,
+em {
+  color: oklch(var(--color_font_accent));
+}
