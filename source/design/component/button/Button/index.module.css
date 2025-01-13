@@ -1,0 +1,11 @@
+.Button {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: 0.1s ease;
+}
+.Button:disabled {
+  cursor: not-allowed;
+}

@@ -1,15 +1,12 @@
 .InnerBoxEditor {
-  padding: 8px;
   outline: none;
-  border-radius: 4px;
-  transition: 0.1s ease;
-  border: 1px solid transparent;
+  transition: 0.2s ease;
 }
 .InnerBoxEditor:hover {
-  background-color: rgba(0, 0, 0, 0.02);
+  box-shadow: inset -2px 2px 8px 0px oklch(var(--g2) 0 / 0.2);
 }
-.InnerBoxEditor:focus {
-  border-bottom-color: rgba(0, 0, 0, 0.04);
-  border-top-color: rgba(0, 0, 0, 0.04);
-  background-color: transparent;
+
+.InnerBoxEditor:active,
+.InnerBoxEditor.isSelected {
+  box-shadow: inset -2px 2px 8px 0px oklch(var(--g2) 0 / 0.5);
 }

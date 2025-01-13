@@ -1,6 +1,7 @@
-import { Article, Div } from "@flexive/core";
-import { useBoxEditor } from "../BoxEditorContext/useBoxEditor";
+import { Article } from "@flexive/core";
+import { useBoxEditor } from "../context";
 import { BoxLayoutEditor } from "./BoxLayoutEditor";
+import { BoxPathNavigator } from "./BoxPathNavigator";
 
 export const SelectedBoxEditor = () => {
   const { selected } = useBoxEditor();
@@ -8,12 +9,8 @@ export const SelectedBoxEditor = () => {
   if (!selected) return null;
 
   return (
-    <Article>
-      {selected.path.map(({ id, name }) => (
-        <Div key={id}>
-          {id} {name}
-        </Div>
-      ))}
+    <Article g={6}>
+      <BoxPathNavigator path={selected.path} />
       <BoxLayoutEditor {...selected} />
     </Article>
   );

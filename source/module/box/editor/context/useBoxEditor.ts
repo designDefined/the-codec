@@ -3,6 +3,6 @@ import { BoxEditorContext } from "./BoxEditorContext";
 
 export const useBoxEditor = () => {
   const context = useContext(BoxEditorContext);
-  if (!context) throw new Error("EditBoxProvider must be used inside BoxEditorProvider");
+  if (!context) throw new Error("useBoxEditor must be used inside the BoxEditorProvider");
   return context;
 };

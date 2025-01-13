@@ -1,0 +1,15 @@
+.PathItem {
+  color: oklch(var(--g3) 0);
+  font-weight: 500;
+}
+
+.PathItem:hover {
+  color: oklch(var(--g3) 0 / 0.8);
+}
+.PathItem:active {
+  color: oklch(var(--tarnish) var(--hue));
+}
+.PathItem.current {
+  color: oklch(var(--deep) var(--hue));
+  font-weight: 700;
+}

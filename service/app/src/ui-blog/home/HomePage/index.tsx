@@ -2,7 +2,7 @@ import styles from "./index.module.css";
 import { Article, bindCSS } from "@flexive/core";
 import { HomeHeader } from "../HomeHeader";
 import { Recents } from "../Recents";
-import { MainContent } from "@source/design/component/area";
+import { MainContent } from "@component/area";
 
 const cx = bindCSS(styles);
 

@@ -2,12 +2,12 @@ import styles from "./index.module.css";
 import { Editable, Slate, withReact } from "slate-react";
 import { createEditor, Editor } from "slate";
 import { useMemo } from "react";
-import { bindCSS } from "@flexive/core";
+import { bindCSS, useFlexiveStyle } from "@flexive/core";
 import { renderElement } from "../../../../content/render/renderElement";
 import { renderLeaf } from "../../../../content/render/renderLeaf";
 import { InnerBox } from "@core/entity/box/InnerBox";
 import { BoxPath } from "@core/entity/box/BoxPath";
-import { useBoxEditorAt } from "../../BoxEditorContext/useBoxEditorAt";
+import { useBoxEditorAt } from "../../context/useBoxEditorAt";
 
 const cx = bindCSS(styles);
 
@@ -17,8 +17,9 @@ type InnerBoxEditorProps = {
 };
 
 export const InnerBoxEditor = ({ box, path }: InnerBoxEditorProps) => {
-  const { edit, select } = useBoxEditorAt(path);
   const editor = useMemo(() => withReact(createEditor()), []);
+  const { edit, select, isSelected } = useBoxEditorAt(path);
+  const style = useFlexiveStyle(box.layout ?? {});
 
   return (
     <Slate
@@ -33,11 +34,14 @@ export const InnerBoxEditor = ({ box, path }: InnerBoxEditorProps) => {
       }
     >
       <Editable
-        className={cx("InnerBoxEditor", ...(box.look?.classes?.map(c => c.value) ?? []))}
+        as="section"
+        className={cx("InnerBoxEditor", { isSelected }, ...(box.look?.classes?.map(c => c.value) ?? []))}
+        style={style}
         renderElement={renderElement}
         renderLeaf={renderLeaf}
         placeholder={box.name}
         spellCheck={false}
+        onClick={e => e.stopPropagation()}
         onFocus={() => select()}
         onKeyDown={e => {
           if (e.metaKey && e.key === "b") {

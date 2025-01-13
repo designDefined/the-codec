@@ -3,23 +3,32 @@
 }
 
 .IndexPage .panelSection {
-  transition: 0.75s ease;
+  transition: 1s ease;
 }
-
+.IndexPage .panels {
+  box-shadow: inset 3px 0px 6px -3px oklch(var(--g2) 0);
+  background-color: oklch(var(--g2) 0 / 0.1);
+}
 .IndexPage .panelButton {
-  background-color: transparent;
-  border: none;
-  color: rgb(50%, 50%, 50%);
-  cursor: pointer;
-  transition: 0.1s ease;
+  color: oklch(var(--g4) 0);
 }
 .IndexPage .panelButton:hover {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: oklch(var(--g2) 0 / 0.1);
 }
 .IndexPage .panelButton:active {
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: oklch(var(--g2) 0 / 0.2);
 }
 .IndexPage .panelButton:disabled {
-  opacity: 0.1;
-  cursor: not-allowed;
+  opacity: 0.2;
+  background-color: transparent;
+}
+
+.IndexPage .name {
+  font-size: 32px;
+  font-weight: 100;
+  color: oklch(var(--deep) var(--hue));
+}
+.IndexPage .divider {
+  border: none;
+  border-top: 1px solid oklch(var(--g2) 0);
 }

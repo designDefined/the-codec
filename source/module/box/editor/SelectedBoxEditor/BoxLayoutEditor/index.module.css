@@ -1,0 +1,6 @@
+.BoxLayoutEditor .sectionName {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color_font_label);
+  transition: 0.2s ease;
+}

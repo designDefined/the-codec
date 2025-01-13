@@ -1,5 +1,5 @@
 import { Index } from "@core/entity/index/Index";
-import { BoxReader } from "../../box/BoxReader";
+import { BoxReader } from "../../box/reader/BoxReader";
 
 type IndexReaderProps = { index: Index };
 

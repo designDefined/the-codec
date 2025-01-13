@@ -1,0 +1,16 @@
+.Selectable {
+  --select: var(--g3) 0;
+}
+.Selectable.colored {
+  --select: var(--vivid) var(--hue);
+}
+
+.Selectable:hover {
+  background-color: oklch(var(--select) / 0.4);
+}
+.Selectable:active {
+  background-color: oklch(var(--select) / 0.1);
+}
+.Selectable.selected {
+  background-color: oklch(var(--select) / 0.2);
+}

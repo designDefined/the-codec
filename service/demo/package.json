@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@flexive/core": "^0.5.6",
+    "@flexive/core": "^0.5.7",
+    "@flexive/operator": "^0.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

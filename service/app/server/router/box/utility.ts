@@ -10,13 +10,17 @@ export const createOuterBox = (): OuterBox => {
   return {
     id: outerBoxId,
     type: "OUTER_BOX",
-    title: "root",
+    name: "root",
+    layout: {},
+    look: {},
     children: [
       {
         id: innerBoxId,
-        title: "내용",
+        name: "내용",
         type: "INNER_BOX",
         children: [{ type: "PARAGRAPH", children: [{ text: "" }] }],
+        layout: {},
+        look: {},
       },
     ],
   };

@@ -1,4 +1,4 @@
-import { MainContent } from "@compoent/area";
+import { MainContent } from "@component/area";
 import { Index } from "@core/entity/index/Index";
 import { Article } from "@flexive/core";
 import { IndexReader } from "@module/index/IndexReader";

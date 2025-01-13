@@ -10,6 +10,6 @@ export type OuterBox = {
   id: ID["BOX"];
   name: NAME;
   children: Box[];
-  layout?: BoxLayout;
-  look?: BoxLook;
+  layout: BoxLayout;
+  look: BoxLook;
 };

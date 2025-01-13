@@ -10,6 +10,6 @@ export type InnerBox = {
   id: ID["BOX"];
   name: NAME;
   children: Content[];
-  layout?: BoxLayout;
-  look?: BoxLook;
+  layout: BoxLayout;
+  look: BoxLook;
 };

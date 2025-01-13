@@ -1,20 +1,23 @@
-import { bindCSS, Button, Div, Main, Section } from "@flexive/core";
+import { Article, bindCSS, Div, H1, Hgroup, Hr, Main, Section } from "@flexive/core";
 import styles from "./index.module.css";
 import { useIndexId } from "../../../router/local/useResourceId";
 import { useIntentSubmit, useView } from "viajs-react";
 import { IndexInformationEditor } from "@module/index/IndexInformationEditor";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { IndexIntent } from "@core/intent/index/index";
 import { IndexView } from "@core/view/index";
-import { MainContent } from "@compoent/area";
-import { BoxEditor, BoxEditorProvider, SelectedBoxEditor } from "@module/box";
+import { MainContent } from "@component/area";
+import { BoxEditor, BoxEditorContext, SelectedBoxEditor, useBoxEditorRoot } from "@module/box";
+import { Button } from "@component/button";
+import { useDeep } from "@flexive/operator";
+import { Box } from "@core/entity/box/Box";
 
 const cx = bindCSS(styles);
 
 export const IndexPage = () => {
   const id = useIndexId();
   const [isPanelOpen, setIsPanelOpen] = useState(true);
-  const { value: index } = useView({ view: IndexView.data(id) });
+  const { value: initialIndex } = useView({ view: IndexView.data(id) });
   const {
     set,
     submit,
@@ -22,27 +25,30 @@ export const IndexPage = () => {
     isModified,
   } = useIntentSubmit({ intent: IndexIntent.update(id) });
 
-  const indexToEdit = indexInput.value ?? index;
+  const index = useDeep(indexInput.value ?? initialIndex);
+  const onChangeBox = useCallback(
+    (setter: (root: Box) => void) => {
+      set(draft => {
+        if (!draft.index) draft.index = index;
+        setter(draft.index.content);
+      });
+    },
+    [set, index],
+  );
+
+  const boxEditorContext = useBoxEditorRoot(index.content, onChangeBox);
 
   return (
-    <BoxEditorProvider
-      root={indexToEdit.content}
-      onChangeRoot={setter => {
-        set(draft => {
-          if (!draft.index) draft.index = index;
-          setter(draft.index.content);
-        });
-      }}
-    >
+    <BoxEditorContext.Provider value={boxEditorContext}>
       <Main className={cx("IndexPage")} row sizeC="100vh" hide>
         <Section className={cx("contentSection")} f overM py={128}>
           <MainContent>
-            <BoxEditor box={indexToEdit.content} path={[]} />
+            <BoxEditor box={index.content} path={[{ id: index.content.id, name: index.content.name }]} />
           </MainContent>
         </Section>
 
-        <Section className={cx("panelSection")} row basis={isPanelOpen ? 400 : 48} sizeM={"100vh"}>
-          <Div basis={40} g={16} py={4}>
+        <Section className={cx("panelSection")} basis={isPanelOpen ? 520 : 40} row sizeM={"100vh"} hide>
+          <Div className={cx("handle")} basis={40} alignM>
             <Button className={cx("panelButton")} onClick={submit} disabled={!isModified} px={0} py={8} alignC rad={8}>
               저장
             </Button>
@@ -50,33 +56,36 @@ export const IndexPage = () => {
               {isPanelOpen ? ">" : "<"}
             </Button>
           </Div>
-          <Div absolute left={40} top={0} f sizeC={320} px={12} py={24} g={30} overM>
-            <IndexInformationEditor
-              index={indexInput.value ?? index}
-              onChangeIndexPartial={partial => {
-                set(draft => {
-                  if (!draft.index) draft.index = index;
-                  Object.assign(draft.index, partial);
-                });
-              }}
-            />
-            <SelectedBoxEditor />
-            {/* <BoxManager
-              box={indexInput.value?.content ?? index.content}
-              onChangeBox={box =>
-                set(draft => {
-                  if (!draft.index) draft.index = index;
-                  if (draft.index.content.id === box.id && box.type === "OUTER_BOX") draft.index.content = box;
-                  else {
-                    const targetIndex = draft.index.content.children.findIndex(target => target.id === box.id);
-                    if (targetIndex >= 0) draft.index.content.children[targetIndex] = box;
-                  }
-                })
-              }
-            /> */}
-          </Div>
+          <Article className={cx("panels")} basis={480} hide overM>
+            <Div p={24} pr={32} overM hideC>
+              <Section pb={40} g={16}>
+                <Hgroup row alignC px={4} g={8}>
+                  <Hr className={cx("divider")} f />
+                  <H1 className={cx("name")}>Index</H1>
+                  <Hr className={cx("divider")} basis={32} />
+                </Hgroup>
+                <IndexInformationEditor
+                  index={index}
+                  onChangeIndexPartial={partial => {
+                    set(draft => {
+                      if (!draft.index) draft.index = index;
+                      Object.assign(draft.index, partial);
+                    });
+                  }}
+                />
+              </Section>
+              <Section pb={40} g={16}>
+                <Hgroup row alignC px={4} g={8}>
+                  <Hr className={cx("divider")} f />
+                  <H1 className={cx("name")}>Box</H1>
+                  <Hr className={cx("divider")} basis={32} />
+                </Hgroup>
+                <SelectedBoxEditor />
+              </Section>
+            </Div>
+          </Article>
         </Section>
       </Main>
-    </BoxEditorProvider>
+    </BoxEditorContext.Provider>
   );
 };

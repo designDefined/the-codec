@@ -1,0 +1,8 @@
+.OuterBoxEditor {
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.OuterBoxEditor.isSelected {
+  box-shadow: inset -2px 2px 8px 0px oklch(var(--g2) 0 / 0.5);
+}
