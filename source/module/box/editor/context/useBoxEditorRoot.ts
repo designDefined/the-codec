@@ -3,8 +3,9 @@ import { BoxEditorContext } from "./BoxEditorContext";
 import { useMemo, useState } from "react";
 import { BoxPath } from "@core/entity/box/BoxPath";
 import { utils } from "./utility";
+import { OuterBox } from "@core/entity/box/OuterBox";
 
-export const useBoxEditorRoot = (root: Box, onChangeRoot: (setter: (root: Box) => void) => void) => {
+export const useBoxEditorRoot = (root: OuterBox, onChangeRoot: (setter: (root: Box) => void) => void) => {
   const [selected, setSelected] = useState<{ box: Box; path: BoxPath } | undefined>({
     box: root,
     path: [{ id: root.id, name: root.name }],

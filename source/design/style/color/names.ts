@@ -10,10 +10,13 @@ export const color = {
     label: "color_font_label",
     heading: "color_font_heading",
   },
-  hue: "hue",
+  icon: "color_icon",
 };
 
 export const colorV = {
+  // hue
+  hue: "hue",
+
   // grayscale
   white: "white",
   dark: "dark",

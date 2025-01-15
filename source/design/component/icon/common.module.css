@@ -1,0 +1,16 @@
+.Icon {
+  transform: var(--rotateY) var(--rotateZ);
+  --rotateY: rotateY(0deg);
+  --rotateZ: rotateY(0deg);
+}
+
+.reversed {
+  --rotateY: rotateY(180deg);
+}
+
+.clockwised {
+  --rotateZ: rotateZ(90deg);
+}
+.antiClockwised {
+  --rotateZ: rotateZ(-90deg);
+}

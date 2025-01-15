@@ -5,7 +5,7 @@ type MainContentProps = PropsOf<"article"> & { mainProps?: Omit<PropsOf<"main">,
 
 export const MainContent = forwardRef<NativeElementOf<"article">, MainContentProps>(
   ({ mainProps, children, ...props }, ref) => (
-    <Article row ref={ref} {...props}>
+    <Article ref={ref} row {...props}>
       <Div grow={2} basis={16} />
       <Main f basis={720} {...mainProps}>
         {children}

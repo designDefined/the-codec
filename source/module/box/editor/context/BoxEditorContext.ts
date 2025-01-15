@@ -1,11 +1,12 @@
 import { Box } from "@core/entity/box/Box";
 import { BoxPath } from "@core/entity/box/BoxPath";
+import { OuterBox } from "@core/entity/box/OuterBox";
 import { createContext } from "react";
 
 type Setter = (box: Box) => void;
 
 export type BoxEditorContext = {
-  root: Box;
+  root: OuterBox;
   selected?: { box: Box; path: BoxPath };
   add: (path: BoxPath) => void;
   remove: (path: BoxPath) => void;

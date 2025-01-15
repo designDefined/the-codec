@@ -7,8 +7,9 @@ import { useCallback, useState } from "react";
 import { IndexIntent } from "@core/intent/index/index";
 import { IndexView } from "@core/view/index";
 import { MainContent } from "@component/area";
-import { BoxEditor, BoxEditorContext, SelectedBoxEditor, useBoxEditorRoot } from "@module/box";
+import { BoxEditor, BoxEditorContext, BoxManager, SelectedBoxEditor, useBoxEditorRoot } from "@module/box";
 import { Button } from "@component/button";
+import { Chevron } from "@component/icon";
 import { useDeep } from "@flexive/operator";
 import { Box } from "@core/entity/box/Box";
 
@@ -42,7 +43,10 @@ export const IndexPage = () => {
     <BoxEditorContext.Provider value={boxEditorContext}>
       <Main className={cx("IndexPage")} row sizeC="100vh" hide>
         <Section className={cx("contentSection")} f overM py={128}>
-          <MainContent>
+          <MainContent
+            onClick={() => boxEditorContext.clearSelected()}
+            mainProps={{ onClick: e => e.stopPropagation() }}
+          >
             <BoxEditor box={index.content} path={[{ id: index.content.id, name: index.content.name }]} />
           </MainContent>
         </Section>
@@ -53,7 +57,7 @@ export const IndexPage = () => {
               저장
             </Button>
             <Button className={cx("panelButton")} onClick={() => setIsPanelOpen(prev => !prev)} f alignC alignM rad={8}>
-              {isPanelOpen ? ">" : "<"}
+              <Chevron className={cx("icon")} reversed={isPanelOpen} />
             </Button>
           </Div>
           <Article className={cx("panels")} basis={480} hide overM>
@@ -73,6 +77,7 @@ export const IndexPage = () => {
                     });
                   }}
                 />
+                <BoxManager />
               </Section>
               <Section pb={40} g={16}>
                 <Hgroup row alignC px={4} g={8}>

@@ -4,8 +4,29 @@
   cursor: pointer;
   background: none;
   border: none;
-  transition: 0.1s ease;
+  transition: 0.2s ease;
 }
 .Button:disabled {
   cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.dim {
+  opacity: 1;
+}
+.dim:hover {
+  opacity: 0.8;
+}
+.dim:active {
+  opacity: 0.6;
+}
+
+.shaded {
+  background-color: oklch(var(--g5) 0 / 0);
+}
+.shaded:hover {
+  background-color: oklch(var(--g5) 0 / 0.08);
+}
+.shaded:active {
+  background-color: oklch(var(--g5) 0 / 0.2);
 }

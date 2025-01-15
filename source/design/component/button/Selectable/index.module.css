@@ -1,16 +1,72 @@
 .Selectable {
-  --select: var(--g3) 0;
+  /* local variable */
+  --primary: var(--g3) 0;
+  --secondary: var(--g3) 0;
+
+  /* cascading variable */
+  /* --color_font_body: oklch(var(--primary)); */
+
+  color: var(--color_font_body);
+  opacity: 1;
+  transition: 0.2s ease;
+  cursor: pointer;
 }
-.Selectable.colored {
-  --select: var(--vivid) var(--hue);
+.selected:hover {
+  opacity: 0.9;
+}
+.selected:active {
+  opacity: 0.8;
 }
 
 .Selectable:hover {
-  background-color: oklch(var(--select) / 0.4);
+  background-color: oklch(var(--primary) / 0.1);
+  --color_font_body: oklch(var(--primary));
+  --color_icon: oklch(var(--primary));
 }
 .Selectable:active {
-  background-color: oklch(var(--select) / 0.1);
+  background-color: oklch(var(--primary) / 0.04);
+  --color_font_body: oklch(var(--primary));
+  --color_icon: oklch(var(--primary));
 }
 .Selectable.selected {
-  background-color: oklch(var(--select) / 0.2);
+  --primary: var(--g4) 0;
+  background-color: oklch(var(--primary) / 0.2);
+  --color_font_body: oklch(var(--primary));
+  --color_icon: oklch(var(--primary));
+}
+
+.colored {
+  --secondary: var(--vivid) var(--hue);
+}
+.colored:hover {
+  --primary: var(--deep) var(--hue);
+  background-color: oklch(var(--secondary) / 0.08);
+  --color_font_body: oklch(var(--primary) / 0.8);
+}
+.colored:active {
+  --primary: var(--deep) var(--hue);
+  background-color: oklch(var(--secondary) / 0.04);
+  --color_font_body: oklch(var(--primary) / 0.8);
+}
+.colored.selected {
+  --primary: var(--deep) var(--hue);
+  background-color: oklch(var(--secondary) / 0.16);
+}
+
+.bordered {
+  border: 1px solid transparent;
+}
+.bordered:hover {
+  border-color: oklch(var(--primary) / 0.2);
+}
+.bordered:active {
+  border-color: oklch(var(--primary) / 0.4);
+}
+.bordered.selected {
+  border-color: oklch(var(--primary) / 0.75);
+}
+
+.inversed.selected {
+  --color_font_body: oklch(var(--g1) 0);
+  background-color: oklch(var(--primary) / 0.75);
 }

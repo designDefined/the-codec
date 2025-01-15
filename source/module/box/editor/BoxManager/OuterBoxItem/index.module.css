@@ -1,0 +1,13 @@
+.OuterBoxItem {
+  font-weight: 500;
+  --color_font_body: oklch(var(--g3) 0);
+  --color_icon: oklch(var(--g3) 0);
+}
+.OuterBoxItem.highlighted {
+  --color_font_body: oklch(var(--deep) var(--hue));
+  --color_icon: oklch(var(--deep) var(--hue));
+}
+
+.OuterBoxItem .toggle > svg {
+  transition: 0.1s ease;
+}
