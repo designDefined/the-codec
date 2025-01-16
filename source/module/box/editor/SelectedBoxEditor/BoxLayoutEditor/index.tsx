@@ -19,7 +19,7 @@ export const BoxLayoutEditor = ({ box, path }: BoxLayoutEditorProps) => {
   const { edit } = useBoxEditorAt(path, box);
 
   return (
-    <EditorPanel className={cx("BoxLayoutEditor")} name="Layouts">
+    <EditorPanel className={cx("BoxLayoutEditor")} name="Layout">
       <Section row alignC g={12}>
         <H5 className={cx("sectionName")} basis={64}>
           Padding

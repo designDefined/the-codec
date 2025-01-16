@@ -8,6 +8,8 @@ import { renderLeaf } from "../../../../content/render/renderLeaf";
 import { InnerBox } from "@core/entity/box/InnerBox";
 import { BoxPath } from "@core/entity/box/BoxPath";
 import { useBoxEditorAt } from "../../context/useBoxEditorAt";
+import { useBoxLookStyle } from "@module/box/look";
+import { useDeep } from "@flexive/operator";
 
 const cx = bindCSS(styles);
 
@@ -19,7 +21,9 @@ type InnerBoxEditorProps = {
 export const InnerBoxEditor = ({ box, path }: InnerBoxEditorProps) => {
   const editor = useMemo(() => withReact(createEditor()), []);
   const { edit, select, isSelected } = useBoxEditorAt(path, box);
-  const style = useFlexiveStyle(box.layout ?? {});
+  const lookStyle = useBoxLookStyle(box.look);
+  const layoutStyle = useFlexiveStyle({ ...box.layout });
+  const style = useDeep({ ...lookStyle, ...layoutStyle });
 
   return (
     <Slate
@@ -35,7 +39,7 @@ export const InnerBoxEditor = ({ box, path }: InnerBoxEditorProps) => {
     >
       <Editable
         as="section"
-        className={cx("InnerBoxEditor", { isSelected }, ...(box.look?.classes?.map(c => c.value) ?? []))}
+        className={cx("InnerBoxEditor", { isSelected })}
         style={style}
         renderElement={renderElement}
         renderLeaf={renderLeaf}

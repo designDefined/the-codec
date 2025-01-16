@@ -4,6 +4,7 @@ export const color = {
     light: "color_mode_light",
   },
   background: "color_background",
+  border: "color_border",
   font: {
     body: "color_font_body",
     accent: "color_font_accent",

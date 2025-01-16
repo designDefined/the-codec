@@ -60,7 +60,7 @@ export const IndexPage = () => {
               저장
             </Button>
             <Button className={cx("panelButton")} onClick={() => setIsPanelOpen(prev => !prev)} f alignC alignM rad={8}>
-              <Chevron className={cx("icon")} reversed={isPanelOpen} />
+              <Chevron className={cx("icon")} reversed={!isPanelOpen} />
             </Button>
           </Div>
           <Article className={cx("panels")} basis={480} hideC overM="scroll">

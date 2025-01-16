@@ -1,0 +1,33 @@
+.InputWeight {
+  --color_font_body: oklch(var(--g3) 0);
+  --color_icon: oklch(var(--g3) 0);
+  --color_border: oklch(var(--g2) 0);
+}
+.InputWeight > button {
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.InputWeight .thin {
+  font-weight: 200;
+}
+
+.InputWeight .light {
+  font-weight: 400;
+}
+
+.InputWeight .medium {
+  font-weight: 500;
+}
+
+.InputWeight .bold {
+  font-weight: 700;
+}
+
+.InputWeight .heavy {
+  font-weight: 900;
+}

@@ -1,4 +1,4 @@
 :root {
-  --color_background: oklch(var(--g1) 0);
-  background-color: var(--color_background);
+  --color_background: none;
+  background-color: oklch(var(--g1) 0);
 }

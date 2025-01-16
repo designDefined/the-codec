@@ -1,5 +1,6 @@
 import { Box } from "@core/entity/box/Box";
 import { Section } from "@flexive/core";
+import { useBoxLookStyle } from "@module/box/look";
 import { renderStatic } from "@module/content/render/renderStatic";
 
 type BoxReaderProps = {
@@ -7,14 +8,16 @@ type BoxReaderProps = {
 };
 
 export const BoxReader = ({ box }: BoxReaderProps) => {
+  const style = useBoxLookStyle(box.look);
+
   if (box.type === "INNER_BOX")
     return (
-      <Section id={box.id} className={box.look?.classes?.map(c => c.value).join(" ")} {...box.layout}>
+      <Section id={box.id} {...box.layout} style={style}>
         {box.children.map(renderStatic)}
       </Section>
     );
   return (
-    <Section id={box.id} className={box.look?.classes?.map(c => c.value).join(" ")} {...box.layout}>
+    <Section id={box.id} {...box.layout} style={style}>
       {box.children.map(child => (
         <BoxReader key={child.id} box={child} />
       ))}

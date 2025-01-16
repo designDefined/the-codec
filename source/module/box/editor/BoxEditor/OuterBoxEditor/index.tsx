@@ -4,6 +4,7 @@ import { OuterBox } from "@core/entity/box/OuterBox";
 import { Article, bindCSS } from "@flexive/core";
 import { PropsWithChildren } from "react";
 import { useBoxEditorAt } from "../../context";
+import { useBoxLookStyle } from "@module/box/look";
 
 const cx = bindCSS(styles);
 
@@ -13,13 +14,10 @@ type OuterBoxEditorProps = PropsWithChildren & {
 };
 export const OuterBoxEditor = ({ box, path, children }: OuterBoxEditorProps) => {
   const { isSelected } = useBoxEditorAt(path, box);
+  const style = useBoxLookStyle(box.look);
 
   return (
-    <Article
-      className={cx("OuterBoxEditor", { isSelected }, ...(box.look?.classes?.map(c => c.value) ?? []))}
-      id={box.id}
-      {...box.layout}
-    >
+    <Article className={cx("OuterBoxEditor", { isSelected })} id={box.id} {...box.layout} style={style}>
       {children}
     </Article>
   );

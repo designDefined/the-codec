@@ -1,3 +1,3 @@
 import { FlexiveStyle } from "@flexive/core";
 
-export type BoxLayout = FlexiveStyle;
+export type BoxLayout = Omit<FlexiveStyle, "style">;

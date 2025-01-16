@@ -1,7 +1,9 @@
-import { LookClass } from "../style/LookClass";
-import { LookVariable } from "../style/LookVariable";
+import { WEIGHT } from "@core/constant/style/WEIGHT";
 
 export type BoxLook = {
-  classes?: LookClass[];
-  variables?: LookVariable[];
+  theme?: number;
+  border?: { color?: string; weight?: WEIGHT };
+  background?: { color?: string };
+  body?: { color?: string };
+  accent?: { color?: string };
 };
