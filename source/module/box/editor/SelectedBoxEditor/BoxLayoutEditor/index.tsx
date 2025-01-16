@@ -14,7 +14,7 @@ type BoxLayoutEditorProps = {
 };
 
 export const BoxLayoutEditor = ({ box, path }: BoxLayoutEditorProps) => {
-  const { edit } = useBoxEditorAt(path);
+  const { edit } = useBoxEditorAt(path, box);
 
   return (
     <EditorPanel className={cx("BoxLayoutEditor")} name="Layouts">

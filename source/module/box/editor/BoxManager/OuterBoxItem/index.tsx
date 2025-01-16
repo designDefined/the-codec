@@ -5,7 +5,7 @@ import { bindCSS, Li, Span, Ul } from "@flexive/core";
 import { InnerBoxItem } from "../InnerBoxItem";
 import { Button, Selectable } from "@component/button";
 import { useBoxEditorAt } from "../../context";
-import { Chevron, Copy, Plus, PlusBox, X } from "@component/icon";
+import { Chevron, Copy, Package, Plus, X } from "@component/icon";
 import { useState } from "react";
 
 const cx = bindCSS(styles);
@@ -13,14 +13,15 @@ const cx = bindCSS(styles);
 type OuterBoxItemProps = {
   box: OuterBox;
   path: BoxPath;
+  isRoot?: boolean;
 };
 
-export const OuterBoxItem = ({ box, path }: OuterBoxItemProps) => {
+export const OuterBoxItem = ({ box, path, isRoot }: OuterBoxItemProps) => {
   const [folded, setFolded] = useState(false);
-  const { isSelected, isChildSelected, select } = useBoxEditorAt(path);
+  const { isSelected, isChildSelected, select, add, clone, remove } = useBoxEditorAt(path, box);
 
   return (
-    <Li className={cx("OuterBoxItem", { highlighted: isSelected || (isChildSelected && folded) })} g={4}>
+    <Li className={cx("OuterBoxItem", { isSelected, highlighted: isSelected || (isChildSelected && folded) })} g={4}>
       <Selectable
         className={cx("self")}
         as="div"
@@ -52,21 +53,27 @@ export const OuterBoxItem = ({ box, path }: OuterBoxItemProps) => {
         >
           <Chevron size={12} clockwised={!folded} />
         </Button>
-        <Span className={cx("name")} f>
+        <Span className={cx("name")} f row sizeC={24} alignC>
           {box.name}
         </Span>
-        <Button shaded rad={4} p={2}>
-          <Plus size={20} />
-        </Button>
-        <Button shaded rad={4} p={2}>
-          <PlusBox size={20} />
-        </Button>
-        <Button shaded rad={4} p={2}>
-          <Copy size={20} />
-        </Button>
-        <Button dim rad={4} p={2}>
-          <X size={20} />
-        </Button>
+        <Ul className={cx("buttons")} onClick={e => e.stopPropagation()} row alignC g={4}>
+          <Button onClick={add} shaded rad={4} p={2}>
+            <Plus size={20} />
+          </Button>
+          {!isRoot && (
+            <>
+              <Button shaded rad={4} p={2}>
+                <Package size={20} />
+              </Button>
+              <Button onClick={clone} shaded rad={4} p={2}>
+                <Copy size={20} />
+              </Button>
+              <Button onClick={remove} dim rad={4} p={2}>
+                <X size={20} />
+              </Button>
+            </>
+          )}
+        </Ul>
       </Selectable>
       {!folded && (
         <Ul className={cx("children")} pl={20} g={4}>

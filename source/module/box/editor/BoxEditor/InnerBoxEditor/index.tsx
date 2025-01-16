@@ -18,7 +18,7 @@ type InnerBoxEditorProps = {
 
 export const InnerBoxEditor = ({ box, path }: InnerBoxEditorProps) => {
   const editor = useMemo(() => withReact(createEditor()), []);
-  const { edit, select, isSelected } = useBoxEditorAt(path);
+  const { edit, select, isSelected } = useBoxEditorAt(path, box);
   const style = useFlexiveStyle(box.layout ?? {});
 
   return (

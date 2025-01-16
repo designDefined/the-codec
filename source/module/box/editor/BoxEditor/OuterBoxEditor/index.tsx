@@ -12,7 +12,7 @@ type OuterBoxEditorProps = PropsWithChildren & {
   path: BoxPath;
 };
 export const OuterBoxEditor = ({ box, path, children }: OuterBoxEditorProps) => {
-  const { isSelected } = useBoxEditorAt(path);
+  const { isSelected } = useBoxEditorAt(path, box);
 
   return (
     <Article

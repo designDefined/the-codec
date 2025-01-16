@@ -1,6 +1,7 @@
 export * from "./Arrow";
 export * from "./Chevron";
 export * from "./Copy";
+export * from "./Package";
 export * from "./Plus";
 export * from "./PlusBox";
 export * from "./PlusCircle";

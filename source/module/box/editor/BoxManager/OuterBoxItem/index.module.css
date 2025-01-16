@@ -11,3 +11,19 @@
 .OuterBoxItem .toggle > svg {
   transition: 0.1s ease;
 }
+
+.OuterBoxItem .buttons {
+  display: none !important;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+.OuterBoxItem .self:hover .buttons,
+.OuterBoxItem.isSelected .buttons {
+  display: flex !important;
+}
+.OuterBoxItem .self:hover .buttons {
+  opacity: 0.4;
+}
+.OuterBoxItem.isSelected .buttons {
+  opacity: 1 !important;
+}

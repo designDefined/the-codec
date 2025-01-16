@@ -6,7 +6,7 @@ export const BoxManager = () => {
   const { root } = useBoxEditor();
   return (
     <EditorPanel>
-      <OuterBoxItem box={root} path={[{ id: root.id, name: root.name }]} />
+      <OuterBoxItem box={root} path={[{ id: root.id, name: root.name }]} isRoot />
     </EditorPanel>
   );
 };
