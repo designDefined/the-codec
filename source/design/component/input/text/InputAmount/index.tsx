@@ -37,7 +37,7 @@ export const InputAmount = ({
   return (
     <InputText
       className={cx("InputAmount", className)}
-      value={input}
+      value={input ?? ""}
       onChange={e => {
         onChange?.(e);
         setInput(e.target.value);

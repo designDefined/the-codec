@@ -5,6 +5,8 @@ import { bindCSS, H5, Section } from "@flexive/core";
 import { Box } from "@core/entity/box/Box";
 import { InputLabel, InputAmount } from "@component/input";
 import { EditorPanel } from "@component/area";
+import { CrossAligns, MainAligns } from "./Aligns";
+import { Flows } from "./Flows";
 
 const cx = bindCSS(styles);
 
@@ -18,66 +20,7 @@ export const BoxLayoutEditor = ({ box, path }: BoxLayoutEditorProps) => {
 
   return (
     <EditorPanel className={cx("BoxLayoutEditor")} name="Layouts">
-      <Section row alignC g={8}>
-        <H5 className={cx("sectionName")} basis={60}>
-          Flow
-        </H5>
-      </Section>
-
-      <Section row alignC g={16}>
-        <H5 className={cx("sectionName")} basis={42}>
-          Main
-        </H5>
-        <InputLabel level={2} colored text="size" row g={3} alignC>
-          <InputAmount
-            units={["px", "%", "vw"]}
-            value={box.layout?.sizeM}
-            onBlurValue={value => edit(prev => (prev.layout.sizeM = value))}
-            size={4}
-            rad={8}
-          />
-        </InputLabel>
-        <InputLabel level={2} colored text="gap" row g={3} alignC>
-          <InputAmount
-            units={["px", "%", "vw"]}
-            value={box.layout?.g}
-            onBlurValue={value => edit(prev => (prev.layout.g = value))}
-            size={3}
-            rad={8}
-          />
-        </InputLabel>
-        {/* <Select value="asdf" basis={160}>
-          <Div g={4}>
-            <Selectable>A</Selectable>
-            <Selectable>B</Selectable>
-          </Div>
-        </Select> */}
-      </Section>
-      <Section row alignC g={16}>
-        <H5 className={cx("sectionName")} basis={42}>
-          Cross
-        </H5>
-        <InputLabel level={2} colored text="size" row g={3} alignC>
-          <InputAmount
-            units={["px", "%", "vw"]}
-            value={box.layout?.sizeC}
-            onBlurValue={value => edit(prev => (prev.layout.sizeC = value))}
-            size={4}
-            rad={8}
-          />
-        </InputLabel>
-        <InputLabel level={2} colored text="gap" row g={3} alignC>
-          <InputAmount
-            units={["px", "%", "vw"]}
-            value={box.layout?.g}
-            onBlurValue={value => edit(prev => (prev.layout.g = value))}
-            size={3}
-            rad={8}
-          />
-        </InputLabel>
-      </Section>
-
-      <Section row alignC g={16}>
+      <Section row alignC g={12}>
         <H5 className={cx("sectionName")} basis={64}>
           Padding
         </H5>
@@ -101,7 +44,7 @@ export const BoxLayoutEditor = ({ box, path }: BoxLayoutEditorProps) => {
         </InputLabel>
       </Section>
 
-      <Section row alignC g={16}>
+      <Section row alignC g={12}>
         <H5 className={cx("sectionName")} basis={64}>
           Margin
         </H5>
@@ -123,6 +66,85 @@ export const BoxLayoutEditor = ({ box, path }: BoxLayoutEditorProps) => {
             rad={8}
           />
         </InputLabel>
+      </Section>
+
+      <Section row alignC g={8}>
+        <H5 className={cx("sectionName")} basis={60}>
+          Flow
+        </H5>
+        <Flows
+          value={{
+            col: !box.layout.row && !box.layout.rowReverse && !box.layout.colReverse,
+            row: box.layout.row,
+            colReverse: box.layout.colReverse,
+            rowReverse: box.layout.rowReverse,
+          }}
+          onChange={value =>
+            edit(prev => {
+              prev.layout.row = value.row;
+              prev.layout.rowReverse = value.rowReverse;
+              prev.layout.colReverse = value.colReverse;
+            })
+          }
+        />
+      </Section>
+
+      <Section row alignC g={12}>
+        <H5 className={cx("sectionName")} basis={42}>
+          Main
+        </H5>
+        <InputLabel level={2} colored text="size" row g={3} alignC>
+          <InputAmount
+            units={["px", "%", "vw"]}
+            value={box.layout?.sizeM}
+            onBlurValue={value => edit(prev => (prev.layout.sizeM = value))}
+            size={4}
+            rad={8}
+          />
+        </InputLabel>
+        <InputLabel level={2} colored text="gap" row g={3} alignC>
+          <InputAmount
+            units={["px", "%", "vw"]}
+            value={box.layout?.gM}
+            onBlurValue={value => edit(prev => (prev.layout.gM = value))}
+            size={3}
+            rad={8}
+          />
+        </InputLabel>
+        <MainAligns
+          value={box.layout.alignM}
+          onChange={value => edit(prev => (prev.layout.alignM = value))}
+          horizontal={box.layout.row || box.layout.rowReverse}
+        />
+      </Section>
+
+      <Section row alignC g={12}>
+        <H5 className={cx("sectionName")} basis={42}>
+          Cross
+        </H5>
+        <InputLabel level={2} colored text="size" row g={3} alignC>
+          <InputAmount
+            units={["px", "%", "vw"]}
+            value={box.layout?.sizeC}
+            onBlurValue={value => edit(prev => (prev.layout.sizeC = value))}
+            size={4}
+            rad={8}
+          />
+        </InputLabel>
+        <InputLabel level={2} colored text="gap" row g={3} alignC>
+          <InputAmount
+            units={["px", "%", "vw"]}
+            value={box.layout?.gC}
+            onBlurValue={value => edit(prev => (prev.layout.gC = value))}
+            size={3}
+            rad={8}
+          />
+        </InputLabel>
+        <CrossAligns
+          value={box.layout.alignC}
+          onChange={value => edit(prev => (prev.layout.alignC = value))}
+          horizontal={!(box.layout.row || box.layout.rowReverse)}
+        />
       </Section>
     </EditorPanel>
   );

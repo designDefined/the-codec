@@ -11,6 +11,7 @@ export const useBoxEditorAt = (path: BoxPath, box: Box) => {
   return {
     isSelected: box.id === context.selected?.box.id,
     isChildSelected: !!context.selected?.path.some(p => p.id === box.id),
+    isRoot: path.length === 1,
     select: () => context.select(path),
     edit: (setter: (box: Box) => void) => context.edit(path, setter),
     add: () => (box.type === "INNER_BOX" ? undefined : context.add(path)),

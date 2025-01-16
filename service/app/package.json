@@ -12,7 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@flexive/core": "^0.5.7",
+    "@flexive/core": "^0.5.8",
     "@flexive/operator": "^0.3.2",
     "express": "^4.21.1",
     "immer": "^10.1.1",

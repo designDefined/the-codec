@@ -13,12 +13,11 @@ const cx = bindCSS(styles);
 type OuterBoxItemProps = {
   box: OuterBox;
   path: BoxPath;
-  isRoot?: boolean;
 };
 
-export const OuterBoxItem = ({ box, path, isRoot }: OuterBoxItemProps) => {
+export const OuterBoxItem = ({ box, path }: OuterBoxItemProps) => {
   const [folded, setFolded] = useState(false);
-  const { isSelected, isChildSelected, select, add, clone, remove } = useBoxEditorAt(path, box);
+  const { isSelected, isChildSelected, isRoot, select, add, clone, remove } = useBoxEditorAt(path, box);
 
   return (
     <Li className={cx("OuterBoxItem", { isSelected, highlighted: isSelected || (isChildSelected && folded) })} g={4}>
