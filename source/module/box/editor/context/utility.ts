@@ -64,8 +64,8 @@ const find = (root: Box, path: BoxPath) =>
     // root
     if (i === 0) return root;
     // invalid case
-    if (!acc) throw new Error(errorFromPath("Box not found", path));
-    if (acc.type === "INNER_BOX") throw new Error(errorFromPath("Box not found", path));
+    if (!acc) throw new Error(errorFromPath("Root not found", path));
+    if (acc.type === "INNER_BOX") throw new Error(errorFromPath("Already reached leaf", path));
     // find child
     const result = acc.children.find(child => child.id === id);
     if (!result) throw new Error(errorFromPath("Box not found", path));
