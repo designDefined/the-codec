@@ -1,0 +1,28 @@
+.InputHue .defaultButton {
+  border: 1px solid oklch(var(--deep) var(--hue));
+  color: oklch(var(--deep) var(--hue));
+  background-color: oklch(var(--vivid) var(--hue) / 0.2);
+  font-size: 15px;
+  font-weight: 500;
+}
+.InputHue .defaultButton:hover {
+  background-color: oklch(var(--vivid) var(--hue) / 0.1);
+}
+.InputHue .defaultButton:active {
+  background-color: oklch(var(--vivid) var(--hue) / 0.04);
+}
+
+.InputHue .bar {
+  background-image: linear-gradient(in oklch longer hue to right, oklch(var(--vivid) 0), oklch(var(--vivid) 0));
+  cursor: pointer;
+}
+.InputHue .handle {
+  border: 2px solid oklch(var(--g2) 0);
+  pointer-events: none;
+}
+.InputHue .handle:hover {
+  background-color: oklch(var(--g1) 0 / 0.2);
+}
+.InputHue .handle:active {
+  background-color: oklch(var(--g1) 0 / 0.4);
+}

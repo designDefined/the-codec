@@ -7,10 +7,10 @@ const cx = bindCSS(styles);
 type FixedOverlayProps = PropsOf<"div">;
 
 export const Overlay = ({ className, onPointerDown, ...props }: FixedOverlayProps) => {
-  const { close } = useOverlayControl();
+  const { closeAfter, isClosing: closing } = useOverlayControl();
   return (
     <Div
-      className={cx("Overlay", className)}
+      className={cx("Overlay", { closing }, className)}
       fixed
       top={0}
       left={0}
@@ -20,7 +20,7 @@ export const Overlay = ({ className, onPointerDown, ...props }: FixedOverlayProp
       onPointerDown={e => {
         e.stopPropagation();
         onPointerDown?.(e);
-        close();
+        closeAfter(100);
       }}
     />
   );

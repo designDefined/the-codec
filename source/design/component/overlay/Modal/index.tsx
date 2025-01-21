@@ -4,8 +4,18 @@ import { forwardRef } from "react";
 
 type ModalProps = PropsOf<"article">;
 
-export const Modal = forwardRef<NativeElementOf<"article">, ModalProps>(({ className, children, ...props }, ref) => (
-  <Article ref={ref} className={`${styles.Modal} ${className}`} {...props}>
-    {children}
-  </Article>
-));
+export const Modal = forwardRef<NativeElementOf<"article">, ModalProps>(
+  ({ className, children, onPointerDown, ...props }, ref) => (
+    <Article
+      ref={ref}
+      className={`${styles.Modal} ${className}`}
+      onPointerDown={e => {
+        e.stopPropagation();
+        onPointerDown?.(e);
+      }}
+      {...props}
+    >
+      {children}
+    </Article>
+  ),
+);

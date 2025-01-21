@@ -1,0 +1,31 @@
+.InputColor {
+  --primary: oklch(var(--g3) 0);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-weight: 500;
+}
+.InputColor:hover {
+  background-color: oklch(var(--g3) 0 / 0.04);
+}
+.InputColor:active {
+  background-color: oklch(var(--g3) 0 / 0.1);
+}
+.InputColor.open {
+  background-color: oklch(var(--g3) 0 / 0.2);
+}
+
+.InputColorModal {
+  --color_font_body: oklch(var(--g3) 0);
+  font-weight: 500;
+  font-size: 14px;
+}
+.InputColorModal .preview {
+  border: 2px solid oklch(var(--g2) 0);
+}
+.InputColorModal button {
+  padding: 2px 3px !important;
+  border-radius: 4px;
+}
+.InputColorModal .opacityInput {
+  font-size: 12px;
+}

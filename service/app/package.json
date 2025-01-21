@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@flexive/core": "^0.5.8",
-    "@flexive/operator": "^0.3.2",
+    "@flexive/operator": "^0.3.3",
     "express": "^4.21.1",
     "immer": "^10.1.1",
     "ky": "^1.7.2",

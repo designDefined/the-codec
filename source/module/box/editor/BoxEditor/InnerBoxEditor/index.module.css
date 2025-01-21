@@ -1,4 +1,7 @@
 .InnerBoxEditor {
+  color: var(--color_font_body);
+  background: var(--color_background);
+  border-color: var(--color_border);
   outline: none;
   transition: 0.2s ease;
 }
