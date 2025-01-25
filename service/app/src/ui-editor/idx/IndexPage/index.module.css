@@ -2,27 +2,28 @@
   scrollbar-color: #f1f1f1 #ffffff;
 }
 
+.IndexPage .handle {
+  color: oklch(var(--g4) 0);
+  transition: 1s ease;
+}
+.IndexPage .handle button:hover {
+  opacity: 0.6;
+}
+.IndexPage .handle button:active {
+  opacity: 0.4;
+}
+.IndexPage .handle button:disabled {
+  opacity: 0.1;
+}
+.IndexPage .handle .icon {
+  --color_icon: oklch(var(--g3) 0);
+  transition: 0.4s ease;
+}
+
 .IndexPage .panelSection {
   transition: 1s ease;
 }
 .IndexPage .panels {
   box-shadow: inset 3px 0px 6px -3px oklch(var(--g2) 0);
   background-color: oklch(var(--g2) 0 / 0.1);
-}
-.IndexPage .panelButton {
-  color: oklch(var(--g4) 0);
-}
-.IndexPage .panelButton:hover {
-  background-color: oklch(var(--g2) 0 / 0.1);
-}
-.IndexPage .panelButton:active {
-  background-color: oklch(var(--g2) 0 / 0.2);
-}
-.IndexPage .panelButton:disabled {
-  opacity: 0.2;
-  background-color: transparent;
-}
-.IndexPage .panelButton .icon {
-  --color_icon: oklch(var(--g3) 0);
-  transition: 0.4s ease;
 }
