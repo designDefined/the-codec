@@ -10,7 +10,7 @@ const cx = bindCSS(styles);
 
 export const CodeBlockReader = (props: RenderElementPropsExtended<CodeBlockElement>) => {
   return (
-    <pre {...props.attributes} className={cx("CodeBlock")}>
+    <pre {...props.attributes} className={cx("CodeBlock", "edit")}>
       {props.children}
     </pre>
   );

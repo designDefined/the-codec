@@ -4,8 +4,12 @@
   font-family: "Pretendard Variable", sans-serif;
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.6;
 }
+
+/*
+* Body
+*/
 
 p {
   font-size: 1em;
@@ -17,6 +21,7 @@ p {
 
 h1 {
   font-size: 4em;
+  line-height: 160%;
 }
 h1 b,
 h1 strong {
@@ -39,6 +44,10 @@ h5 {
   font-size: 1.25em;
 }
 
+h6 {
+  font-size: 0.75em;
+}
+
 /*
 * Inline
 */
@@ -48,7 +57,10 @@ b {
   font-weight: 700;
 }
 
-em,
 i {
   font-style: italic;
+}
+
+em {
+  font-style: inherit;
 }

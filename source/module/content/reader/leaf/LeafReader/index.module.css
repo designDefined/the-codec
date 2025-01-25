@@ -1,0 +1,7 @@
+.Leaf em.VIVID {
+  color: oklch(var(--vivid) var(--hue));
+}
+
+.Leaf em.DEEP {
+  color: oklch(var(--deep) var(--hue));
+}

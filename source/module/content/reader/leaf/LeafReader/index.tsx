@@ -8,10 +8,10 @@ const cx = bindCSS(styles);
 
 export const LeafReader = (props: RenderLeafPropsExtended) => {
   return (
-    <span {...props.attributes}>
+    <span className={cx("Leaf")} {...props.attributes}>
       <Boldable value={props.leaf.bold}>
         <Italicable value={props.leaf.italic}>
-          <Emphasizable>{props.children}</Emphasizable>
+          <Emphasizable value={props.leaf.emphasis}>{props.children}</Emphasizable>
         </Italicable>
       </Boldable>
     </span>
