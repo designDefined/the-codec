@@ -1,6 +1,6 @@
 import { bindCSS, PropsOf } from "@flexive/core";
 import styles from "./index.module.css";
-import { Selectable } from "@component/button";
+import { Selectable, CommonSelectableProps } from "@component/button";
 import { useMemo } from "react";
 import { useChildrenArray, useEffectOnChange, useOverlay } from "@flexive/operator";
 import { Modal, Overlay } from "@component/overlay";
@@ -8,12 +8,13 @@ import { createPortal } from "react-dom";
 
 const cx = bindCSS(styles);
 
-type SelectProps = PropsOf<"div"> & {
-  value?: string | number | null;
-  placeholder?: string;
-  onChange?: (value: string | number | null | undefined) => void;
-  hideValue?: boolean;
-};
+type SelectProps = Omit<CommonSelectableProps, "value" | "onChange"> &
+  PropsOf<"div"> & {
+    value?: string | number | null;
+    placeholder?: string;
+    onChange?: (value: string | number | null | undefined) => void;
+    hideValue?: boolean;
+  };
 
 export const Select = ({ className, children, value, placeholder, onChange, hideValue, ...props }: SelectProps) => {
   const { overlay, open, close, isOpen } = useOverlay<DOMRect>(createPortal);

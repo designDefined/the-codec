@@ -1,0 +1,4 @@
+.BlockEditor {
+  --color_border: oklch(var(--g2) 0);
+  --color_font_body: oklch(var(--g3) 0);
+}

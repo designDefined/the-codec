@@ -1,4 +1,4 @@
-import { BOX_TYPE } from "../../constant/content/BOX_TYPE";
+import { BOX_TYPE } from "../../constant/box/BOX_TYPE";
 import { ID } from "../../constant/ID";
 import { NAME } from "../../constant/TEXT";
 import { Box } from "./Box";

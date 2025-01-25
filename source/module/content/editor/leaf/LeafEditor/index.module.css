@@ -1,0 +1,20 @@
+.LeafEditor {
+  --color_font_body: oklch(var(--g3) 0);
+  --color_icon: oklch(var(--g3) 0);
+  font-weight: 500;
+}
+.LeafEditor > button {
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0 4px !important;
+}
+
+.LeafEditor .bold {
+  font-weight: 700;
+}
+.LeafEditor .italic {
+  font-style: italic;
+  font-family: serif;
+}

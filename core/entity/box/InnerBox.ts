@@ -1,4 +1,4 @@
-import { BOX_TYPE } from "@core/constant/content/BOX_TYPE";
+import { BOX_TYPE } from "@core/constant/box/BOX_TYPE";
 import { ID } from "@core/constant/ID";
 import { NAME } from "@core/constant/TEXT";
 import { BoxLayout } from "./BoxLayout";

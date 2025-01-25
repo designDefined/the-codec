@@ -26,13 +26,3 @@
   --color_icon: oklch(var(--g3) 0);
   transition: 0.4s ease;
 }
-
-.IndexPage .name {
-  font-size: 32px;
-  font-weight: 100;
-  color: oklch(var(--deep) var(--hue));
-}
-.IndexPage .divider {
-  border: none;
-  border-top: 1px solid oklch(var(--g2) 0);
-}

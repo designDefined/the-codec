@@ -3,13 +3,13 @@ import { Editable, Slate, withReact } from "slate-react";
 import { createEditor, Editor } from "slate";
 import { useMemo } from "react";
 import { bindCSS, useFlexiveStyle } from "@flexive/core";
-import { renderElement } from "../../../../content/render/renderElement";
-import { renderLeaf } from "../../../../content/render/renderLeaf";
 import { InnerBox } from "@core/entity/box/InnerBox";
 import { BoxPath } from "@core/entity/box/BoxPath";
 import { useBoxEditorAt } from "../../context/useBoxEditorAt";
 import { useBoxLookStyle } from "@module/box/look";
 import { useDeep } from "@flexive/operator";
+import { renderElement, renderLeaf } from "@module/content";
+import { ContentSelector } from "@module/content";
 
 const cx = bindCSS(styles);
 
@@ -37,6 +37,7 @@ export const InnerBoxEditor = ({ box, path }: InnerBoxEditorProps) => {
         })
       }
     >
+      {isSelected && <ContentSelector />}
       <Editable
         as="section"
         className={cx("InnerBoxEditor", { isSelected })}
