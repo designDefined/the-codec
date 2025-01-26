@@ -1692,6 +1692,7 @@ __metadata:
     "@types/react": "npm:^18.3.10"
     "@types/react-dom": "npm:^18.3.0"
     "@vitejs/plugin-react": "npm:^4.3.2"
+    dotenv: "npm:^16.4.7"
     eslint: "npm:^9.11.1"
     eslint-plugin-react-hooks: "npm:^5.1.0-rc.0"
     eslint-plugin-react-refresh: "npm:^0.4.12"
@@ -1734,20 +1735,6 @@ __metadata:
     typescript: "npm:^5.5.3"
     typescript-eslint: "npm:^8.7.0"
     vite: "npm:^5.4.8"
-  languageName: unknown
-  linkType: soft
-
-"@source/data@workspace:source/data":
-  version: 0.0.0-use.local
-  resolution: "@source/data@workspace:source/data"
-  dependencies:
-    "@eslint/js": "npm:^9.11.1"
-    "@types/node": "npm:^22.8.1"
-    core: "workspace:^"
-    eslint: "npm:^9.11.1"
-    globals: "npm:^15.9.0"
-    typescript: "npm:^5.5.3"
-    typescript-eslint: "npm:^8.7.0"
   languageName: unknown
   linkType: soft
 
@@ -2950,6 +2937,13 @@ __metadata:
   dependencies:
     esutils: "npm:^2.0.2"
   checksum: 10/b4b28f1df5c563f7d876e7461254a4597b8cabe915abe94d7c5d1633fed263fcf9a85e8d3836591fc2d040108e822b0d32758e5ec1fe31c590dc7e08086e3e48
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.4.7":
+  version: 16.4.7
+  resolution: "dotenv@npm:16.4.7"
+  checksum: 10/f13bfe97db88f0df4ec505eeffb8925ec51f2d56a3d0b6d916964d8b4af494e6fb1633ba5d09089b552e77ab2a25de58d70259b2c5ed45ec148221835fc99a0c
   languageName: node
   linkType: hard
 

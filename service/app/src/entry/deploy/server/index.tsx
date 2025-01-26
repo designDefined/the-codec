@@ -1,12 +1,12 @@
 import { renderToString } from "react-dom/server";
-import { createDataHandler } from "@data/api";
 import { ReadIndexPage } from "../../../ui-blog/idx/ReadIndexPage";
 import { Index } from "@core/entity/index/Index";
+import { DataHandler } from "service/app/server/data";
 
-const { read } = createDataHandler();
+const { read } = DataHandler;
 
 export const render = async (indexId: string) => {
-  const data = await read<Index>(`/data/index/${indexId}/data.json`);
+  const data = await read<Index>(`/idx/${indexId}/data.json`);
   const head = renderToString(<title>{data.title}</title>);
   const html = renderToString(<ReadIndexPage data={data} />);
   return { head, html };

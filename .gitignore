@@ -254,7 +254,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
+# .env -> ignore only local .env files
 .env.development.local
 .env.test.local
 .env.production.local

@@ -10,7 +10,6 @@
   ],
   "scripts": {
     "core": "yarn workspace core",
-    "data": "yarn workspace @source/data",
     "design": "yarn workspace @source/design",
     "module": "yarn workspace @source/module",
     "app": "yarn workspace @service/app",

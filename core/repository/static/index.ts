@@ -6,7 +6,7 @@ export const StaticRepository = {
   index: {
     data: (id: ID["INDEX"]) =>
       ky
-        .get<Index>(`/data/index/${id}/data.json`)
+        .get<Index>(`/data/idx/${id}/data.json`)
         .json()
         .catch(() => null),
   },
