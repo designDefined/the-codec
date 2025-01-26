@@ -1,0 +1,3 @@
+.BoxPathNavigator .list {
+  border: 1px solid oklch(var(--g2) 0);
+}

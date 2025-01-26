@@ -1,0 +1,32 @@
+.MinimizableSection .header {
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+.MinimizableSection .header:hover {
+  opacity: 0.6;
+}
+
+.MinimizableSection .name {
+  font-size: 32px;
+  font-weight: 100;
+  color: oklch(var(--deep) var(--hue));
+  user-select: none;
+}
+.MinimizableSection.minimized .name {
+  color: oklch(var(--g3) 0);
+}
+
+.MinimizableSection .divider {
+  border: none;
+  border-top: 1px solid oklch(var(--g2) 0);
+  transition: 0.3s ease;
+}
+.MinimizableSection .header:active .divider:first-child {
+  flex-basis: 280px !important;
+}
+.MinimizableSection.minimized .header .divider:first-child {
+  flex-basis: 40px !important;
+}
+.MinimizableSection.minimized .header:active .divider:first-child {
+  flex-basis: 60px !important;
+}

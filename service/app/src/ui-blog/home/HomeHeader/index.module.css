@@ -1,6 +1,12 @@
 .HomeHeader .description {
-  font-size: 24px;
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 100;
   color: rgb(15% 15% 15%);
   line-height: 160%;
+}
+
+@media (max-width: 480px) {
+  .HomeHeader .description {
+    font-size: 16px;
+  }
 }

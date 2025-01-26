@@ -1,5 +1,7 @@
-:root {
-  --color_font_body: #000000;
-  --color_font_accent: #000000; /* TODO: Do we need default accent color? */
-  color: var(--color_font_body);
-}
+@import "./background.css";
+@import "./border.css";
+@import "./font.css";
+@import "./grayscale.css";
+@import "./hue.css";
+@import "./icon.css";
+@import "./mood.css";

@@ -1,6 +1,12 @@
-.typ-body {
-  font-size: 17px;
+.typ_size_body {
+  font-size: 20px;
   line-height: 1.6em;
   letter-spacing: -0.25px;
   text-align: justify;
+}
+
+@media (max-width: 480px) {
+  .typ-body {
+    font-size: 17px;
+  }
 }

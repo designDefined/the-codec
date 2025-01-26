@@ -1,0 +1,25 @@
+.InputText {
+  --color_font_body: var(--g4) 0;
+  border: 1px solid oklch(var(--g2) 0);
+  color: oklch(var(--color_font_body));
+  transition: 0.1s ease;
+}
+.InputText:hover {
+  border-color: oklch(var(--pastel) var(--hue));
+}
+.InputText.focus {
+  --color_font_body: var(--g5) 0;
+  border-color: oklch(var(--vivid) var(--hue));
+  background-color: oklch(var(--vivid) var(--hue) / 0.04);
+}
+
+.input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: oklch(var(--color_font_body));
+  font-weight: 300;
+}
+.input::selection {
+  background-color: oklch(var(--pastel) var(--hue));
+}

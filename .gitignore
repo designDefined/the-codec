@@ -151,7 +151,8 @@ fabric.properties
 .LSOverride
 
 # Icon must end with two \r
-Icon
+# !This rule was opted out because it ignores `icon` directory.
+# Icon
 
 
 # Thumbnails
@@ -253,7 +254,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
+# .env -> ignore only local .env files
 .env.development.local
 .env.test.local
 .env.production.local

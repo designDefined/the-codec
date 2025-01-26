@@ -1,0 +1,21 @@
+.EditorPanel {
+  --color_font_label: oklch(var(--g3) 0);
+  --color_font_heading: oklch(var(--g3) 0);
+  border: 1px solid oklch(var(--g2) 0);
+  transition: 0.2s ease;
+}
+.EditorPanel:hover {
+  --color_font_label: oklch(var(--g4) 0);
+  --color_font_heading: oklch(var(--g4) 0);
+  border-color: oklch(var(--g3) 0);
+}
+.EditorPanel.focus {
+  --color_font_label: oklch(var(--g4) 0);
+  --color_font_heading: oklch(var(--g4) 0);
+  border-color: oklch(var(--g3) 0);
+}
+.EditorPanel .name {
+  color: var(--color_font_heading);
+  font-weight: 200;
+  transition: 0.2s ease;
+}

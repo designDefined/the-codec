@@ -1,9 +1,9 @@
-import { toDataPath } from "@data/api";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createServer as createViteServer, ViteDevServer } from "vite";
 import { Renderer } from "../src/entry/types";
+import { toDataPath } from "./data";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const toAbsolute = (p: string) => path.resolve(__dirname, p);
@@ -75,7 +75,7 @@ const generate = async () => {
   await generateHome({ vite });
 
   // 4. Generate index page
-  const indexIds = await fs.readdir(fromData("/index"));
+  const indexIds = (await fs.readdir(fromData("/idx"))).filter(url => !Number.isNaN(Number(url)));
   await Promise.all(indexIds.map(idString => generateIndex({ vite, idString })));
 
   console.log("done!");

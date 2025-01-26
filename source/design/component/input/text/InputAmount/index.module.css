@@ -1,0 +1,13 @@
+.InputAmount input {
+  text-align: right;
+}
+
+.InputAmount .unit {
+  color: oklch(var(--color_font_label) / 0.6);
+}
+.InputAmount .unit:hover {
+  color: oklch(var(--color_font_label));
+}
+.InputAmount .unit:active {
+  color: oklch(var(--color_font_label) / 0.8);
+}

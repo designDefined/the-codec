@@ -51,6 +51,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-weight: inherit;
   overflow-wrap: break-word;
   text-wrap: balance;
 }

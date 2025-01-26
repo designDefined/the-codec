@@ -1,4 +1,4 @@
-import { RenderElementPropsExtended } from "../utility/slate-type";
-import { ElementReader } from "../element/ElementReader";
+import { ElementReader } from "../reader";
+import { RenderElementPropsExtended } from "../type";
 
 export const renderElement = ({ key, ...props }: RenderElementPropsExtended) => <ElementReader {...props} key={key} />;

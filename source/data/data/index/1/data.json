@@ -1,1 +1,0 @@
-{"id":1,"title":"샘플 인덱스","content":{"id":"root-sample","title":"root","type":"OUTER_BOX","layout":{"px":64,"py":128,"g":48},"children":[{"id":"container-sample","title":"sample","type":"INNER_BOX","children":[{"type":"PARAGRAPH","children":[{"text":"테스트qwefqwef1234"}]}]}]},"updatedAt":1734740057488}

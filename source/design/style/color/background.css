@@ -1,0 +1,4 @@
+:root {
+  --color_background: none;
+  background-color: oklch(var(--g1) 0);
+}

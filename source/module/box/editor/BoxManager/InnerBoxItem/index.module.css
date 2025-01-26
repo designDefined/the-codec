@@ -1,0 +1,20 @@
+.InnerBoxItem .count {
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+.InnerBoxItem .buttons {
+  display: none !important;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+.InnerBoxItem:hover .buttons,
+.InnerBoxItem.isSelected .buttons {
+  display: flex !important;
+}
+.InnerBoxItem:hover .buttons {
+  opacity: 0.4;
+}
+.InnerBoxItem.isSelected .buttons {
+  opacity: 1;
+}

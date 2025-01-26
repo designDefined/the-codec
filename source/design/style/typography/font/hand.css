@@ -1,0 +1,6 @@
+@import "./raw/reenie-beanie.css";
+.typ_font_hand_logo {
+  font-family: "Reenie Beanie", serif;
+  font-weight: 400;
+  font-style: normal;
+}

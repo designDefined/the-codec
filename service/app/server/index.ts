@@ -3,12 +3,12 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import express, { json } from "express";
 import { createServer as createViteServer } from "vite";
-// import { DataHandler } from "data/api";
 import { IndexRouter } from "./router/idx";
 import { CodexRouter } from "./router/cdx";
 
 const port = 4768;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const toEntryPath = (p: string) => path.resolve(__dirname, `../src/entry${p}`);
 
 async function createServer() {
   const app = express();
@@ -40,7 +40,7 @@ async function createServer() {
   app.use("*", async (req, res, next) => {
     try {
       const url = req.originalUrl;
-      let template = fs.readFileSync(path.resolve(__dirname, "../src/entry/local/index.html"), "utf-8");
+      let template = fs.readFileSync(toEntryPath("/local/index.html"), "utf-8");
       template = await vite.transformIndexHtml(url, template);
       res.status(200).set({ "Content-Type": "text/html" }).send(template);
     } catch (e) {

@@ -1,3 +1,8 @@
-import { LeafBase } from "./LeafBase";
+import { TEXT_EMPHASIS } from "@core/constant/content/TEXT_EMPHASIS";
 
-export type DefaultText = LeafBase & { text: string; bold?: boolean; italic?: boolean };
+export type DefaultText = {
+  text: string;
+  bold?: boolean;
+  italic?: boolean;
+  emphasis?: TEXT_EMPHASIS;
+};

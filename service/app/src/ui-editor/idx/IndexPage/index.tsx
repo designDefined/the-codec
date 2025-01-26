@@ -1,84 +1,112 @@
-import { Article, bindCSS, Button, Div, Main, Section } from "@flexive/core";
+import { Article, bindCSS, Div, Main, Section } from "@flexive/core";
 import styles from "./index.module.css";
 import { useIndexId } from "../../../router/local/useResourceId";
-import { useIntentSubmit, useView } from "viajs-react";
-import { BoxEditor } from "@module/box/BoxEditor";
-import { BoxManager } from "@module/box/BoxManager";
-import { Modal } from "@source/design/component/modal/Modal";
+import { useIntent, useView } from "viajs-react";
 import { IndexInformationEditor } from "@module/index/IndexInformationEditor";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { IndexIntent } from "@core/intent/index/index";
 import { IndexView } from "@core/view/index";
+import { MainContent } from "@component/area";
+import { BoxEditor, BoxEditorContext, BoxManager, SelectedBoxEditor, useBoxEditorRoot } from "@module/box";
+import { Button } from "@component/button";
+import { Chevron } from "@component/icon";
+import { Box } from "@core/entity/box/Box";
+import { produce } from "immer";
+import { ContentEditorContext, SelectedContentEditor, useContentEditorRoot } from "@module/content";
+import { MinimizableSection } from "./MinimizableSection";
+import { useThemeStyle } from "@module/box/look";
 
 const cx = bindCSS(styles);
+
+/**
+ * TODO: Isolate to separate module
+ */
+const beforeUnloadHandler: EventListener = event => {
+  // Recommended
+  event.preventDefault();
+  // Included for legacy support, e.g. Chrome/Edge < 119
+  event.returnValue = true;
+};
 
 export const IndexPage = () => {
   const id = useIndexId();
   const [isPanelOpen, setIsPanelOpen] = useState(true);
-  const { value: index } = useView({ view: IndexView.data(id) });
-  const {
-    set,
-    submit,
-    value: { index: indexInput },
-    isModified,
-  } = useIntentSubmit({ intent: IndexIntent.update(id) });
+  const { value: initialIndex } = useView({ view: IndexView.data(id) });
+  const { send } = useIntent({ intent: IndexIntent.update(id) });
+  const [index, setIndex] = useState(initialIndex);
+  const [modified, setModified] = useState(false);
+
+  const onChangeBox = useCallback((setter: (root: Box) => void) => {
+    setIndex(prev =>
+      produce(prev, draft => {
+        setter(draft.content);
+      }),
+    );
+    setModified(true);
+  }, []);
+
+  const boxEditorContext = useBoxEditorRoot(index.content, onChangeBox);
+  const contentEditorContext = useContentEditorRoot(
+    boxEditorContext.selected?.box.type === "INNER_BOX" ? boxEditorContext.selected.box.id : undefined,
+  );
+
+  const themeStyle = useThemeStyle(index.content.look.theme);
+
+  useEffect(() => {
+    window.addEventListener("beforeunload", beforeUnloadHandler);
+    return () => window.removeEventListener("beforeunload", beforeUnloadHandler);
+  }, []);
 
   return (
-    <Main className={cx("IndexPage")} sizeC="100vw" sizeM="100vh" hide>
-      <Section f row over>
-        <Section grow={2} shrink={0} basis={80} />
-        <Article grow={1} shrink={0} basis={720} py={120} alignSelfC="start">
-          <BoxEditor
-            box={indexInput.value?.content ?? index.content}
-            onChangeBox={box =>
-              set(draft => {
-                if (!draft.index) draft.index = index;
-                if (draft.index.content.id === box.id && box.type === "OUTER_BOX") draft.index.content = box;
-                else {
-                  const targetIndex = draft.index.content.children.findIndex(target => target.id === box.id);
-                  if (targetIndex >= 0) draft.index.content.children[targetIndex] = box;
-                }
-              })
-            }
-          />
-        </Article>
-        <Section f grow={2} shrink={0} basis={80} />
-      </Section>
-
-      <Section absolute top={0} right={0} sizeM={"100vh"} p={24} hide>
-        <Div className={cx("panel", { closed: !isPanelOpen })} row f g={12}>
-          <Button alignSelfC="center" onClick={() => setIsPanelOpen(prev => !prev)}>
-            {">"}
-          </Button>
-          <Modal f sizeC={320} px={12} py={24} g={30} overM>
-            <Button onClick={() => submit()} disabled={!isModified}>
-              저장
-            </Button>
-            <IndexInformationEditor
-              index={indexInput.value ?? index}
-              onChangeIndexPartial={partial => {
-                set(draft => {
-                  if (!draft.index) draft.index = index;
-                  Object.assign(draft.index, partial);
-                });
-              }}
-            />
-            <BoxManager
-              box={indexInput.value?.content ?? index.content}
-              onChangeBox={box =>
-                set(draft => {
-                  if (!draft.index) draft.index = index;
-                  if (draft.index.content.id === box.id && box.type === "OUTER_BOX") draft.index.content = box;
-                  else {
-                    const targetIndex = draft.index.content.children.findIndex(target => target.id === box.id);
-                    if (targetIndex >= 0) draft.index.content.children[targetIndex] = box;
-                  }
-                })
-              }
-            />
-          </Modal>
-        </Div>
-      </Section>
-    </Main>
+    <BoxEditorContext.Provider value={boxEditorContext}>
+      <ContentEditorContext.Provider value={contentEditorContext}>
+        <Main className={cx("IndexPage")} row sizeC="100vh" hide style={themeStyle}>
+          <Section className={cx("contentSection")} f overM py={128}>
+            <MainContent
+              onClick={() => boxEditorContext.clearSelected()}
+              mainProps={{ onClick: e => e.stopPropagation() }}
+            >
+              <BoxEditor box={index.content} path={[{ id: index.content.id, name: index.content.name }]} />
+            </MainContent>
+            <Div className={cx("handle")} fixed top={0} right={isPanelOpen ? 480 : 0} sizeM="100vh">
+              <Button onClick={() => send({ index }).then(() => setModified(false))} disabled={!modified} alignC p={8}>
+                Save{modified ? "?" : "d"}
+              </Button>
+              <Div f alignM alignC="end">
+                <Button onClick={() => setIsPanelOpen(prev => !prev)} px={8} py={24}>
+                  <Chevron className={cx("icon")} size={16} reversed={!isPanelOpen} />
+                </Button>
+              </Div>
+            </Div>
+          </Section>
+          <Section className={cx("panelSection")} basis={isPanelOpen ? 480 : 0} row sizeM={"100vh"} hide>
+            <Article className={cx("panels")} basis={480} hideC overM="scroll">
+              <Div p={24} overM hideC>
+                <MinimizableSection name="Index">
+                  <IndexInformationEditor
+                    index={index}
+                    onChangeIndexPartial={partial => {
+                      setIndex(prev =>
+                        produce(prev, draft => {
+                          Object.assign(draft, partial);
+                        }),
+                      );
+                      setModified(true);
+                    }}
+                  />
+                  <BoxManager />
+                </MinimizableSection>
+                <MinimizableSection name="Box">
+                  <SelectedBoxEditor />
+                </MinimizableSection>
+                <MinimizableSection name="Content">
+                  <SelectedContentEditor />
+                </MinimizableSection>
+              </Div>
+            </Article>
+          </Section>
+        </Main>
+      </ContentEditorContext.Provider>
+    </BoxEditorContext.Provider>
   );
 };

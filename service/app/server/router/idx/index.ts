@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { wrap } from "../../utility/wrap";
-import { DataHandler } from "@data/api";
+import { DataHandler } from "../../data";
 import { Index } from "@core/entity/index/Index";
 import { IndexSummary } from "@core/entity/index/IndexSummary";
 import { generateIndexId } from "./utility";
@@ -11,8 +11,8 @@ export const IndexRouter = Router();
 IndexRouter.get(
   "/",
   wrap(async (_, res) => {
-    const dir = await DataHandler.readdir("/index");
-    const data = await Promise.all(dir.map(f => DataHandler.read(`/index/${f}/summary.json`)));
+    const dir = await DataHandler.readdir("/idx");
+    const data = await Promise.all(dir.map(f => DataHandler.read(`/idx/${f}/summary.json`)));
     res.send(data);
   }),
 );
@@ -20,7 +20,7 @@ IndexRouter.get(
 IndexRouter.get(
   "/:id",
   wrap(async (req, res) => {
-    const data = await DataHandler.read(`/index/${req.params.id}/data.json`);
+    const data = await DataHandler.read(`/idx/${req.params.id}/data.json`);
     res.send(data);
   }),
 );
@@ -28,7 +28,7 @@ IndexRouter.get(
 IndexRouter.get(
   "/:id/summary",
   wrap(async (req, res) => {
-    const data = await DataHandler.read(`/index/${req.params.id}/summary.json`);
+    const data = await DataHandler.read(`/idx/${req.params.id}/summary.json`);
     res.send(data);
   }),
 );
@@ -36,7 +36,7 @@ IndexRouter.get(
 IndexRouter.post(
   "/",
   wrap(async (req, res) => {
-    const ids = await DataHandler.readdir("/index");
+    const ids = await DataHandler.readdir("/idx");
     const id = generateIndexId(ids);
     const timestamp = Date.now();
     const title = req.body.title;
@@ -44,8 +44,8 @@ IndexRouter.post(
     const summary: IndexSummary = { id, title, createdAt: timestamp, ...req.body } as Index;
     const data: Index = { ...summary, content };
 
-    await DataHandler.write(`/index/${id}/data.json`, data);
-    await DataHandler.write(`/index/${id}/summary.json`, summary);
+    await DataHandler.write(`/idx/${id}/data.json`, data);
+    await DataHandler.write(`/idx/${id}/summary.json`, summary);
     res.send({ success: true, id });
   }),
 );
@@ -53,7 +53,7 @@ IndexRouter.post(
 IndexRouter.patch(
   "/:id",
   wrap(async (req, res) => {
-    const prev = await DataHandler.read(`/index/${req.params.id}/data.json`);
+    const prev = await DataHandler.read(`/idx/${req.params.id}/data.json`);
     if (!prev) throw new Error("Not found");
 
     const timestamp = Date.now();
@@ -65,8 +65,8 @@ IndexRouter.patch(
       createdAt: data.createdAt,
       updatedAt: timestamp,
     };
-    await DataHandler.write(`/index/${req.params.id}/data.json`, data);
-    await DataHandler.write(`/index/${req.params.id}/summary.json`, summary);
+    await DataHandler.write(`/idx/${req.params.id}/data.json`, data);
+    await DataHandler.write(`/idx/${req.params.id}/summary.json`, summary);
     res.send({ data, summary });
   }),
 );

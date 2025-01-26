@@ -10,7 +10,6 @@
   ],
   "scripts": {
     "core": "yarn workspace core",
-    "data": "yarn workspace @source/data",
     "design": "yarn workspace @source/design",
     "module": "yarn workspace @source/module",
     "app": "yarn workspace @service/app",
@@ -21,7 +20,7 @@
     "tree": "yarn workspace @playground/tree-shaking",
     "deploy": "yarn workspace @service/app generate",
     "format": "yarn prettier --write .",
-    "upgrade:flexive-core": "yarn app add @flexive/core@latest && yarn design add @flexive/core@latest && yarn module add @flexive/core@latest && yarn demo add @flexive/core@latest",
+    "upgrade:flexive": "yarn app add @flexive/core@latest && yarn design add @flexive/core@latest && yarn module add @flexive/core@latest && yarn demo add @flexive/core@latest && yarn app add @flexive/operator@latest && yarn design add @flexive/operator@latest && yarn module add @flexive/operator@latest && yarn demo add @flexive/operator@latest",
     "prepare": "husky && echo 'yarn app build' > .husky/pre-commit"
   },
   "devDependencies": {

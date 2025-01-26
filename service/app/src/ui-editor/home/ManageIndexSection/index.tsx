@@ -1,4 +1,4 @@
-import { MainContent } from "@compoent/area";
+import { MainContent } from "@component/area";
 import styles from "./index.module.css";
 import { IndexView } from "@core/view/index";
 import { bindCSS, Button, Div, Input, Li, Ol, P } from "@flexive/core";

@@ -1,0 +1,83 @@
+.ColorSystemPage .white {
+  background-color: white;
+  color: black;
+}
+.ColorSystemPage .black {
+  background-color: black;
+  color: white;
+}
+
+.gradient {
+  background-image: linear-gradient(in oklch longer hue to bottom, oklch(var(--mood) 0), oklch(var(--mood) 0));
+}
+.gradient.op {
+  background-image: linear-gradient(
+    in oklch longer hue to bottom,
+    oklch(var(--mood) 0 / 0.2),
+    oklch(var(--mood) 0 / 0.2)
+  );
+}
+.grayscale {
+  color: oklch(var(--mood) 0);
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.white .vivid {
+  --mood: 65% 0.25;
+}
+
+.white .pastel {
+  --mood: 85% 0.1;
+}
+.white .deep {
+  --mood: 58% 0.1;
+}
+.white .tarnish {
+  --mood: 70% 0.05;
+}
+
+.black .vivid {
+  --mood: 50% 0.22;
+}
+.black .pastel {
+  --mood: 32% 0.08;
+}
+.black .deep {
+  --mood: 62% 0.07;
+}
+.black .tarnish {
+  --mood: 50% 0.04;
+}
+
+.white .g1 {
+  --mood: 0% 0;
+}
+.white .g2 {
+  --mood: 35% 0;
+}
+.white .g3 {
+  --mood: 64% 0;
+}
+.white .g4 {
+  --mood: 88% 0;
+}
+.white .g5 {
+  --mood: 98% 0;
+}
+
+.black .g1 {
+  --mood: 18% 0;
+}
+.black .g2 {
+  --mood: 35% 0;
+}
+.black .g3 {
+  --mood: 50% 0;
+}
+.black .g4 {
+  --mood: 78% 0;
+}
+.black .g5 {
+  --mood: 98% 0;
+}

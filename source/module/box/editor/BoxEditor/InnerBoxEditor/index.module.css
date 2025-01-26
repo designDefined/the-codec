@@ -1,0 +1,15 @@
+.InnerBoxEditor {
+  color: var(--color_font_body);
+  background: var(--color_background);
+  border-color: var(--color_border);
+  outline: none;
+  transition: 0.2s ease;
+}
+.InnerBoxEditor:hover {
+  box-shadow: inset -2px 2px 8px 0px oklch(var(--g2) 0 / 0.2);
+}
+
+.InnerBoxEditor:active,
+.InnerBoxEditor.isSelected {
+  box-shadow: inset -2px 2px 8px 0px oklch(var(--g2) 0 / 0.5);
+}

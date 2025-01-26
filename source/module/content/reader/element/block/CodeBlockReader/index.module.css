@@ -1,0 +1,13 @@
+.CodeBlock {
+  padding: 4px 8px;
+  margin: 3px 0;
+  border-radius: 8px;
+  font-size: 0.9em;
+  overflow-x: scroll;
+}
+.CodeBlock.edit {
+  background-color: oklch(var(--g4) 0);
+}
+.CodeBlock.edit p {
+  color: oklch(var(--g2) 0);
+}

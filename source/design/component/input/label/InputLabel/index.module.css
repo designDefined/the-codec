@@ -1,0 +1,48 @@
+.InputLabel {
+  cursor: pointer;
+  transition: 0.1s ease;
+  user-select: none;
+}
+.InputLabel:hover {
+  color: oklch(var(--color_font_label) / 0.6);
+}
+.InputLabel:active {
+  color: oklch(var(--color_font_label) / 0.8);
+}
+.InputLabel,
+.InputLabel.focus {
+  color: oklch(var(--color_font_label) / 1);
+}
+
+.grayscale {
+  --color_font_label: var(--g3) 0;
+}
+.grayscale:hover,
+.grayscale:active,
+.grayscale.focus {
+  --color_font_label: var(--g4) 0;
+}
+
+.colored {
+  --color_font_label: var(--tarnish) var(--hue);
+}
+.colored:hover,
+.colored:active,
+.colored.focus {
+  --color_font_label: var(--deep) var(--hue);
+}
+
+.level1 {
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.level2 {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.level3 {
+  font-weight: 500;
+  font-size: 12px;
+}

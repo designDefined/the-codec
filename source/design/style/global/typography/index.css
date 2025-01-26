@@ -4,38 +4,63 @@
   font-family: "Pretendard Variable", sans-serif;
   font-size: 16px;
   font-weight: 300;
+  line-height: 1.6;
 }
+
+/*
+* Body
+*/
 
 p {
   font-size: 1em;
 }
 
+/*
+* Heading
+*/
+
 h1 {
   font-size: 4em;
-  line-height: 1.2;
-  margin: 0.67em 0;
+  line-height: 160%;
+}
+h1 b,
+h1 strong {
   font-weight: 900;
 }
 
 h2 {
-  font-size: 2em;
-  line-height: 1.2;
-  margin: 0.67em 0;
-  font-weight: 700;
+  font-size: 2.5em;
 }
 
 h3 {
-  font-size: 1.5em;
-  line-height: 1.2;
-  margin: 0.67em 0;
+  font-size: 2em;
 }
+
+h4 {
+  font-size: 1.5em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+h6 {
+  font-size: 0.75em;
+}
+
+/*
+* Inline
+*/
 
 strong,
 b {
   font-weight: 700;
 }
 
-em,
 i {
   font-style: italic;
+}
+
+em {
+  font-style: inherit;
 }
