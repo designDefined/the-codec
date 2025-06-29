@@ -2,6 +2,15 @@
   "name": "the-codec",
   "packageManager": "yarn@4.9.2",
   "private": true,
+  "workspaces": [
+    "shared/*",
+    "backend/*",
+    "frontend/*"
+  ],
+  "scripts": {
+    "cms": "yarn workspace cms",
+    "format": "prettier --write ."
+  },
   "devDependencies": {
     "eslint": "^9",
     "eslint-plugin-react-hooks": "^5.2.0",
