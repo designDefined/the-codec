@@ -6,32 +6,32 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  globalIgnores(["dist"]),
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    extends: [js.configs.recommended, ...tseslint.configs.strictTypeChecked, ...tseslint.configs.stylisticTypeChecked],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
     plugins: {
       "simple-import-sort": simpleImportSort,
     },
     rules: {
-      "@typescript-eslint/no-unused-expressions": ["warn", { allowTernary: true }],
+      "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/prefer-function-type": "off",
+      "@typescript-eslint/no-unused-expressions": ["error", { allowTernary: true }],
+      "@typescript-eslint/no-invalid-void-type": "off",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
     },
   },
   {
     files: ["frontend/**/*.{ts,tsx}"],
-    plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-    },
+    extends: [reactHooks.configs["recommended-latest"], reactRefresh.configs.vite],
   },
 );
