@@ -1,0 +1,9 @@
+{
+  "name": "types",
+  "type": "module",
+  "exports": {
+    "./common": "./src/common.types.d.ts",
+    "./user": "./src/user.types.d.ts",
+    "./index": "./src/index.types.d.ts"
+  }
+}
