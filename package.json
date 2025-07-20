@@ -10,6 +10,7 @@
   "scripts": {
     "cms": "yarn workspace cms",
     "blog": "yarn workspace blog",
+    "desk": "yarn workspace desk",
     "format": "prettier --write ."
   },
   "devDependencies": {
