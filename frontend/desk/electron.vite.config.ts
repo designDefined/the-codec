@@ -2,6 +2,7 @@ import { resolve } from "node:path";
 
 import react from "@vitejs/plugin-react";
 import { defineConfig, externalizeDepsPlugin } from "electron-vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 const SRC_DIR = resolve(__dirname, "desktop");
 const OUT_DIR = resolve(__dirname, "desktop/out");
@@ -29,7 +30,7 @@ export default defineConfig(() => {
       },
     },
     renderer: {
-      plugins: [react()],
+      plugins: [react(), tsconfigPaths()],
       root: resolve(SRC_DIR, "renderer"),
       build: {
         outDir: resolve(OUT_DIR, "renderer"),
