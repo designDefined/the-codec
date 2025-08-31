@@ -1,0 +1,8 @@
+/* reset */
+@import "./reset.css";
+
+/* color */
+@import "./color/theme.scss";
+
+/* font */
+@import "./font/index.css";

@@ -11,6 +11,7 @@
     "cms": "yarn workspace cms",
     "blog": "yarn workspace blog",
     "desk": "yarn workspace desk",
+    "design": "yarn workspace design",
     "format": "prettier --write ."
   },
   "devDependencies": {

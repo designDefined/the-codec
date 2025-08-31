@@ -1,7 +1,7 @@
 import type { RouteObject } from "react-router-dom";
 
 import { HomePage } from "./home/home.page";
-import { IndexesPage } from "./indexes/indexes.page";
+import { indexesRoutes } from "./indexes/indexes.routes";
 import { RootLayout } from "./root.layout";
 
 const rootRoutes: RouteObject[] = [
@@ -15,7 +15,7 @@ const rootRoutes: RouteObject[] = [
       },
       {
         path: "indexes",
-        element: <IndexesPage />,
+        children: indexesRoutes,
       },
     ],
   },

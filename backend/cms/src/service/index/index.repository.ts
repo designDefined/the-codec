@@ -1,4 +1,4 @@
-import { eq, isNull } from "drizzle-orm";
+import { and, eq, isNull } from "drizzle-orm";
 
 import { Repository } from "../../core/repository";
 import { indexesTable } from "../../db/db.schema";
@@ -14,7 +14,7 @@ class IndexRepository extends Repository {
     return index;
   }
 
-  async getIndexes() {
+  async readIndexes() {
     const indexes = await this.db
       .select()
       .from(indexesTable)
@@ -22,11 +22,11 @@ class IndexRepository extends Repository {
     return indexes;
   }
 
-  async getIndex({ indexId }: { indexId: number }) {
+  async readIndex({ indexId }: { indexId: number }) {
     const index = await this.db
       .select()
       .from(indexesTable)
-      .where(eq(indexesTable.id, indexId))
+      .where(and(eq(indexesTable.id, indexId), isNull(indexesTable.deletedAt)))
       .then(takeFirstOrThrow);
     return index;
   }
@@ -34,19 +34,42 @@ class IndexRepository extends Repository {
   async updateIndex({
     indexId,
     index,
+    updatedAt,
   }: {
     indexId: number;
     index: {
-      body?: string;
       name?: string;
+      description?: string;
     };
+    updatedAt?: Date;
   }) {
     const updatedIndex = await this.db
       .update(indexesTable)
-      .set(index)
-      .where(eq(indexesTable.id, indexId))
-      .returning();
+      .set({
+        name: index.name,
+        description: index.description,
+        updatedAt: updatedAt ?? new Date(),
+      })
+      .where(and(eq(indexesTable.id, indexId), isNull(indexesTable.deletedAt)))
+      .returning()
+      .then(takeFirstOrThrow);
     return updatedIndex;
+  }
+
+  async deleteIndex({
+    indexId,
+    deletedAt,
+  }: {
+    indexId: number;
+    deletedAt?: Date;
+  }) {
+    const deletedIndex = await this.db
+      .update(indexesTable)
+      .set({
+        deletedAt: deletedAt ?? new Date(),
+      })
+      .where(and(eq(indexesTable.id, indexId), isNull(indexesTable.deletedAt)));
+    return !!deletedIndex.rowCount;
   }
 }
 

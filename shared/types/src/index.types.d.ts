@@ -8,4 +8,7 @@ interface Index extends Times {
   unpublishedAt: Time | null;
 }
 
-export type { Index };
+type ContentColumns = "body" | "publishedAt" | "unpublishedAt";
+type IndexSummary = Omit<Index, ContentColumns>;
+
+export type { Index, IndexSummary };
