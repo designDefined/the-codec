@@ -5,6 +5,7 @@ import { integerId } from "../../utility/parameter";
 import { UserRepository } from "./user.repository";
 import { PostUserPayload } from "./user.types";
 
+const userPrefix = "/users";
 const userRouter = new Hono();
 const userRepository = new UserRepository(db);
 
@@ -27,4 +28,4 @@ userRouter.post("/", async c => {
   return c.json({ user });
 });
 
-export { userRouter };
+export { userPrefix, userRouter };

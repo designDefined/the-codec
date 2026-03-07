@@ -1,10 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import {
-  getHistoryFromSessionStorage,
-  saveHistoryToSessionStorage,
-} from "../history";
+import { getHistoryFromSessionStorage, saveHistoryToSessionStorage } from "../history";
 
 export const HistoryRecorder = () => {
   const location = useLocation();

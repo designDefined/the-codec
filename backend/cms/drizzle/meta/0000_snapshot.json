@@ -100,12 +100,8 @@
           "name": "index_bodies_index_id_indexes_id_fk",
           "tableFrom": "index_bodies",
           "tableTo": "indexes",
-          "columnsFrom": [
-            "index_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["index_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -232,12 +228,8 @@
           "name": "index_slugs_index_id_indexes_id_fk",
           "tableFrom": "index_slugs",
           "tableTo": "indexes",
-          "columnsFrom": [
-            "index_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["index_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -247,9 +239,7 @@
         "index_slugs_slug_unique": {
           "name": "index_slugs_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       },
       "policies": {},

@@ -4,6 +4,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 
+import { RepositryProvider } from "./component/provider/RepositoryProvider";
 import { router } from "./router";
 
 const root = document.getElementById("root");
@@ -14,6 +15,8 @@ if (!root) {
 
 createRoot(root).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <RepositryProvider>
+      <RouterProvider router={router} />
+    </RepositryProvider>
   </StrictMode>,
 );

@@ -9,11 +9,7 @@ import tseslint from "typescript-eslint";
 export default tseslint.config(
   { ignores: ["**/dist"] },
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.strictTypeChecked,
-      ...tseslint.configs.stylisticTypeChecked,
-    ],
+    extends: [js.configs.recommended, ...tseslint.configs.strictTypeChecked, ...tseslint.configs.stylisticTypeChecked],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
@@ -29,10 +25,7 @@ export default tseslint.config(
     rules: {
       "@typescript-eslint/consistent-type-definitions": "off",
       "@typescript-eslint/prefer-function-type": "off",
-      "@typescript-eslint/no-unused-expressions": [
-        "error",
-        { allowTernary: true },
-      ],
+      "@typescript-eslint/no-unused-expressions": ["error", { allowTernary: true }],
       "@typescript-eslint/no-invalid-void-type": "off",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
@@ -40,9 +33,6 @@ export default tseslint.config(
   },
   {
     files: ["frontend/**/*.{ts,tsx}"],
-    extends: [
-      reactHooks.configs["recommended-latest"],
-      reactRefresh.configs.vite,
-    ],
+    extends: [reactHooks.configs["recommended-latest"], reactRefresh.configs.vite],
   },
 );

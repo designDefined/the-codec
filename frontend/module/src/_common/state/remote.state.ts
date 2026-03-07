@@ -48,10 +48,7 @@ const createFromState = <Value>() => {
 };
 
 const createToState = <Payload>() => {
-  const ToState = state<
-    ToState<Payload>,
-    [(payload: Payload) => Promise<void>, RawKey?]
-  >()({
+  const ToState = state<ToState<Payload>, [(payload: Payload) => Promise<void>, RawKey?]>()({
     as: (_, id) => id ?? true,
     is: ({ set }, to) => {
       const save = (payload: Payload) => {

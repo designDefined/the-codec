@@ -1,61 +1,38 @@
-import { useStateOf } from "@enun/react";
-import { bindCSS, Header, Li, Ul } from "@flexive/core";
-import { IndexesState } from "module/index";
-import { Link } from "react-router-dom";
-import type { Index } from "types/index";
+import { bindCSS, Ul } from "@flexive/core";
+import { Button } from "design/component/action";
+import { Plus } from "iconoir-react";
 
-import { cmsApi } from "@/api";
+import { useRepoMutation, useRepoQuery } from "@/repository/_hook";
+import { indexMutation, indexQuery } from "@/repository/index.repository";
 
+import { DashboardHeader } from "../DashboardHeader";
 import styles from "./index.module.scss";
+import { IndexItem } from "./IndexItem";
 
 const cx = bindCSS(styles);
 
 export const IndexDashboard = () => {
   const {
-    value: { indexes },
-  } = useStateOf(
-    IndexesState({
-      from: () =>
-        cmsApi
-          .get<{ indexes: Index[] }>("indexes")
-          .json()
-          .then(res => res.indexes),
-    }),
-  );
+    data: { indexes },
+  } = useRepoQuery(indexQuery.indexes());
+  const { mutate: createIndex } = useRepoMutation(indexMutation.create({ name: "새 인덱스" }));
 
-  // const handleClickToIndexesButton = () => {
-  //   void cmsApi
-  //     .post<{ index: Index }>("indexes", { json: { name: "test" } })
-  //     .then(async res => {
-  //       const { index } = await res.json();
-  //       navigate(`/indexes/${index.id.toString()}`);
-  //     });
-  // };
+  const handleCreateIndex = () => {
+    createIndex();
+  };
 
   return (
     <>
-      <Header className={cx("IndexDashboardHeader")} row alignC px={24} py={12}>
-        Indexes
-      </Header>
-      <Ul>
+      <DashboardHeader title="Index">
+        <Button onClick={handleCreateIndex} alignM rad={4}>
+          <Plus width={16} height={16} strokeWidth={2} />
+        </Button>
+      </DashboardHeader>
+      <Ul className={cx("IndexDashboard")}>
         {indexes.map(index => (
           <IndexItem key={index.id} index={index} />
         ))}
       </Ul>
     </>
-  );
-};
-
-interface IndexItemProps {
-  index: Index;
-}
-
-const IndexItem = ({ index }: IndexItemProps) => {
-  return (
-    <Link to={`/indexes/${index.id.toString()}`}>
-      <Li className={cx("IndexItem")} row px={16} py={8}>
-        {index.name}
-      </Li>
-    </Link>
   );
 };

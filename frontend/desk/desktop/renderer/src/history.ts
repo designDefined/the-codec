@@ -7,9 +7,7 @@ const getHistoryFromSessionStorage = (): string[] => {
     const history = z
       .string()
       .array()
-      .parse(
-        JSON.parse(sessionStorage.getItem(MEMORY_ROUTER_HISTORY_KEY) ?? ""),
-      );
+      .parse(JSON.parse(sessionStorage.getItem(MEMORY_ROUTER_HISTORY_KEY) ?? ""));
     if (history.length === 0) {
       return ["/"];
     }

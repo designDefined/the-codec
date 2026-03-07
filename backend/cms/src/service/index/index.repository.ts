@@ -6,19 +6,12 @@ import { takeFirstOrThrow } from "../../utility/db";
 
 class IndexRepository extends Repository {
   async createIndex({ name }: { name: string }) {
-    const index = await this.db
-      .insert(indexesTable)
-      .values({ name })
-      .returning()
-      .then(takeFirstOrThrow);
+    const index = await this.db.insert(indexesTable).values({ name }).returning().then(takeFirstOrThrow);
     return index;
   }
 
   async readIndexes() {
-    const indexes = await this.db
-      .select()
-      .from(indexesTable)
-      .where(isNull(indexesTable.deletedAt));
+    const indexes = await this.db.select().from(indexesTable).where(isNull(indexesTable.deletedAt));
     return indexes;
   }
 
@@ -40,6 +33,7 @@ class IndexRepository extends Repository {
     index: {
       name?: string;
       description?: string;
+      content?: string;
     };
     updatedAt?: Date;
   }) {
@@ -56,13 +50,7 @@ class IndexRepository extends Repository {
     return updatedIndex;
   }
 
-  async deleteIndex({
-    indexId,
-    deletedAt,
-  }: {
-    indexId: number;
-    deletedAt?: Date;
-  }) {
+  async deleteIndex({ indexId, deletedAt }: { indexId: number; deletedAt?: Date }) {
     const deletedIndex = await this.db
       .update(indexesTable)
       .set({

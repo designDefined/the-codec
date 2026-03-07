@@ -1,7 +1,6 @@
 import { Article, Div, Main } from "@flexive/core";
-import { Card } from "frontend/design/src/component/surface";
-import type { PropsWithChildren } from "react";
 
+import { DashboardCard } from "./DashboardCard";
 import { IndexDashboard } from "./IndexDashboard";
 
 export const HomePage = () => {
@@ -13,22 +12,14 @@ export const HomePage = () => {
           <DashboardCard>
             <IndexDashboard />
           </DashboardCard>
-          <DashboardCard>User</DashboardCard>
+          <DashboardCard />
         </Div>
         <Div row wrap g={20}>
-          <DashboardCard>Codex</DashboardCard>
-          <DashboardCard>Publish</DashboardCard>
+          <DashboardCard />
+          <DashboardCard />
         </Div>
       </Main>
       <Div f minC={80} />
     </Article>
-  );
-};
-
-const DashboardCard = ({ children }: PropsWithChildren) => {
-  return (
-    <Card grow basis={320} sizeM={280} rad={16} hide>
-      {children}
-    </Card>
   );
 };

@@ -24,6 +24,7 @@ import {
 import { IndexBodyRepository } from "./index-body.repository";
 import { IndexSlugRepository } from "./index-slug.repository";
 
+const indexPrefix = "/indexes";
 const indexRouter = new Hono();
 
 const indexRepository = new IndexRepository(db);
@@ -68,9 +69,7 @@ indexRouter.get("/:indexId/slugs", async c => {
 });
 
 indexRouter.post("/", async c => {
-  const payload = await c.req
-    .json()
-    .then(payload => PostIndexReq.parse(payload));
+  const payload = await c.req.json().then(payload => PostIndexReq.parse(payload));
 
   const index = await db.transaction(
     async tx => {
@@ -90,9 +89,7 @@ indexRouter.post("/", async c => {
 
 indexRouter.post("/:indexId/slugs", async c => {
   const indexId = integerId.parse(c.req.param("indexId"));
-  const payload = await c.req
-    .json()
-    .then(payload => PostIndexSlugReq.parse(payload));
+  const payload = await c.req.json().then(payload => PostIndexSlugReq.parse(payload));
 
   const { id, slug, type, updatedAt } = await indexSlugRepository.createSlug({
     indexId,
@@ -113,9 +110,7 @@ indexRouter.post("/:indexId/slugs", async c => {
 
 indexRouter.patch("/:indexId", async c => {
   const indexId = integerId.parse(c.req.param("indexId"));
-  const payload = await c.req
-    .json()
-    .then(payload => PatchIndexReq.parse(payload));
+  const payload = await c.req.json().then(payload => PatchIndexReq.parse(payload));
 
   const index = await indexRepository.updateIndex({
     indexId,
@@ -129,9 +124,7 @@ indexRouter.patch("/:indexId", async c => {
 
 indexRouter.patch("/:indexId/body", async c => {
   const indexId = integerId.parse(c.req.param("indexId"));
-  const payload = await c.req
-    .json()
-    .then(payload => PatchIndexBodyReq.parse(payload));
+  const payload = await c.req.json().then(payload => PatchIndexBodyReq.parse(payload));
 
   const { body, updatedAt } = await indexBodyRepository.updateIndexBody({
     indexId,
@@ -152,9 +145,7 @@ indexRouter.patch("/:indexId/body", async c => {
 indexRouter.patch("/:indexId/slugs/:slugId", async c => {
   const indexId = integerId.parse(c.req.param("indexId"));
   const slugId = integerId.parse(c.req.param("slugId"));
-  const payload = await c.req
-    .json()
-    .then(payload => PatchIndexSlugReq.parse(payload));
+  const payload = await c.req.json().then(payload => PatchIndexSlugReq.parse(payload));
 
   const { id, slug, type, updatedAt } = await indexSlugRepository.updateSlug({
     indexId,
@@ -214,4 +205,4 @@ indexRouter.delete("/:indexId/slugs/:slugId", async c => {
   });
 });
 
-export { indexRouter };
+export { indexPrefix, indexRouter };

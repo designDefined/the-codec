@@ -1,19 +1,14 @@
-import { useStateOf } from "@enun/react";
-import { IndexState } from "module/index";
+import { Article } from "@flexive/core";
+
+import { ContentEditor } from "@/component/editor/ContentEditor/ContentEditor";
+
+import { IndexEditorSidebar } from "./IndexEditorSidebar";
 
 export function IndexPage() {
-  const {
-    value: { name, setName },
-  } = useStateOf(IndexState);
-
   return (
-    <div>
-      <input
-        value={name}
-        onChange={e => {
-          setName(e.target.value);
-        }}
-      />
-    </div>
+    <Article f hide>
+      <ContentEditor />
+      <IndexEditorSidebar />
+    </Article>
   );
 }

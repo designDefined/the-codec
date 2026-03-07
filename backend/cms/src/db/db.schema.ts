@@ -1,12 +1,4 @@
-import {
-  index,
-  integer,
-  pgTable,
-  serial,
-  text,
-  timestamp,
-  varchar,
-} from "drizzle-orm/pg-core";
+import { index, integer, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 /**
  * varchar lengths
@@ -36,11 +28,7 @@ export const usersTable = pgTable(
     name: varchar({ length: MEDIUM }).notNull(),
     ...timestamps,
   },
-  table => [
-    index().on(table.name),
-    index().on(table.createdAt),
-    index().on(table.updatedAt),
-  ],
+  table => [index().on(table.name), index().on(table.createdAt), index().on(table.updatedAt)],
 );
 
 export const indexesTable = pgTable(
@@ -72,11 +60,7 @@ export const indexBodiesTable = pgTable(
     body: text().notNull().default(""),
     ...timestamps,
   },
-  table => [
-    index().on(table.indexId),
-    index().on(table.createdAt),
-    index().on(table.updatedAt),
-  ],
+  table => [index().on(table.indexId), index().on(table.createdAt), index().on(table.updatedAt)],
 );
 
 export const indexSlugsTable = pgTable(

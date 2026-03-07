@@ -3,14 +3,14 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 
 import { env } from "./env";
-import { indexRouter } from "./service/index/index.router";
-import { userRouter } from "./service/user/user.router";
+import { indexPrefix, indexRouter } from "./service/index/index.router";
+import { userPrefix, userRouter } from "./service/user/user.router";
 
 const app = new Hono();
 app.use(cors());
 
-app.route("/users", userRouter);
-app.route("/indexes", indexRouter);
+app.route(userPrefix, userRouter);
+app.route(indexPrefix, indexRouter);
 
 serve(
   {
@@ -18,8 +18,6 @@ serve(
     port: env.PORT,
   },
   info => {
-    console.log(
-      `Server is running on http://localhost:${info.port.toString()}`,
-    );
+    console.log(`Server is running on http://localhost:${info.port.toString()}`);
   },
 );

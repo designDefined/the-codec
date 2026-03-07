@@ -5,13 +5,17 @@
   "workspaces": [
     "shared/*",
     "backend/*",
-    "frontend/*"
+    "frontend/*",
+    "utility/*"
   ],
   "scripts": {
+    "types": "yarn workspace types",
     "cms": "yarn workspace cms",
     "blog": "yarn workspace blog",
     "desk": "yarn workspace desk",
     "design": "yarn workspace design",
+    "module": "yarn workspace module",
+    "font-convert": "yarn workspace font-convert",
     "format": "prettier --write ."
   },
   "devDependencies": {

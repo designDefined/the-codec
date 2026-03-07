@@ -1,8 +1,6 @@
 import type { InteractionState } from "../style/state/state.types";
 
-const extractActiveStateClasses = <State extends string>(
-  value?: State | Partial<Record<State, boolean>>,
-): string[] => {
+const extractActiveStateClasses = <State extends string>(value?: State | Partial<Record<State, boolean>>): string[] => {
   if (!value) return [];
   if (typeof value === "string") return [value];
   return Object.entries(value)

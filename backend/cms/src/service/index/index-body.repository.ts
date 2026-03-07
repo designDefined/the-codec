@@ -13,12 +13,7 @@ class IndexBodyRepository extends Repository {
     return await this.db
       .select()
       .from(indexBodiesTable)
-      .where(
-        and(
-          eq(indexBodiesTable.indexId, indexId),
-          isNull(indexBodiesTable.deletedAt),
-        ),
-      )
+      .where(and(eq(indexBodiesTable.indexId, indexId), isNull(indexBodiesTable.deletedAt)))
       .then(takeFirstOrThrow);
   }
 
@@ -29,34 +24,18 @@ class IndexBodyRepository extends Repository {
         body,
         updatedAt: new Date(),
       })
-      .where(
-        and(
-          eq(indexBodiesTable.indexId, indexId),
-          isNull(indexBodiesTable.deletedAt),
-        ),
-      )
+      .where(and(eq(indexBodiesTable.indexId, indexId), isNull(indexBodiesTable.deletedAt)))
       .returning()
       .then(takeFirstOrThrow);
   }
 
-  async deleteIndexBody({
-    indexId,
-    deletedAt,
-  }: {
-    indexId: number;
-    deletedAt?: Date;
-  }) {
+  async deleteIndexBody({ indexId, deletedAt }: { indexId: number; deletedAt?: Date }) {
     const deletedIndexBody = await this.db
       .update(indexBodiesTable)
       .set({
         deletedAt: deletedAt ?? new Date(),
       })
-      .where(
-        and(
-          eq(indexBodiesTable.indexId, indexId),
-          isNull(indexBodiesTable.deletedAt),
-        ),
-      );
+      .where(and(eq(indexBodiesTable.indexId, indexId), isNull(indexBodiesTable.deletedAt)));
     return !!deletedIndexBody.rowCount;
   }
 }

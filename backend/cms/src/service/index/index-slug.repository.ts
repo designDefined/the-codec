@@ -7,15 +7,7 @@ import { indexSlugsTable } from "../../db/db.schema";
 import { takeFirstOrThrow } from "../../utility/db";
 
 class IndexSlugRepository extends Repository {
-  async createSlug({
-    indexId,
-    slug,
-    type,
-  }: {
-    indexId: Index["id"];
-    slug: string;
-    type: SLUG_TYPE;
-  }) {
+  async createSlug({ indexId, slug, type }: { indexId: Index["id"]; slug: string; type: SLUG_TYPE }) {
     return await this.db
       .insert(indexSlugsTable)
       .values({
@@ -31,23 +23,10 @@ class IndexSlugRepository extends Repository {
     return await this.db
       .select()
       .from(indexSlugsTable)
-      .where(
-        and(
-          eq(indexSlugsTable.indexId, indexId),
-          isNull(indexSlugsTable.deletedAt),
-        ),
-      );
+      .where(and(eq(indexSlugsTable.indexId, indexId), isNull(indexSlugsTable.deletedAt)));
   }
 
-  async updateSlug({
-    indexId,
-    slugId,
-    slug,
-  }: {
-    indexId: Index["id"];
-    slugId: Slug["id"];
-    slug: string;
-  }) {
+  async updateSlug({ indexId, slugId, slug }: { indexId: Index["id"]; slugId: Slug["id"]; slug: string }) {
     return await this.db
       .update(indexSlugsTable)
       .set({
@@ -55,58 +34,31 @@ class IndexSlugRepository extends Repository {
         updatedAt: new Date(),
       })
       .where(
-        and(
-          eq(indexSlugsTable.indexId, indexId),
-          eq(indexSlugsTable.id, slugId),
-          isNull(indexSlugsTable.deletedAt),
-        ),
+        and(eq(indexSlugsTable.indexId, indexId), eq(indexSlugsTable.id, slugId), isNull(indexSlugsTable.deletedAt)),
       )
       .returning()
       .then(takeFirstOrThrow);
   }
 
-  async deleteSlug({
-    indexId,
-    slugId,
-    deletedAt,
-  }: {
-    indexId: Index["id"];
-    slugId: Slug["id"];
-    deletedAt?: Date;
-  }) {
+  async deleteSlug({ indexId, slugId, deletedAt }: { indexId: Index["id"]; slugId: Slug["id"]; deletedAt?: Date }) {
     const deletedSlug = await this.db
       .update(indexSlugsTable)
       .set({
         deletedAt: deletedAt ?? new Date(),
       })
       .where(
-        and(
-          eq(indexSlugsTable.indexId, indexId),
-          eq(indexSlugsTable.id, slugId),
-          isNull(indexSlugsTable.deletedAt),
-        ),
+        and(eq(indexSlugsTable.indexId, indexId), eq(indexSlugsTable.id, slugId), isNull(indexSlugsTable.deletedAt)),
       );
     return !!deletedSlug.rowCount;
   }
 
-  async deleteSlugsByIndexId({
-    indexId,
-    deletedAt,
-  }: {
-    indexId: Index["id"];
-    deletedAt?: Date;
-  }) {
+  async deleteSlugsByIndexId({ indexId, deletedAt }: { indexId: Index["id"]; deletedAt?: Date }) {
     const deletedSlugs = await this.db
       .update(indexSlugsTable)
       .set({
         deletedAt: deletedAt ?? new Date(),
       })
-      .where(
-        and(
-          eq(indexSlugsTable.indexId, indexId),
-          isNull(indexSlugsTable.deletedAt),
-        ),
-      );
+      .where(and(eq(indexSlugsTable.indexId, indexId), isNull(indexSlugsTable.deletedAt)));
     return !!deletedSlugs.rowCount;
   }
 }

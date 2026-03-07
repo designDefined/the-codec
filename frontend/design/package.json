@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "exports": {
-    "./style/**/*": "./src/style/**/*",
+    "./style/index.css": "./src/style/index.css",
     "./component/action": "./src/component/action/index.ts",
     "./component/input": "./src/component/input/index.ts",
     "./component/surface": "./src/component/surface/index.ts"
@@ -17,9 +17,12 @@
   },
   "dependencies": {
     "@flexive/core": "^0.6.0",
+    "@flexive/operator": "^0.3.4",
     "@radix-ui/colors": "^3.0.0",
+    "iconoir-react": "^7.11.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-router": "^7.9.5",
     "types": "workspace:*"
   },
   "devDependencies": {

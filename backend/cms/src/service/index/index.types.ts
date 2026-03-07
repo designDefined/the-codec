@@ -2,88 +2,70 @@ import type { Index } from "shared/types/src/index.types";
 import type { Slug } from "shared/types/src/slug.types";
 import { z } from "zod";
 
-interface GetIndexesRes {
+export type GetIndexesRes = {
   indexes: Index[];
-}
-interface GetIndexRes {
+};
+export type GetIndexRes = {
   index: Index;
-}
-interface GetIndexBodyRes {
+};
+export type GetIndexBodyRes = {
   body: string;
-}
-interface GetIndexSlugsRes {
+};
+export type GetIndexSlugsRes = {
   slugs: Slug[];
-}
+};
 
-const PostIndexReq = z.object({
+export const PostIndexReq = z.object({
   name: z.string(),
 });
-type PostIndexReq = z.infer<typeof PostIndexReq>;
-interface PostIndexRes {
+export type PostIndexReq = z.infer<typeof PostIndexReq>;
+export type PostIndexRes = {
   index: Index;
-}
+};
 
-const PostIndexSlugReq = z.object({
+export const PostIndexSlugReq = z.object({
   slug: z.string(),
   type: z.enum(["PUBLIC", "PRIVATE"]),
 });
-type PostIndexSlugReq = z.infer<typeof PostIndexSlugReq>;
-interface PostIndexSlugRes {
+export type PostIndexSlugReq = z.infer<typeof PostIndexSlugReq>;
+export type PostIndexSlugRes = {
   index: Index;
   slug: Slug;
-}
+};
 
-const PatchIndexReq = z
+export const PatchIndexReq = z
   .object({
     name: z.string(),
     description: z.string(),
+    content: z.string(),
   })
   .partial();
-type PatchIndexReq = z.infer<typeof PatchIndexReq>;
-interface PatchIndexRes {
+export type PatchIndexReq = z.infer<typeof PatchIndexReq>;
+export type PatchIndexRes = {
   index: Index;
-}
+};
 
-const PatchIndexBodyReq = z.object({
+export const PatchIndexBodyReq = z.object({
   body: z.string(),
 });
-type PatchIndexBodyReq = z.infer<typeof PatchIndexBodyReq>;
-interface PatchIndexBodyRes {
+export type PatchIndexBodyReq = z.infer<typeof PatchIndexBodyReq>;
+export type PatchIndexBodyRes = {
   index: Index;
   body: string;
-}
+};
 
-const PatchIndexSlugReq = z.object({
+export const PatchIndexSlugReq = z.object({
   slug: z.string(),
 });
-type PatchIndexSlugReq = z.infer<typeof PatchIndexSlugReq>;
-interface PatchIndexSlugRes {
+export type PatchIndexSlugReq = z.infer<typeof PatchIndexSlugReq>;
+export type PatchIndexSlugRes = {
   index: Index;
   slug: Slug;
-}
-
-type DeleteIndexRes = {
-  success: boolean;
-};
-type DeleteIndexSlugRes = {
-  success: boolean;
 };
 
-export {
-  type DeleteIndexRes,
-  type DeleteIndexSlugRes,
-  type GetIndexBodyRes,
-  type GetIndexesRes,
-  type GetIndexRes,
-  type GetIndexSlugsRes,
-  PatchIndexBodyReq,
-  type PatchIndexBodyRes,
-  PatchIndexReq,
-  type PatchIndexRes,
-  PatchIndexSlugReq,
-  type PatchIndexSlugRes,
-  PostIndexReq,
-  type PostIndexRes,
-  PostIndexSlugReq,
-  type PostIndexSlugRes,
+export type DeleteIndexRes = {
+  success: boolean;
+};
+export type DeleteIndexSlugRes = {
+  success: boolean;
 };

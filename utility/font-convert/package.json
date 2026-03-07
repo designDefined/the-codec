@@ -1,0 +1,17 @@
+{
+  "name": "font-convert",
+  "type": "module",
+  "scripts": {
+    "convert": "tsx src/main.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@types/ttf2woff": "^2.0.4",
+    "@types/wawoff2": "^1.0.2",
+    "dotenv": "^17.2.1",
+    "otf2ttf": "^1.1.2",
+    "tsx": "^4.7.1",
+    "ttf2woff": "^3.0.0",
+    "wawoff2": "^1.0.1"
+  }
+}

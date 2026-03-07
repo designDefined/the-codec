@@ -4,6 +4,8 @@
   "exports": {
     "./common": "./src/common.types.d.ts",
     "./user": "./src/user.types.d.ts",
-    "./index": "./src/index.types.d.ts"
+    "./slug": "./src/slug.types.d.ts",
+    "./index": "./src/index.types.d.ts",
+    "./content": "./src/content/_index.types.ts"
   }
 }
