@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { Index } from "shared/types/src/index.types";
+import type { Index } from "types/index";
 
 export const IndexIdContext = createContext<Index["id"] | undefined>(undefined);
 export const useIndexId = () => {

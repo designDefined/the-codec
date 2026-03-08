@@ -1,9 +1,10 @@
 import type { BlockLayout } from "./layout.types";
 import type { Leaf } from "./leaf.types";
 import type { BlockLook } from "./look.types";
-import type { Paragraph } from "./paragraph";
+import type { Paragraph } from "./paragraph.types";
 
-type BLOCK_TYPE = "FLOW" | "PARAGRAPH" | "HEADING";
+type BLOCK_TYPE = "FLOW" | "HEADING";
+const BLOCK_TYPES = ["FLOW", "HEADING"] as const;
 
 interface BlockBase {
   id: string;
@@ -25,3 +26,4 @@ interface HeadingBlock extends BlockBase {
 type Block = FlowBlock | HeadingBlock;
 
 export type { Block, BLOCK_TYPE, FlowBlock, HeadingBlock };
+export { BLOCK_TYPES };

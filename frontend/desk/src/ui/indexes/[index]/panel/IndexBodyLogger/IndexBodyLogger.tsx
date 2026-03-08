@@ -1,18 +1,20 @@
-import { Panel } from "design/component/surface";
+import { Button } from "design/component/action";
 import { useSlate } from "slate-react";
+
+import { EditorPanel } from "@/component/panel/EditorPanel/EditorPanel";
 
 export const IndexBodyLogger = () => {
   const slate = useSlate();
 
   return (
-    <Panel px={16} py={12} sizeM={240}>
-      <button
+    <EditorPanel px={16} py={12}>
+      <Button
         onClick={() => {
           console.log(JSON.stringify(slate.children, null, 2));
         }}
       >
         로그
-      </button>
-    </Panel>
+      </Button>
+    </EditorPanel>
   );
 };

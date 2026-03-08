@@ -3156,6 +3156,7 @@ __metadata:
     globals: "npm:^16.3.0"
     iconoir-react: "npm:^7.11.0"
     is-hotkey: "npm:^0.2.0"
+    jotai: "npm:^2.18.0"
     ky: "npm:^1.8.2"
     module: "workspace:^"
     nanoid: "npm:^5.1.6"
@@ -4983,6 +4984,27 @@ __metadata:
   bin:
     jake: bin/cli.js
   checksum: 10/3be324708f99f031e0aec49ef8fd872eb4583cbe8a29a0c875f554f6ac638ee4ea5aa759bb63723fd54f77ca6d7db851eaa78353301734ed3700db9cb109a0cd
+  languageName: node
+  linkType: hard
+
+"jotai@npm:^2.18.0":
+  version: 2.18.0
+  resolution: "jotai@npm:2.18.0"
+  peerDependencies:
+    "@babel/core": ">=7.0.0"
+    "@babel/template": ">=7.0.0"
+    "@types/react": ">=17.0.0"
+    react: ">=17.0.0"
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+    "@babel/template":
+      optional: true
+    "@types/react":
+      optional: true
+    react:
+      optional: true
+  checksum: 10/dfa48f53604824f15450a79bbf4ca447d8382c9fd54e0bd726c2e97caaaeef4018f192cf9de925df3d6bfac01367ee35fbefbe3a28d665c1c98ab8ef820d86a7
   languageName: node
   linkType: hard
 

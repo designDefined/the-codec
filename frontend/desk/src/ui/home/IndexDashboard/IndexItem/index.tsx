@@ -1,6 +1,6 @@
 import { bindCSS, Li } from "@flexive/core";
 import { Link } from "react-router-dom";
-import type { Index } from "shared/types/src/index.types";
+import type { Index } from "types/index";
 
 import styles from "./index.module.scss";
 

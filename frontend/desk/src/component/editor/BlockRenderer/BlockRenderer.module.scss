@@ -4,6 +4,21 @@
   text-align: justify;
 }
 
+.Block {
+  transition: all 0.2s ease;
+  outline: 1px solid transparent;
+
+  @include state.hover {
+    cursor: initial;
+    outline-color: oklch(50% 0 0 / 0.08);
+  }
+
+  @include state.on {
+    outline-color: oklch(50% 0 0 / 0.16);
+    background-color: oklch(50% 0 0 / 0.04);
+  }
+}
+
 .Heading {
   line-height: 2;
 }

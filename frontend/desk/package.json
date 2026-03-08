@@ -32,6 +32,7 @@
     "electron-updater": "6.6.2",
     "iconoir-react": "^7.11.0",
     "is-hotkey": "^0.2.0",
+    "jotai": "^2.18.0",
     "ky": "^1.8.2",
     "module": "workspace:^",
     "nanoid": "^5.1.6",

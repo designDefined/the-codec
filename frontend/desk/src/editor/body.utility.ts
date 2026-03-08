@@ -18,7 +18,7 @@ export const parseBody = (body?: string): Descendant[] => {
 const defaultInitialBody: Descendant[] = [
   {
     id: nanoid(),
-    type: "CONTAINER",
+    type: "FLOW",
     layout: {
       f: true,
       py: 128,

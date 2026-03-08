@@ -1,49 +1,30 @@
-import type { Block, HeadingBlock } from "shared/types/src/content/block.types";
-import type { Paragraph } from "shared/types/src/content/paragraph";
-import { Editor, Element as SlateElement, type Node, Path, Range, Transforms } from "slate";
+import { nanoid } from "nanoid";
+import { Editor, Path as SlatePath, Range as SlateRange, Transforms } from "slate";
+import type { BLOCK_TYPE } from "types/content";
 
-type TextBlock = Paragraph | HeadingBlock;
-
-const isTextBlock = (node: Node): node is TextBlock => {
-  return SlateElement.isElement(node) && (node.type === "PARAGRAPH" || node.type === "HEADING");
-};
-
-const isBlock = (node: Node): node is Block => {
-  return SlateElement.isElement(node) && node.type !== "PARAGRAPH";
-};
+import { isBlock, isBlockAtPath, isParagraph } from "./isNode.utility";
 
 const insertParagraphBreak = (editor: Editor) => {
   if (!editor.selection) return;
 
-  if (Range.isExpanded(editor.selection)) {
+  if (SlateRange.isExpanded(editor.selection)) {
     Transforms.delete(editor);
   }
 
   Transforms.splitNodes(editor, {
-    at: editor.selection,
-    match: isTextBlock,
+    match: isParagraph,
     always: true,
   });
-
-  const currentTextBlock = Editor.above(editor, {
-    at: editor.selection,
-    match: isTextBlock,
-    mode: "lowest",
-  });
-  if (!currentTextBlock) return;
-
-  const [node, path] = currentTextBlock;
-  if (node.type === "PARAGRAPH") return;
-
-  Transforms.setNodes(editor, { type: "PARAGRAPH" }, { at: path });
-  Transforms.unsetNodes(editor, "level", { at: path });
 };
 
-const splitNearestBlock = (editor: Editor) => {
+const insertBlockBreak = (editor: Editor) => {
   if (!editor.selection) return;
 
+  if (SlateRange.isExpanded(editor.selection)) {
+    Transforms.delete(editor);
+  }
+
   const nearestBlock = Editor.above(editor, {
-    at: editor.selection,
     match: isBlock,
     mode: "lowest",
   });
@@ -51,13 +32,49 @@ const splitNearestBlock = (editor: Editor) => {
 
   const [, blockPath] = nearestBlock;
   Transforms.splitNodes(editor, {
-    at: editor.selection,
-    match: (_node, path) => Path.equals(path, blockPath),
+    match: (_node, path) => SlatePath.equals(path, blockPath),
     always: true,
+  });
+};
+
+const setBlockType = (editor: Editor, path: SlatePath, blockType: BLOCK_TYPE) => {
+  Transforms.setNodes(
+    editor,
+    { type: blockType },
+    {
+      at: path,
+      match: isBlockAtPath(path),
+    },
+  );
+};
+
+const wrapBlock = (editor: Editor, path?: SlatePath) => {
+  Transforms.wrapNodes(
+    editor,
+    {
+      id: nanoid(),
+      type: "FLOW",
+      layout: { p: 4 },
+      children: [],
+    },
+    {
+      at: path,
+      match: path ? isBlockAtPath(path) : isParagraph,
+    },
+  );
+};
+
+const unwrapBlock = (editor: Editor, path?: SlatePath) => {
+  Transforms.unwrapNodes(editor, {
+    at: path,
+    match: isBlockAtPath(path),
   });
 };
 
 export const BlockTransform = {
   insertParagraphBreak,
-  splitNearestBlock,
+  insertBlockBreak,
+  setBlockType,
+  wrapBlock,
+  unwrapBlock,
 } as const;

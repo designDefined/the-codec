@@ -1,5 +1,5 @@
 import { bindCSS, Div, type PropsOf } from "@flexive/core";
-import { type CSSProperties, useCallback, useRef } from "react";
+import { type CSSProperties, useCallback } from "react";
 
 import styles from "./HueInput.module.scss";
 
@@ -11,7 +11,6 @@ type HueInputProps = Omit<PropsOf<"div">, "value" | "onChange"> & {
 };
 
 export const HueInput = ({ value, onChange }: HueInputProps) => {
-  const isClicked = useRef(false);
   const onPickHue = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       const rect = e.currentTarget.getBoundingClientRect();

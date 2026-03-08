@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { Index } from "shared/types/src/index.types";
+import type { Index } from "types/index";
 
 import { IndexIdContext } from "../../context/IndexContext";
 

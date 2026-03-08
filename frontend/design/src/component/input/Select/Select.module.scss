@@ -1,0 +1,28 @@
+.Select {
+  border: 1px solid oklch(80% 0 0);
+  border-radius: 16px;
+  background-color: oklch(98% 0 0);
+
+  color: oklch(60% 0 0);
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+
+  @include state.hover {
+    background-color: oklch(92% 0 0);
+  }
+  @include state.active {
+    background-color: oklch(85% 0 0);
+  }
+  @include state.disabled {
+    background-color: oklch(92% 0 0);
+    border-color: oklch(80% 0 0);
+    color: oklch(80% 0 0);
+  }
+}
+
+.SelectModal {
+  font-size: 14px;
+  color: oklch(60% 0 0);
+}

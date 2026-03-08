@@ -1,4 +1,4 @@
-import type { Index } from "shared/types/src/index.types";
+import type { Index } from "types/index";
 
 import { cmsApi } from "@/api";
 

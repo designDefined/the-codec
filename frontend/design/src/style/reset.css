@@ -67,3 +67,23 @@ td,
 th {
   padding: 0;
 }
+
+button {
+  text-align: justify;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+  cursor: default;
+}
+::-webkit-scrollbar-thumb {
+  background-color: oklch(0 0 0/0.08);
+  border-radius: 4px;
+  cursor: default;
+
+  &:hover {
+    background-color: oklch(0 0 0/0.1);
+  }
+}

@@ -1,5 +1,5 @@
-import type { Index } from "shared/types/src/index.types";
-import type { Slug } from "shared/types/src/slug.types";
+import type { Index } from "types/index";
+import type { Slug } from "types/slug";
 import z from "zod";
 
 // Query

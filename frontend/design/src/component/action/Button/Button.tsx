@@ -1,20 +1,15 @@
 import { bindCSS, Button as FButton, type PropsOf } from "@flexive/core";
 import type { Ref } from "react";
 
-import type { InteractionState } from "../../../style/state/state.types";
-import { cs } from "../../../utility/classnames";
 import styles from "./Button.module.scss";
 
 const cx = bindCSS(styles);
 
-interface ButtonProps extends PropsOf<"button"> {
+export type ButtonProps = PropsOf<"button"> & {
   ref?: Ref<HTMLButtonElement>;
-  state?: Omit<InteractionState, "data" | "validation" | "on" | "dirty">;
-}
-
-const Button = ({ ref, className, state, ...props }: ButtonProps) => {
-  return <FButton ref={ref} className={cx("Button", cs(state), "tomato-1", "ruby-2", className)} {...props} />;
 };
 
-export { Button };
-export type { ButtonProps };
+export const Button = ({ ref, className, ...props }: ButtonProps) => {
+  // @ts-expect-error - react version mismatch with flexive core
+  return <FButton ref={ref} className={cx("Button", className)} alignC px={8} py={4} {...props} />;
+};

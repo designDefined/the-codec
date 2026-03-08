@@ -1,12 +1,15 @@
 import isHotkey from "is-hotkey";
+import { useSetAtom } from "jotai";
 import { type PropsWithChildren, useCallback, useEffect, useState } from "react";
-import type { Leaf } from "shared/types/src/content/leaf.types";
-import { createEditor, type Descendant, Editor } from "slate";
-import { Slate, useSlate, withReact } from "slate-react";
+import { createEditor, type Descendant, Editor, type Selection as SlateSelection, Transforms } from "slate";
+import { Slate, useSlateStatic, withReact } from "slate-react";
+import type { Leaf } from "types/content";
 
 import { EditorConfigContext } from "@/context/EditorConfigContext";
+import { BlockSelectionUtility } from "@/editor/blockSelection.utility";
 import { BlockTransform } from "@/editor/blockTransform.utility";
 import { withContent } from "@/editor/withContent";
+import { blockSelectionAtom, textSelectionAtom } from "@/state/selectionState";
 
 type EditorProviderProps = PropsWithChildren & {
   initialValue: Descendant[];
@@ -15,9 +18,19 @@ type EditorProviderProps = PropsWithChildren & {
 
 export const EditorProvider = ({ children, initialValue, onSave }: EditorProviderProps) => {
   const [editor] = useState(() => withContent(withReact(createEditor())));
+  const setSlateSelection = useSetAtom(textSelectionAtom);
+  const setBlockSelection = useSetAtom(blockSelectionAtom);
+
+  const onSelectionChange = useCallback(
+    (selection: SlateSelection) => {
+      setSlateSelection(selection);
+      if (selection) setBlockSelection(null);
+    },
+    [setSlateSelection, setBlockSelection],
+  );
 
   return (
-    <Slate editor={editor} initialValue={initialValue}>
+    <Slate editor={editor} initialValue={initialValue} onSelectionChange={onSelectionChange}>
       <EditorConfigProvider>
         <EditorHotkeyProvider onSave={onSave}>{children}</EditorHotkeyProvider>
       </EditorConfigProvider>
@@ -27,19 +40,29 @@ export const EditorProvider = ({ children, initialValue, onSave }: EditorProvide
 
 type EditorConfigProviderProps = PropsWithChildren;
 const EditorConfigProvider = ({ children }: EditorConfigProviderProps) => {
-  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [isPanelOpen, setIsPanelOpen] = useState(true);
 
-  return <EditorConfigContext value={{ isPanelOpen, setIsPanelOpen }}>{children}</EditorConfigContext>;
+  return (
+    <EditorConfigContext
+      value={{
+        isPanelOpen,
+        setIsPanelOpen,
+      }}
+    >
+      {children}
+    </EditorConfigContext>
+  );
 };
 
-const HOTKEYS = ["mod+b", "mod+s", "mod+enter", "enter"] as const;
+const HOTKEYS = ["mod+b", "mod+s", "enter", "mod+enter", "shift+enter"] as const;
 
 // TODO: Separate hotkey logics into utility
 type EditorHotkeyProviderProps = PropsWithChildren & {
   onSave?: (value: Descendant[]) => void;
 };
 const EditorHotkeyProvider = ({ children, onSave }: EditorHotkeyProviderProps) => {
-  const editor = useSlate();
+  const editor = useSlateStatic();
+  const setBlockSelection = useSetAtom(blockSelectionAtom);
 
   const isMarkActive = useCallback((editor: Editor, mark: keyof Omit<Leaf, "text">) => {
     const marks = Editor.marks(editor);
@@ -72,12 +95,30 @@ const EditorHotkeyProvider = ({ children, onSave }: EditorHotkeyProviderProps) =
             return;
           }
           if (isHotkey("mod+enter", event)) {
-            BlockTransform.splitNearestBlock(editor);
+            BlockTransform.insertBlockBreak(editor);
             return;
           }
-
           if (isHotkey("enter", event)) {
-            BlockTransform.insertParagraphBreak(editor);
+            if (editor.selection) {
+              BlockTransform.insertParagraphBreak(editor);
+              return;
+            }
+            setBlockSelection(prev => {
+              if (!prev) return null;
+              const newBlockSelection = BlockSelectionUtility.getPathsBelowBlockSelection(editor, prev);
+              if (newBlockSelection) return newBlockSelection;
+              const textSelection = BlockSelectionUtility.getTextSelectionFromBlockSelection(editor, prev);
+              if (textSelection) Transforms.select(editor, textSelection);
+              return null;
+            });
+          }
+          if (isHotkey("shift+enter", event)) {
+            setBlockSelection(prev =>
+              prev
+                ? BlockSelectionUtility.getPathsAboveBlockSelection(prev)
+                : BlockSelectionUtility.getPathsAboveSlateSelection(editor),
+            );
+            Transforms.deselect(editor);
             return;
           }
         }
@@ -87,7 +128,7 @@ const EditorHotkeyProvider = ({ children, onSave }: EditorHotkeyProviderProps) =
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [editor, onSave, toggleMark]);
+  }, [editor, onSave, toggleMark, setBlockSelection]);
 
   return children;
 };
