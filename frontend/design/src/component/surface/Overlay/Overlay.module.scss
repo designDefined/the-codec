@@ -1,0 +1,28 @@
+.Overlay {
+  animation: fadeIn 0.2s ease;
+  &.dim {
+    background-color: oklch(0 0 0 / 0.1);
+  }
+  &.isClosing {
+    animation: fadeOut 0.2s ease;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

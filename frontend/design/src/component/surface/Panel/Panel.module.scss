@@ -1,0 +1,13 @@
+.Panel {
+  border: 2px solid;
+  border-top-width: 3px;
+  border-bottom-width: 1px;
+  border-top-color: oklch(100% 0 0);
+  border-left-color: oklch(99% 0 0);
+  border-right-color: oklch(97% 0 0);
+  border-bottom-color: oklch(90% 0 0);
+  background-color: oklch(97% 0 0 / 0.8);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 32px;
+  backdrop-filter: blur(8px);
+}

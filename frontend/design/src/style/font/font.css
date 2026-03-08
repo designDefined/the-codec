@@ -1,0 +1,67 @@
+/** sans **/
+/* freesentation */
+@font-face {
+  font-family: "sans-freesentation";
+  src:
+    url("../../asset/font/sans/freesentation/FreesentationVf.woff2") format("woff2"),
+    url("../../asset/font/sans/freesentation/FreesentationVf.ttf") format("truetype");
+  font-weight: 100 900; /* variable font range */
+  font-style: normal;
+  font-display: swap;
+}
+/* kopub */
+@font-face {
+  font-family: "sans-kopub";
+  src:
+    url("../../asset/font/sans/kopub/KoPub Dotum Bold.woff2") format("woff2"),
+    url("../../asset/font/sans/kopub/KoPub Dotum Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "sans-kopub";
+  src:
+    url("../../asset/font/sans/kopub/KoPub Dotum Medium.woff2") format("woff2"),
+    url("../../asset/font/sans/kopub/KoPub Dotum Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "sans-kopub";
+  src:
+    url("../../asset/font/sans/kopub/KoPub Dotum Light.woff2") format("woff2"),
+    url("../../asset/font/sans/kopub/KoPub Dotum Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+/** serif **/
+/* kopub */
+@font-face {
+  font-family: "serif-kopub";
+  src:
+    url("../../asset/font/serif/kopub/KoPub Batang Bold.woff2") format("woff2"),
+    url("../../asset/font/serif/kopub/KoPub Batang Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "serif-kopub";
+  src:
+    url("../../asset/font/serif/kopub/KoPub Batang Medium.woff2") format("woff2"),
+    url("../../asset/font/serif/kopub/KoPub Batang Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "serif-kopub";
+  src:
+    url("../../asset/font/serif/kopub/KoPub Batang Light.woff2") format("woff2"),
+    url("../../asset/font/serif/kopub/KoPub Batang Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+:root {
+  font-family:
+    "sans-freesentation",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+}

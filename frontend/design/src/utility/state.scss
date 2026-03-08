@@ -1,0 +1,97 @@
+/* user */
+@mixin disabled($prefix: "&") {
+  #{$prefix}:disabled,
+  #{$prefix}.disabled {
+    cursor: not-allowed;
+    @content;
+  }
+}
+
+@mixin enabled($prefix: "&") {
+  #{$prefix}:not(:disabled):not(.disabled) {
+    @content;
+  }
+}
+
+@mixin hover($prefix: "&") {
+  #{$prefix}:hover,
+  #{$prefix}.hover {
+    @include enabled {
+      cursor: pointer;
+      @content;
+    }
+  }
+}
+
+@mixin focus($prefix: "&") {
+  #{$prefix}:focus,
+  #{$prefix}.focus {
+    @include enabled {
+      cursor: pointer;
+      @content;
+    }
+  }
+}
+
+@mixin active($prefix: "&") {
+  #{$prefix}:active,
+  #{$prefix}.active {
+    @include enabled {
+      cursor: pointer;
+      @content;
+    }
+  }
+}
+
+@mixin drag($prefix: "&") {
+  #{$prefix}.drag {
+    cursor: grab;
+    @content;
+  }
+}
+
+/* data */
+@mixin target($prefix: "&") {
+  #{$prefix}.target {
+    @content;
+  }
+}
+
+@mixin busy($prefix: "&") {
+  #{$prefix}.busy {
+    @content;
+  }
+}
+
+/* validation */
+@mixin valid($prefix: "&") {
+  #{$prefix}.valid {
+    @content;
+  }
+}
+
+@mixin invalid($prefix: "&") {
+  #{$prefix}.invalid {
+    @content;
+  }
+}
+
+@mixin warning($prefix: "&") {
+  #{$prefix}.warning {
+    @content;
+  }
+}
+
+/* on */
+@mixin on($prefix: "&") {
+  #{$prefix}.on {
+    @content;
+  }
+}
+
+/* dirty */
+@mixin dirty($prefix: "&") {
+  #{$prefix}.dirty {
+    @content;
+  }
+}

@@ -1,0 +1,25 @@
+.HueInput {
+  height: 40px;
+  border: 1px solid oklch(50% 0 0);
+  border-radius: 12px;
+  overflow: hidden;
+
+  .picker {
+    height: 20%;
+    border-bottom: 1px solid oklch(50% 0 0);
+    background: linear-gradient(to right in oklch longer hue, oklch(72% 0.39 0), oklch(72% 0.39 0));
+    transition: height 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      height: 80%;
+    }
+  }
+
+  .preview {
+    background: oklch(72% 0.39 var(--hue));
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+  }
+}

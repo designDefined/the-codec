@@ -1,31 +1,32 @@
 {
   "name": "the-codec",
-  "packageManager": "yarn@4.3.1",
+  "packageManager": "yarn@4.9.2",
   "private": true,
   "workspaces": [
-    "core",
-    "service/*",
-    "source/*",
-    "playground/*"
+    "shared/*",
+    "backend/*",
+    "frontend/*",
+    "utility/*"
   ],
   "scripts": {
-    "core": "yarn workspace core",
-    "design": "yarn workspace @source/design",
-    "module": "yarn workspace @source/module",
-    "app": "yarn workspace @service/app",
-    "demo": "yarn workspace @service/demo",
-    "editor": "yarn workspace @playground/editor",
-    "ssg": "yarn workspace @playground/static-site-generation",
-    "graphics": "yarn workspace @playground/graphics",
-    "tree": "yarn workspace @playground/tree-shaking",
-    "deploy": "yarn workspace @service/app generate",
-    "format": "yarn prettier --write .",
-    "upgrade:flexive": "yarn app add @flexive/core@latest && yarn design add @flexive/core@latest && yarn module add @flexive/core@latest && yarn demo add @flexive/core@latest && yarn app add @flexive/operator@latest && yarn design add @flexive/operator@latest && yarn module add @flexive/operator@latest && yarn demo add @flexive/operator@latest",
-    "prepare": "husky && echo 'yarn app build' > .husky/pre-commit"
+    "types": "yarn workspace types",
+    "cms": "yarn workspace cms",
+    "blog": "yarn workspace blog",
+    "desk": "yarn workspace desk",
+    "design": "yarn workspace design",
+    "module": "yarn workspace module",
+    "font-convert": "yarn workspace font-convert",
+    "format": "prettier --write ."
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
+    "eslint": "^9",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.2.0",
     "husky": "^9.1.7",
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "typescript": "^5",
+    "typescript-eslint": "^8.35.0"
   }
 }

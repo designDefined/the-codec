@@ -1,0 +1,12 @@
+// @use "design/style/utility/state" as state;
+
+.IndexDashboardHeader {
+  border-bottom: 1px solid var(--c-0-4);
+  background-color: var(--c-0-2);
+  font-size: 20px;
+}
+
+.IndexItem {
+  padding: 12px;
+  border-bottom: 1px solid var(--c-0-3);
+}

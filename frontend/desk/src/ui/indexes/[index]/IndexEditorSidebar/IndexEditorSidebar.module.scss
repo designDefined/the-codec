@@ -1,0 +1,20 @@
+.IndexEditorSidebar {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .toggle {
+    background-color: transparent;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &.closed {
+    transform: translateX(100%);
+
+    .toggle {
+      transform: rotateY(180deg);
+    }
+  }
+}
